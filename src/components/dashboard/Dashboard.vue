@@ -3,10 +3,16 @@
     <p>
       dashboard
     </p>
+    <component v-for="thumb in thumbType" :key="thumb.id" :is="thumb.type"></component>
+
   </main>
 </template>
 
 <script>
+import TypeA from './Thumb-type-A'
+import TypeB from './Thumb-type-B'
+import TypeC from './Thumb-type-C'
+
 export default {
   // 이름 적는 것을 잊지마세요
   name: 'Dashboard',
@@ -21,12 +27,25 @@ export default {
   // 컴포넌트 변수 그룹
   data() {
     return {
-
+      thumbType: [
+        { type : 'type-a' },
+        { type : 'type-c' },
+        { type : 'type-b' },
+        { type : 'type-c' },
+        { type : 'type-b' },
+        { type : 'type-a' },
+        { type : 'type-a' }
+      ]
     }
   },
   computed: {},
   // 컴포넌트가 다른 컴포넌트를 사용할 경우
-  components: {},
+  components: {
+    'type-a': TypeA,
+    'type-b': TypeB,
+    'type-c': TypeC
+
+  },
   // 컴포넌트 메서드 그룹
   watch: {},
   methods: {},

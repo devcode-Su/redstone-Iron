@@ -1,0 +1,103 @@
+[{
+    "id": "lnb_Dashboard",
+    "title": "대시보드",
+    "name": "Dashboard",
+    "icon": "dashboard",
+    "sub": [{
+      "title": "기본정보",
+      "name": ""
+    }, {
+      "title": "진단정보",
+      "name": ""
+    }, {
+      "title": "네트워크정보",
+      "name": ""
+    }, {
+      "title": "시스템정보",
+      "name": ""
+    }]
+  },
+  {
+    "id": "lnb_Diagnosis",
+    "title": "진단",
+    "name": "Diagnosis",
+    "icon": "loop",
+    "sub": [{
+      "title": "위협정보기반",
+      "name": "Threat_info"
+    }, {
+      "title": "위협 PC 기반",
+      "name": "Threat_PC"
+    }]
+  },
+  {
+    "id": "lnb_Search",
+    "title": "검색",
+    "name": "Search",
+    "icon": "search",
+    "sub": [{
+      "title": "파일 검색",
+      "name": "Files"
+    }, {
+      "title": "프로세스 검색",
+      "name": "Process"
+    }, {
+      "title": "네트워크 검색",
+      "name": "Network"
+    }, {
+      "title": "상세분석",
+      "name": "Detailed_analysis"
+    }]
+  },
+  {
+    "id": "lnb_Security",
+    "title": "보안정보",
+    "name": "Security",
+    "icon": "security",
+    "sub": [{
+      "title": "매체접근",
+      "name": "Media_access"
+    }, {
+      "title": "사용자계정",
+      "name": "User_account"
+    }]
+  },
+  {
+    "id": "lnb_Property",
+    "title": "자산정보",
+    "name": "Property",
+    "icon": "cast_connected",
+    "sub": [{
+      "title": "SW 정보",
+      "name": "SW_info"
+    }, {
+      "title": "HW 정보",
+      "name": "HW_info"
+    }, {
+      "title": "센서 정보",
+      "name": "Sensor_info"
+    }]
+  },
+  {
+    "id": "lnb_System",
+    "title": "시스템",
+    "name": "System",
+    "icon": "assessment",
+    "sub": [{
+      "title": "관리자설정",
+      "name": "Admin_set"
+    }, {
+      "title": "센서설정",
+      "name": "Secsor_set"
+    }, {
+      "title": "환경설정",
+      "name": "Enviroment_set"
+    }, {
+      "title": "시스템로그",
+      "name": "Log"
+    }, {
+      "title": "대응",
+      "name": "Response"
+    }]
+  }
+]

@@ -54,7 +54,7 @@ export default {
     //   })
     // }
     logout() {
-      this.$router.replace("/Index");
+      this.$router.replace("/");
       //this.$router.go(this.$router.currentRoute);
     }
   },

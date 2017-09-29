@@ -32,7 +32,7 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 
 ## Use install
-> vue-cli webpack
-axios
-scss
+> vue-cli webpack  
+axios  
+scss  
 material-lite

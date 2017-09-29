@@ -32,15 +32,15 @@ export default {
       //console.log(crendetials.password)
 
       const userCheck = a => a.id === crendetials.username;
-      const userValid = this.posts.find(userCheck);
-      //const userValid = this.posts.filter(userCheck);
+      //const userValid = this.posts.find(userCheck);
+      const userValid = this.posts.filter(userCheck);
 
       //console.log(userValid)
       this.crendentialFail = ''
 
       if (userValid !== undefined) {
         //console.log("id: " + userValid.id + ", password: " + userValid.pass);
-        if (crendetials.password === userValid.pass) { //userValid[0]
+        if (crendetials.password === userValid[0].pass) { //userValid
           //console.log("login success");
           this.$router.push("Iron")
         } else {

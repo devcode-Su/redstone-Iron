@@ -77,8 +77,13 @@ export default {
   @at-root .lnb-list {
     height: 50px;
     position: relative;
-    &:first-child ul {
-      top: 10px;
+    &:first-child {
+      ul {
+        top: 10px;
+      }
+      .navigation-tooltip {
+        margin-top: 58px
+      }
     }
     >a {
       display: block;
@@ -125,8 +130,8 @@ export default {
   }
   &-tooltip {
     display: inline-block;
-    min-width:51px;
     max-width: 170px;
+    margin-top: 65px;
     padding: 5px;
     position: fixed;
     left: 2px;

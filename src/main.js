@@ -6,8 +6,13 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 
+import MDLite from 'material-design-lite'
+import 'material-design-lite/material.min.css'
+
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
+
+Vue.use(MDLite)
 
 /* eslint-disable no-new */
 new Vue({

@@ -74,6 +74,9 @@ export default {
     this.$http.get(apiURL).then((result) => {
       this.posts = result.data
     })
+  },
+  mounted(){
+
   }
 }
 </script>

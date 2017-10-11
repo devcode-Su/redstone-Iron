@@ -1,9 +1,10 @@
 <template>
-  <section>
+  <div class="template-thumb">
     <p>
-      콤포넌트 타입 A
+      콤포넌트 타입 C
     </p>
-  </section>
+    <slot></slot>
+  </div>
 </template>
 <script>
 export default {

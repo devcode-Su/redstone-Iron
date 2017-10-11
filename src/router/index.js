@@ -35,6 +35,7 @@ import Response from '../components/system/System-response'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -169,6 +170,5 @@ export default new Router({
         }
       ]
     }
-  ],
-  mode: 'history'
+  ]
 })

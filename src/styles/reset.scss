@@ -95,6 +95,10 @@ sub {
     url(/static/iconfont/MaterialIcons-Regular.ttf) format('truetype');
 }
 
+.mdl-button__ripple-container{
+  z-index:-1;
+}
+
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;

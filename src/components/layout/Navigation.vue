@@ -1,14 +1,14 @@
 <template>
   <nav class="navigation">
     <ul class="navigation-lnb">
-      <li v-for="(menu, i) in menuList" :key="menu.id" class="lnb-list" :class="{ 'on' : i === 0 }" @click.stop="navigationSelect('n'+i)" :ref="'n'+i">
-        <router-link :to="'/Iron/'+menu.name" title="aa">
+      <li v-for="(menu, i) in menuList" :key="menu.id" class="lnb-list" :class="{ 'on' : i === 0 }" @click="navigationSelect('n'+i)" :ref="'n'+i">
+        <router-link :to="'/Iron/'+menu.name">
           <i class="material-icons">{{menu.icon}}</i>
           <span class="navigation-tooltip">{{menu.title}}</span>
         </router-link>
         <ul class="navigation-snb">
           <li v-for="sub in menu.sub" :key="sub.id" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-            <router-link :to="'/Iron/'+menu.name+'/'+sub.name">{{sub.title}}</router-link>
+            <router-link :to="'/Iron/'+menu.name+'/'+sub.name" @click="naviTest">{{sub.title}}</router-link>
           </li>
         </ul>
       </li>
@@ -52,6 +52,9 @@ export default {
         el[select][0].classList.add("on");
         this.selectNum = select
       }
+    },
+    naviTest(){
+      console.log("link")
     }
   },
   // 컴포넌트 라이프사이클 메서드 그룹
@@ -159,6 +162,7 @@ export default {
     position: absolute;
     top: 5px;
     left: 50px;
+    z-index:5;
     opacity: 0;
     overflow: hidden;
     @include transition(width, .5s);

@@ -55,13 +55,14 @@ export default {
     this.$http.get(apiUrl).then((result) => {
       this.menuList = result.data
     })
-  },
+  }
 }
 </script>
 
 <style lang="scss">
 @import '../styles/mixins.scss';
 @import "../styles/variables.scss";
+@import "../styles/template.scss";
 
 aside {
   display: flex;
@@ -75,17 +76,17 @@ aside {
 
 .iron-content {
   display: flex;
-  height: 1px;
-  min-height: calc( 100vh - 50px);
 }
 
 .main-view {
   flex: 1;
+  height: calc( 100vh - 50px);
   padding: 7px;
   background-color: $color_main;
   -webkit-box-shadow: 0 0 10px gray inset;
   -moz-box-shadow: 0 0 10px gray inset;
   box-shadow: 0 0 10px gray inset;
+  overflow-y:auto;
 }
 
 #iron {

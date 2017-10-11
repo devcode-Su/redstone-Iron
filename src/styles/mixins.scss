@@ -27,6 +27,7 @@
 
 @mixin iconsize($size) {
   width: $size;
+  height: $size;
   font-size: $size;
   line-height: $size;
   -webkit-transform: translate(-$size/2, -$size/2);

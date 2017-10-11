@@ -1,7 +1,8 @@
 <template>
   <div class="template-thumb">
     <p>
-      콤포넌트 타입 C
+      콤포넌트 타입 C <br>
+      title : {{title}}
     </p>
     <slot></slot>
   </div>
@@ -10,7 +11,11 @@
 export default {
   name: '',
   extends: {},
-  props: {},
+  props: {
+    title : {
+      type : String
+    }
+  },
   data() {
     return {
 

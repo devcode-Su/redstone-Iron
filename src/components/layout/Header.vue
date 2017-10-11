@@ -2,9 +2,6 @@
   <header id="header">
     <div class="header-left">
       <h1><img src="" alt="IRON"></h1>
-      <!-- <button class="mdl-button mdl-js-button mdl-button--icon" :class="{ 'active': selected }" @click="btnToggle">
-                    <i class="material-icons">more_vert</i>
-                  </button> -->
       <slot></slot>
     </div>
 
@@ -12,12 +9,12 @@
       <P>
         아이언
       </P>
-      <button class="mdl-button mdl-js-button mdl-button--icon">
-        <i class="material-icons">help</i>
-      </button>
-      <button class="mdl-button mdl-js-button mdl-button--icon" @click="logout">
-        <i class="material-icons">power_settings_new</i>
-      </button>
+      <md-button class="md-dense">
+        <md-icon>help</md-icon>
+      </md-button>
+      <md-button class="md-dense" @click="logout">
+        <md-icon>power_settings_new</md-icon>
+      </md-button>
     </div>
   </header>
 </template>
@@ -87,11 +84,16 @@ header {
   p {
     margin: 0
   }
-}
-
-.header-right {
-  p {
-    padding: 0 5px;
+  .md-button{
+    margin-left:5px;
+  }
+  @at-root .header-right {
+    p {
+      padding: 0 5px;
+    }
+    .md-button{
+      @include border-radius(50%)
+    }
   }
 }
 </style>

@@ -2,6 +2,7 @@
   <div id="appIndex">
     <img src="../assets/logo.png">
     <login idErrorMsg="아이디를 입력하세요." passwordErrorMsg="비밀번호를 입력하세요." :loginFailedMsg="crendentialFail" @loginCrendentials="loginAttempt"></login>
+    <!-- <login></login> -->
   </div>
 </template>
 
@@ -28,17 +29,17 @@ export default {
   },
   methods: {
     loginAttempt(crendetials) {
-      //console.log(crendetials.username)
-      //console.log(crendetials.password)
+      console.log(crendetials.username)
+      console.log(crendetials.password)
 
       const userCheck = a => a.id === crendetials.username;
       //const userValid = this.posts.find(userCheck);
       const userValid = this.posts.filter(userCheck);
-
-      //console.log(userValid)
+      console.log(this.posts)
+      console.log(userValid.length)
       this.crendentialFail = ''
 
-      if (userValid !== undefined) {
+      if (userValid.length !== 0) {
         //console.log("id: " + userValid.id + ", password: " + userValid.pass);
         if (crendetials.password === userValid[0].pass) { //userValid
           //console.log("login success");
@@ -62,12 +63,12 @@ export default {
     }
   },
   beforeCreate() {
-    if(self.name !== 'reload'){
-      self.name = 'reload';
-      this.$router.go(this.$router.currentRoute);
-      window.location.reload()
-    }
-    else self.name = '';
+    // if (self.name !== 'reload') {
+    //   self.name = 'reload';
+    //   this.$router.go(this.$router.currentRoute);
+    //   window.location.reload()
+    // }
+    // else self.name = '';
   },
   created() {
     const apiURL = './static/userdata.json' // /static 폴더가 아니면 404
@@ -75,7 +76,7 @@ export default {
       this.posts = result.data
     })
   },
-  mounted(){
+  mounted() {
 
   }
 }

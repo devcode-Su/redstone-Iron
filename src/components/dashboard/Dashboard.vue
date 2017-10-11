@@ -4,26 +4,24 @@
       dashboard
     </p>
     <section class="component-thumb">
-      <draggable v-model="userSets" >
+      <draggable v-model="userSets">
         <transition-group type="transition" name="thumb" tag="ul" class="thumb-wrap">
-          <li class="thumb-item"  v-for="(userSet, index) in userSets" :key="userSet.title">
-            <component :is="userSet.type"></component>
-            {{userSet.title}}
-            <button class="thumb-del mdl-button mdl-js-button mdl-button--icon" @click="removeThumb(userSets, index)">
-              <i class="material-icons">delete</i>
-            </button>
+          <li class="thumb-item" v-for="(userSet, index) in userSets" :key="userSet.title">
+            <component :is="userSet.type" :title="userSet.title"></component>
+            <md-button class="md-dense" @click="removeThumb(userSets, index)">
+              <md-icon>delete</md-icon>
+            </md-button>
           </li>
         </transition-group>
       </draggable>
     </section>
-    <div  class="list-group">
+    <div class="list-group">
       <pre>{{listString}}</pre>
     </div>
   </main>
 </template>
 
 <script>
-import componentHandler from 'material-design-lite/material'
 import draggable from 'vuedraggable'
 import ThumbA from '../Template/Template-thumb-A'
 import ThumbB from '../Template/Template-thumb-B'
@@ -55,7 +53,7 @@ export default {
     }
   },
   computed: {
-    listString(){
+    listString() {
       return JSON.stringify(this.userSets, null, 2);
     }
   },
@@ -89,7 +87,7 @@ export default {
       // }
       // else self.name = '';
       //this.$forceUpdate()
-      console.log(componentHandler.upgradeDom(this.$el))
+      //console.log(componentHandler.upgradeDom(this.$el))
     })
   },
 }
@@ -100,13 +98,12 @@ export default {
 @import '../../styles/variables.scss';
 
 #dashboard {
-  .material-icons {
+  .md-button {
+    color: #999;
+  }
+  .md-icon {
     @include iconsize(18px);
   }
-}
-
-.mdl-button {
-  color: #999;
 }
 
 .component-thumb {
@@ -116,17 +113,17 @@ export default {
   }
   .thumb-item {
     flex: 1 0 auto;
-    width: 360px;
+    width: 350px;
     padding: 5px;
     margin-bottom: 5px;
     @include transition(all, .5s);
-    @media screen and (min-width: 1500px) {
+    @media screen and (min-width: 1459px) {
       max-width: 25%;
     }
-    @media screen and (min-width: 1139px) and (max-width: 1499px) {
+    @media screen and (min-width: 1126px) and (max-width: 1458px) {
       max-width: 33.3333333%;
     }
-    @media screen and (min-width: 789px) and (max-width: 1138px) {
+    @media screen and (min-width: 776px) and (max-width: 1125px) {
       max-width: 50%;
     }
   }

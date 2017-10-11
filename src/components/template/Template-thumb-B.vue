@@ -1,21 +1,9 @@
 <template>
   <div class="template-thumb">
-    <div class="mdl-tabs mdl-js-tabs">
-      <div class="mdl-tabs__tab-bar">
-        <a href="#tab1" class="mdl-tabs__tab">Tab One</a>
-        <a href="#tab2" class="mdl-tabs__tab">Tab Two</a>
-        <a href="#tab3" class="mdl-tabs__tab">Tab Three</a>
-      </div>
-      <div class="mdl-tabs__panel is-active" id="tab1">
-        <p>First tab's content.</p>
-      </div>
-      <div class="mdl-tabs__panel" id="tab2">
-        <p>Second tab's content.</p>
-      </div>
-      <div class="mdl-tabs__panel" id="tab3">
-        <p>Third tab's content.</p>
-      </div>
-    </div>
+    <p>
+      콤포넌트 타입 B <br>
+      title : {{title}}
+    </p>
     <slot></slot>
   </div>
 </template>
@@ -23,7 +11,11 @@
 export default {
   name: '',
   extends: {},
-  props: {},
+  props: {
+    title : {
+      type : String
+    }
+  },
   data() {
     return {
 

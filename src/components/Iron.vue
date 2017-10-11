@@ -2,9 +2,12 @@
   <section id="iron">
     <!-- <iron-header :selected="selected" @btnToggle="toggleSelected"> -->
     <iron-header>
-      <button class="mdl-button mdl-js-button mdl-button--icon" :class="{ 'active': selected }" @click="btnToggle">
-        <i class="material-icons">more_vert</i>
-      </button>
+      <!-- <button class="mdl-button mdl-js-button mdl-button--icon" :class="{ 'active': selected }" @click="btnToggle">
+                  <md-icon>more_vert</md-icon>
+                </button> -->
+      <md-button class="md-dense" :class="{ 'active': selected }" @click="btnToggle">
+        <md-icon>more_vert</md-icon>
+      </md-button>
     </iron-header>
     <div class="iron-content">
       <!-- <iron-aside :selected="selected" @btnToggle="toggleSelected"></iron-aside> -->
@@ -12,9 +15,9 @@
         <iron-navigation></iron-navigation>
         <!-- <iron-group :selected="selected" @btnToggle="toggleSelected"> -->
         <iron-group>
-          <button class="mdl-button mdl-js-button mdl-button--icon close" :class="{ 'active': selected }" @click="btnToggle">
-            <i class="material-icons">close</i>
-          </button>
+          <md-button class="md-dense" :class="{ 'active': selected }" @click="btnToggle">
+            <md-icon>close</md-icon>
+          </md-button>
         </iron-group>
       </aside>
       <router-view></router-view>
@@ -50,11 +53,9 @@ export default {
       this.selected = !this.selected
     }
   },
-  cearted() {
-    const apiUrl = './static/menulist.json'
-    this.$http.get(apiUrl).then((result) => {
-      this.menuList = result.data
-    })
+  created() {
+    const url = "Iron";
+    console.log(url + ": " + window.location.href)
   }
 }
 </script>
@@ -86,26 +87,44 @@ aside {
   -webkit-box-shadow: 0 0 10px gray inset;
   -moz-box-shadow: 0 0 10px gray inset;
   box-shadow: 0 0 10px gray inset;
-  overflow-y:auto;
+  overflow-y: auto;
 }
 
 #iron {
   @at-root {
-    .mdl-button:hover {
-      color: $color_highlight;
-      background-color: transparent
+    ul:not(.md-list)>li+li {
+      margin: 0;
     }
-    .mdl-button:active {
-      color: $color_highlight;
-      background-color: transparent
+    .md-icon {
+      @include iconsize(28px);
+      position: absolute;
+      top: 50%;
+      left: 50%;
     }
-    .mdl-button.active {
-      color: $color_highlight;
-      background-color: transparent
+    .md-button {
+      width: 28px;
+      min-width: 28px;
+      height: 28px;
+      min-height: 28px;
+      line-height: 28px;
+      padding: 0;
+      &.md-dense {
+        min-height: auto;
+        line-height: initial
+      }
     }
   }
-  .material-icons {
-    @include iconsize(28px);
+  .md-button:hover {
+    color: $color_highlight;
+    background-color: transparent
+  }
+  .md-button:active {
+    color: $color_highlight;
+    background-color: transparent
+  }
+  .md-button.active {
+    color: $color_highlight;
+    background-color: transparent
   }
 }
 </style>

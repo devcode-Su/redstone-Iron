@@ -29,14 +29,14 @@ export default {
   },
   methods: {
     loginAttempt(crendetials) {
-      console.log(crendetials.username)
-      console.log(crendetials.password)
+      //console.log(crendetials.username)
+      //console.log(crendetials.password)
 
       const userCheck = a => a.id === crendetials.username;
       //const userValid = this.posts.find(userCheck);
       const userValid = this.posts.filter(userCheck);
-      console.log(this.posts)
-      console.log(userValid.length)
+      //console.log(this.posts)
+      //console.log(userValid.length)
       this.crendentialFail = ''
 
       if (userValid.length !== 0) {
@@ -49,7 +49,7 @@ export default {
           if (crendetials.password !== '') this.errorNotice()
         }
       } else {
-        //console.log("who are you?");
+        console.log("who are you?");
         if (crendetials.username !== '' && crendetials.password !== '') {
           //console.log("둘다 글자가 있음");
           this.errorNotice()

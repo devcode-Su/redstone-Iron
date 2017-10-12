@@ -39,4 +39,4 @@ material-lite
 vue-material
 
 ## screenshot
-![screensh](./text.gif)
+![screensh](./test.gif)

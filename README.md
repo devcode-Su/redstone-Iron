@@ -31,11 +31,11 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 ***
 
 
-## Use install
-> vue-cli webpack
-axios
-scss
-vue-material
+## Use npm package
+> vue-cli webpack  
+axios  
+scss  
+vue-material  
 vuedraggable
   
 ## screenshot

@@ -62,8 +62,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../styles/mixins.scss';
-@import '../../styles/variables.scss';
+@import "../../assets/styles/mixins.scss";
+@import "../../assets/styles/variables.scss";
 
 header {
   height: 50px;

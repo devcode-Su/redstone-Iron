@@ -1,0 +1,75 @@
+@import "reset";
+@import "fonts";
+@import "variables";
+@import "mixins";
+// common style
+// button
+.md-button {
+  width: auto;
+  height: auto;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+// icon
+.md-icon {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  min-width: auto;
+  min-height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+//progress
+.md-progress {
+  height: 10px;
+}
+
+// use template
+.template-thumb {
+  padding: 10px;
+  border: solid 1px;
+  .md-button-toggle {
+    // toggle button
+    width: 50%;
+    border: 1px solid $color_warm_gray;
+    @include border-radius(5px);
+    overflow: hidden;
+  }
+  .md-button {
+    flex: 1 0 auto;
+    height: 28px;
+    min-width: auto;
+    min-height: auto;
+    line-height: 28px;
+    border-left: 1px solid $color_smoke_gray;
+    &:first-child {
+      border-left: 0 none;
+    }
+  }
+}

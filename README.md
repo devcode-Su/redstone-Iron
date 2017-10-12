@@ -35,8 +35,8 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 > vue-cli webpack
 axios
 scss
-material-lite
 vue-material
-
+vuedraggable
+  
 ## screenshot
 ![screensh](./test.gif)

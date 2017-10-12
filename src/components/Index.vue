@@ -1,6 +1,6 @@
 <template>
   <div id="appIndex">
-    <img src="../assets/logo.png">
+    <img src="../assets/images/logo.png">
     <login idErrorMsg="아이디를 입력하세요." passwordErrorMsg="비밀번호를 입력하세요." :loginFailedMsg="crendentialFail" @loginCrendentials="loginAttempt"></login>
     <!-- <login></login> -->
   </div>
@@ -71,7 +71,7 @@ export default {
     // else self.name = '';
   },
   created() {
-    const apiURL = './static/userdata.json' // /static 폴더가 아니면 404
+    const apiURL = './static/data/userdata.json' // /static 폴더가 아니면 404
     this.$http.get(apiURL).then((result) => {
       this.posts = result.data
     })
@@ -84,7 +84,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
-@import "../styles/variables.scss";
 #appIndex {
   display: flex;
   flex-direction: column;

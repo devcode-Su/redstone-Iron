@@ -3,8 +3,8 @@
     <!-- <iron-header :selected="selected" @btnToggle="toggleSelected"> -->
     <iron-header>
       <!-- <button class="mdl-button mdl-js-button mdl-button--icon" :class="{ 'active': selected }" @click="btnToggle">
-                    <md-icon>more_vert</md-icon>
-                  </button> -->
+                                    <md-icon>more_vert</md-icon>
+                                  </button> -->
       <md-button class="md-dense" :class="{ 'active': selected }" @click="btnToggle">
         <md-icon>more_vert</md-icon>
       </md-button>
@@ -61,9 +61,9 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../styles/mixins.scss';
-@import "../styles/variables.scss";
-@import "../styles/template.scss";
+@import "../assets/styles/mixins";
+@import "../assets/styles/variables";
+
 
 aside {
   display: flex;
@@ -97,34 +97,34 @@ aside {
     }
     .md-icon {
       @include iconsize(28px);
-      position: absolute;
-      top: 50%;
-      left: 50%;
     }
-    .md-button {
+    .md-button.md-dense {
       width: 28px;
       min-width: 28px;
       height: 28px;
       min-height: 28px;
       line-height: 28px;
       padding: 0;
-      &.md-dense {
-        min-height: auto;
-        line-height: initial
+      line-height: initial;
+      &:hover {
+        color: $color_highlight;
+        background-color: transparent
+      }
+      &:active {
+        color: $color_highlight;
+        background-color: transparent
       }
     }
   }
-  .md-button:hover {
-    color: $color_highlight;
-    background-color: transparent
-  }
-  .md-button:active {
-    color: $color_highlight;
-    background-color: transparent
-  }
-  .md-button.active {
-    color: $color_highlight;
-    background-color: transparent
+  .md-button.md-dense {
+    &:hover {
+      color: $color_highlight;
+      background-color: transparent
+    }
+    &:active {
+      color: $color_highlight;
+      background-color: transparent
+    }
   }
 }
 </style>

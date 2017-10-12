@@ -14,11 +14,20 @@ Vue.config.productionTip = false
 Vue.prototype.$http = axios
 Vue.use(VueMaterial)
 
-Vue.material.registerTheme('default', {
-  primary: 'indigo',
-  accent: 'pink',
-  warn: 'red'
-})
+Vue.material.registerTheme({
+  default: {
+    primary: 'indigo',
+    accent: 'red',
+    warn : 'grey',
+  },
+  about: {
+    primary: 'blue',
+    accent: 'red',
+    warn : 'grey',
+  }
+});
+
+Vue.material.setCurrentTheme('default');
 
 /* eslint-disable no-new */
 new Vue({

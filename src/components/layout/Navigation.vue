@@ -1,16 +1,11 @@
 <template>
   <nav class="navigation">
     <ul class="navigation-lnb">
-      <li v-for="(menu, i) in menuList" :key="menu.id" class="lnb-list" :class="{ 'on' : i === selectNum }" @click="navigationSelect('n'+i)" :ref="'n'+i">
+      <li v-for="(menu, i) in menuList" :key="menu.id" class="lnb-list" :class="{ 'on' : i === selectNum }" @click="navigationSelect(i)">
         <router-link :to="'/Iron/'+ menu.name">
           <md-icon>{{menu.icon}}</md-icon>
         </router-link>
         <md-tooltip md-direction="bottom">{{menu.title}}</md-tooltip>
-        <!-- <ul class="navigation-snb">
-              <li v-for="sub in menu.sub" :key="sub.id" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-                <router-link :to="'/Iron/'+menu.name+'/'+sub.name" @click="naviTest">{{sub.title}}</router-link>
-              </li>
-            </ul> -->
         <ul class="navigation-snb">
           <md-list-item v-for="sub in menu.sub" :key="sub.id">
             <router-link :to="'/Iron/'+menu.name+'/'+sub.name" @click="naviTest">{{sub.title}}</router-link>
@@ -49,12 +44,15 @@ export default {
   watch: {},
   methods: {
     navigationSelect(select) {
-      const el = this.$refs
+      // const el = this.$refs
+      // if (this.selectNum !== select) {
+      //   (el[this.selectNum] !== undefined)
+      //     ? el[this.selectNum][0].classList.remove("on")
+      //     : el['n0'][0].classList.remove("on")
+      //   el[select][0].classList.add("on");
+      //   this.selectNum = select
+      // }
       if (this.selectNum !== select) {
-        (el[this.selectNum] !== undefined)
-          ? el[this.selectNum][0].classList.remove("on")
-          : el['n0'][0].classList.remove("on")
-        el[select][0].classList.add("on");
         this.selectNum = select
       }
     },
@@ -65,11 +63,10 @@ export default {
   // 컴포넌트 라이프사이클 메서드 그룹
   beforeCreate() { },
   created() {
-    const apiUrl = '/static/menulist.json'
+    const apiUrl = '/static/data/menulist.json'
     this.$http.get(apiUrl).then((result) => {
       this.menuList = result.data
     })
-
   },
   mounted() {
   },
@@ -85,8 +82,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../styles/mixins.scss';
-@import '../../styles/variables.scss';
+@import "../../assets/styles/mixins.scss";
+@import "../../assets/styles/variables.scss";
 
 .navigation {
   width: 45px;
@@ -124,7 +121,7 @@ export default {
         top: -7px;
         right: -7px;
         bottom: -7px;
-        z-index: 1;
+        // z-index: 1;
         border: 1px solid #414040;
         box-shadow: 2px 3px rgba(65, 64, 64, 0.4);
         .material-icons {
@@ -155,6 +152,7 @@ export default {
     position: absolute;
     top: 5px;
     left: 50px;
+
     z-index: 5;
     opacity: 0;
     overflow: hidden;

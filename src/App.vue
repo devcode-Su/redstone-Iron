@@ -11,8 +11,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import './styles/reset';
-@import './styles/variables';
+@import "./assets/styles/base.scss";
 
 #app {
   height: 100vh;

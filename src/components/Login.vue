@@ -124,7 +124,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/variables.scss';
+@import '../assets/styles/variables.scss';
 
 #login {
   width: 320px;

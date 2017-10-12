@@ -33,7 +33,10 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 ## Use install
 > vue-cli webpack
-axios  
+axios
 scss
 material-lite
 vue-material
+
+## screenshot
+![screensh](./text.gif)

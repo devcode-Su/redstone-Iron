@@ -5,8 +5,8 @@
         Group
       </p>
       <!-- <button class="mdl-button mdl-js-button mdl-button--icon close" @click="btnToggle">
-        <i class="material-icons">close</i>
-      </button> -->
+          <i class="material-icons">close</i>
+        </button> -->
       <slot></slot>
     </div>
   </section>

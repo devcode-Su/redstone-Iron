@@ -1,9 +1,9 @@
 /*
 * element style reset
 */
+
 @charset 'utf-8';
 @import "./fonts.scss";
-
 html,
 body,
 ul,
@@ -84,13 +84,14 @@ sub {
 /*
 * material default reset
 */
+
 .md-button,
 .md-icon {
-  width:auto;
-  height:auto;
-  min-width:auto;
-  min-height:auto;
-  line-height:1;
-  margin:0;
-  padding:0;
+  width: auto;
+  height: auto;
+  min-width: auto;
+  min-height: auto;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
 }

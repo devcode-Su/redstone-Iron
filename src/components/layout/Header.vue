@@ -84,14 +84,14 @@ header {
   p {
     margin: 0
   }
-  .md-button{
-    margin-left:5px;
+  .md-button {
+    margin-left: 5px;
   }
   @at-root .header-right {
     p {
       padding: 0 5px;
     }
-    .md-button{
+    .md-button {
       @include border-radius(50%)
     }
   }

@@ -7,15 +7,15 @@
         </router-link>
         <md-tooltip md-direction="bottom">{{menu.title}}</md-tooltip>
         <!-- <ul class="navigation-snb">
-          <li v-for="sub in menu.sub" :key="sub.id" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-            <router-link :to="'/Iron/'+menu.name+'/'+sub.name" @click="naviTest">{{sub.title}}</router-link>
-          </li>
-        </ul> -->
+              <li v-for="sub in menu.sub" :key="sub.id" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                <router-link :to="'/Iron/'+menu.name+'/'+sub.name" @click="naviTest">{{sub.title}}</router-link>
+              </li>
+            </ul> -->
         <ul class="navigation-snb">
-      <md-list-item v-for="sub in menu.sub" :key="sub.id">
-          <router-link :to="'/Iron/'+menu.name+'/'+sub.name" @click="naviTest">{{sub.title}}</router-link>
-      </md-list-item>
-    </ul>
+          <md-list-item v-for="sub in menu.sub" :key="sub.id">
+            <router-link :to="'/Iron/'+menu.name+'/'+sub.name" @click="naviTest">{{sub.title}}</router-link>
+          </md-list-item>
+        </ul>
       </li>
     </ul>
   </nav>
@@ -164,8 +164,8 @@ export default {
       margin: 0 0 5px 15px;
       padding: 0;
       background-color: rgba(84, 84, 84, .7);
-      border-radius:2px;
-      box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      border-radius: 2px;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
       &.on,
       &:hover {
         background-color: rgba(84, 84, 84, .9);
@@ -177,13 +177,13 @@ export default {
     }
     a {
       display: block;
-      width:100%;
-      height:32px;
-      min-height:32px;
-      line-height:32px;
-      padding:0;
-      font-size:14px;
-      text-align:center;
+      width: 100%;
+      height: 32px;
+      min-height: 32px;
+      line-height: 32px;
+      padding: 0;
+      font-size: 14px;
+      text-align: center;
       color: $color_white;
     }
   }

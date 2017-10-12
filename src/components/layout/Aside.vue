@@ -52,5 +52,4 @@ export default {
 <style lang="scss" scoped>
 @import '../../styles/mixins.scss';
 @import '../../styles/variables.scss';
-
 </style>

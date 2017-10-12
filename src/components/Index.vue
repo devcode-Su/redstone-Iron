@@ -2,19 +2,11 @@
   <div id="appIndex">
     <img src="../assets/images/logo.png">
     <login idErrorMsg="아이디를 입력하세요." passwordErrorMsg="비밀번호를 입력하세요." :loginFailedMsg="crendentialFail" @loginCrendentials="loginAttempt"></login>
-    <!-- <login></login> -->
   </div>
 </template>
 
 <script>
 import Login from './Login'
-
-// const userList = [
-//   {
-//     id: "suwon",
-//     pass: "admin"
-//   }
-// ];
 
 export default {
   name: 'AppIndex',
@@ -24,33 +16,30 @@ export default {
   data() {
     return {
       posts: {},
-      crendentialFail: ''
+      crendentialFail: '',
     }
   },
   methods: {
-    loginAttempt(crendetials) {
+    loginAttempt(input) {
       //console.log(crendetials.username)
       //console.log(crendetials.password)
 
-      const userCheck = a => a.id === crendetials.username;
+      const userCheck = a => a.id === input.username;
       //const userValid = this.posts.find(userCheck);
       const userValid = this.posts.filter(userCheck);
-      //console.log(this.posts)
-      //console.log(userValid.length)
       this.crendentialFail = ''
 
       if (userValid.length !== 0) {
-        //console.log("id: " + userValid.id + ", password: " + userValid.pass);
-        if (crendetials.password === userValid[0].pass) { //userValid
+        if (input.password === userValid[0].pass) { //userValid
           //console.log("login success");
           this.$router.push("Iron")
         } else {
           //console.log("password error");
-          if (crendetials.password !== '') this.errorNotice()
+          if (input.password !== '') this.errorNotice()
         }
       } else {
         console.log("who are you?");
-        if (crendetials.username !== '' && crendetials.password !== '') {
+        if (input.username !== '' && input.password !== '') {
           //console.log("둘다 글자가 있음");
           this.errorNotice()
         }

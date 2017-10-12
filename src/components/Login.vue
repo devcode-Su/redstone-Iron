@@ -3,15 +3,14 @@
     <div class="form-area">
       <form @submit.prevent="logCheck">
         <div class="input-area">
-          <md-input-container :class="{ 'md-input-invalid':isIdRequired }">
+          <md-input-container md-clearable :class="{ 'md-input-invalid':isIdRequired }">
             <label for="username">User ID</label>
-            <md-input ref="username" type="text"></md-input>
-            <!-- <input ref="username" class="md-input" type="text" id="username" name="username"> -->
+            <md-input ref="username" type="text" v-model="userName"></md-input>
             <span class="md-error">{{idErrorMsg}}</span>
           </md-input-container>
-          <md-input-container :class="{ 'md-input-invalid':isPassRequired }">
+          <md-input-container md-clearable :class="{ 'md-input-invalid':isPassRequired }">
             <label>Passwrod</label>
-            <md-input ref="password" type="password"></md-input>
+            <md-input ref="password" type="password" v-model="passWord"></md-input>
             <span class="md-error">{{passwordErrorMsg}}</span>
           </md-input-container>
         </div>
@@ -49,7 +48,9 @@ export default {
       isPassRequired: false,
       isLoading: false,
       submitBtn: false,
-      rememberMe: false
+      rememberMe: false,
+      userName: '',
+      passWord: ''
     }
   },
   watch: {
@@ -62,8 +63,14 @@ export default {
   },
   methods: {
     logCheck() {
-      let username = this.$refs.username.$el.value.trim();
-      let password = this.$refs.password.$el.value.trim();
+      // let username = this.$refs.username.$el.value.trim();
+      // let password = this.$refs.password.$el.value.trim();
+
+      let username = this.userName;
+      let password = this.passWord;
+
+      // console.log(username)
+      // console.log(password)
 
       // 'key=value; expires=current dateTime in UTC; path=/'
       if (this.rememberMe) {
@@ -115,8 +122,10 @@ export default {
     let username = document.cookie.match('(^|;)\\s*' + 'username' + '\\s*=\\s*([^;]+)')
     let password = document.cookie.match('(^|;)\\s*' + 'password' + '\\s*=\\s*([^;]+)')
 
-    this.$refs.username.$el.value = username ? username.pop() : ''
-    this.$refs.password.$el.value = password ? password.pop() : ''
+    // this.$refs.username.$el.value = username ? username.pop() : ''
+    // this.$refs.password.$el.value = password ? password.pop() : ''
+    this.userName = username ? username.pop() : ''
+    this.passWord = password ? password.pop() : ''
     if (username) this.submitBtn = false
     //console.log('We just check to see if there were cookies: ' + document.cookie)
   }

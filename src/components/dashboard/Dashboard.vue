@@ -72,7 +72,7 @@ export default {
   methods: {
     removeThumb(arr, index) {
       // Remove job from GUI
-      console.log(arr, index)
+      //console.log(arr, index)
       arr.splice(index, 1);
       //this.$forceUpdate();
     }

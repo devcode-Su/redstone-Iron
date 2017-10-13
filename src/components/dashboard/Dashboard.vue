@@ -100,7 +100,7 @@ export default {
 
 #dashboard {
   .md-button {
-    color:$color_default2;
+    color: $color_icon;
   }
   .md-icon {
     @include iconsize(18px);

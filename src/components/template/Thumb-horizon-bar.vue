@@ -4,8 +4,8 @@
       썸네일 콤포넌트 호라이즌 바 차트<br> title : {{title}}
     </p>
     <!-- <md-button-toggle md-single>
-      <md-button :class="{'md-toggle' : i === 0 }" v-for="(week, i) in weeks" :key="week.id" @click="restartProgress(i)">{{week.sort}}</md-button>
-    </md-button-toggle> -->
+        <md-button :class="{'md-toggle' : i === 0 }" v-for="(week, i) in weeks" :key="week.id" @click="restartProgress(i)">{{week.sort}}</md-button>
+      </md-button-toggle> -->
     <sort-button :weeks="weeks" @sortClick="sortClick"></sort-button>
     <div>
       <div>1</div>

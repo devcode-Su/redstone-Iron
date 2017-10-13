@@ -5,8 +5,8 @@
         Group
       </p>
       <!-- <button class="mdl-button mdl-js-button mdl-button--icon close" @click="btnToggle">
-            <i class="material-icons">close</i>
-          </button> -->
+                  <i class="material-icons">close</i>
+                </button> -->
       <slot></slot>
     </div>
   </section>
@@ -57,7 +57,7 @@ export default {
 
 section {
   width: 100%;
-  background-color: $color_smoke_gray;
+  background-color: $color_group;
   overflow: hidden;
   .group {
     padding: 7px;

@@ -3,8 +3,8 @@
     <!-- <iron-header :selected="selected" @btnToggle="toggleSelected"> -->
     <iron-header>
       <!-- <button class="mdl-button mdl-js-button mdl-button--icon" :class="{ 'active': selected }" @click="btnToggle">
-        <md-icon>more_vert</md-icon>
-        </button> -->
+            <md-icon>more_vert</md-icon>
+            </button> -->
       <md-button class="md-dense group-menu" :class="{ 'active': selected }" @click="btnToggle">
         <md-icon>menu</md-icon>
       </md-button>
@@ -82,7 +82,7 @@ aside {
 
 .main-view {
   flex: 1;
-  padding: 7px;
+  padding: 15px 20px;
   background-color: $color_main;
   -webkit-box-shadow: 0 0 10px gray inset;
   -moz-box-shadow: 0 0 10px gray inset;

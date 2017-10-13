@@ -52,21 +52,20 @@
 
 // tabs
 .md-tabs {
-  &.md-theme-default{
+  &.md-theme-default {
     >.md-tabs-navigation {
-      background-color:transparent;
-      .md-tab-header{
-        color:$color_default2;
-        &.md-active{
-          color:$color_highlight;
+      background-color: transparent;
+      .md-tab-header {
+        color: $color_default2;
+        &.md-active {
+          color: $color_highlight;
         }
-        &-navigation-button{
-          background-color:gainsboro;
+        &-navigation-button {
+          background-color: gainsboro;
         }
       }
     }
   }
-
   .md-tabs-wrapper {
     position: static;
     transition: none;
@@ -81,11 +80,11 @@
 .template-thumb {
   padding: 10px;
   background-color: $color_white;
-  border: solid 1px;
+  border: 1px solid $color_border;
   .md-button-toggle {
     // toggle button
     width: 50%;
-    border: 1px solid $color_warm_gray;
+    border: 1px solid $color_border_dark;
     @include border-radius(5px);
     overflow: hidden;
   }
@@ -95,7 +94,7 @@
     min-width: auto;
     min-height: auto;
     line-height: 28px;
-    border-left: 1px solid $color_smoke_gray;
+    border-left: 1px solid $color_border_inner;
     &:first-child {
       border-left: 0 none;
     }

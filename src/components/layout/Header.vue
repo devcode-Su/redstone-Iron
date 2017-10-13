@@ -70,8 +70,8 @@ header {
   justify-content: space-between;
   height: 50px;
   padding: 0 5px 0 0;
-  border-top:1px solid $color_default;
-  border-bottom:1px solid $color_default;
+  border-top: 1px solid $color_default;
+  border-bottom: 1px solid $color_default;
   >div {
     display: flex;
     align-items: center;
@@ -85,7 +85,7 @@ header {
           margin-left: 0;
           position: absolute;
           left: 0;
-          color: $color_white;
+          color: $color_icon;
           background-color: $color_default;
           box-shadow: 0 0 5px grey;
           @include border-radius(0);
@@ -101,6 +101,7 @@ header {
           padding: 0 5px;
         }
         .md-button {
+          color: $color_default;
           @include border-radius(50%)
         }
       }

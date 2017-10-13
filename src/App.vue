@@ -15,12 +15,8 @@ export default {
 
 #app {
   height: 100vh;
-  color: $color_default;
   >section {
     height: 100%;
-  }
-  a {
-    text-decoration: none
   }
 }
 </style>

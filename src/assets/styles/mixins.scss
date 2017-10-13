@@ -1,9 +1,10 @@
 // option
-@mixin flex-default{
+@mixin flex-default {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 @mixin clearfix {
   &:after {
     content: "";
@@ -40,8 +41,7 @@
   width: $size;
   height: $size;
   font-size: $size;
-  line-height: $size;
-  // -webkit-transform: translate(-$size/2, -$size/2);
+  line-height: $size; // -webkit-transform: translate(-$size/2, -$size/2);
   // -moz-transform: translate(-$size/2, -$size/2);
   // -ms-transform: translate(-$size/2, -$size/2);
   transform: translate(-$size/2, -$size/2)

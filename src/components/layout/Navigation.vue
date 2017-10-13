@@ -96,9 +96,6 @@ export default {
       ul {
         top: 10px;
       }
-      .navigation-tooltip {
-        margin-top: 58px
-      }
     }
     >a {
       display: block;
@@ -122,8 +119,8 @@ export default {
         right: -7px;
         bottom: -7px;
         z-index: 1;
-        border: 1px solid #414040;
-        box-shadow: 2px 3px rgba(65, 64, 64, 0.4);
+        border: 1px solid #1A222F;
+        box-shadow: 2px 3px rgba(26, 34, 47, 0.4);
         .material-icons {
           color: $color_highlight;
         }
@@ -131,10 +128,6 @@ export default {
       ul {
         width: 150px;
         opacity: 1;
-      }
-      .navigation-tooltip {
-        opacity: 1;
-        transform: scale(1);
       }
     }
     &:first-child:hover {
@@ -144,7 +137,7 @@ export default {
     }
   }
   .md-icon {
-    color: $color_white;
+    color: $color_icon;
   }
 
   @at-root &-snb {
@@ -160,14 +153,13 @@ export default {
       display: block;
       margin: 0 0 5px 15px;
       padding: 0;
-      background-color: rgba(84, 84, 84, .7);
+      background-color: rgba(26, 34, 47, 0.6);
       border-radius: 2px;
       box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
       &.on,
       &:hover {
-        background-color: rgba(84, 84, 84, .9);
+        background-color: rgba(26, 34, 47, 0.9);
         a {
-          font-weight: bold;
           color: $color_white;
         }
       }
@@ -193,6 +185,7 @@ export default {
   font-size: 12px;
   line-height: 20px;
   text-align: center;
+  background-color: rgba(26, 34, 47, 0.8);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
 }
 </style>

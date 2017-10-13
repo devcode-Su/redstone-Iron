@@ -1,5 +1,5 @@
 export default {
-  methods : {
+  methods: {
     startProgress() {
       //console.log(this.count)
       //console.log(this.title)

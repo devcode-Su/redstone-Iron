@@ -50,6 +50,33 @@
   height: 10px;
 }
 
+// tabs
+.md-tabs {
+  &.md-theme-default{
+    >.md-tabs-navigation {
+      background-color:transparent;
+      .md-tab-header{
+        color:$color_default2;
+        &.md-active{
+          color:$color_highlight;
+        }
+        &-navigation-button{
+          background-color:gainsboro;
+        }
+      }
+    }
+  }
+
+  .md-tabs-wrapper {
+    position: static;
+    transition: none;
+  }
+}
+
+.md-tabs.md-dynamic-height .md-tabs-content {
+  transition: none;
+}
+
 // use template
 .template-thumb {
   padding: 10px;

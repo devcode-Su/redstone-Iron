@@ -66,16 +66,45 @@ export default {
 @import "../../assets/styles/variables.scss";
 
 header {
-  height: 50px;
-  padding: 0 5px;
-}
-
-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  height: 50px;
+  padding: 0 5px 0 0;
+  border-top:1px solid $color_default;
+  border-bottom:1px solid $color_default;
   >div {
-    @extend header
+    display: flex;
+    align-items: center;
+    @at-root {
+      .header-left {
+        padding-left: 55px;
+        position: relative;
+        .group-menu {
+          width: 45px;
+          height: 50px;
+          margin-left: 0;
+          position: absolute;
+          left: 0;
+          color: $color_white;
+          background-color: $color_default;
+          box-shadow: 0 0 5px grey;
+          @include border-radius(0);
+          &:hover,
+          &.active {
+            background-color: $color_default !important;
+          }
+        }
+      }
+      .header-right {
+        justify-content: space-between;
+        p {
+          padding: 0 5px;
+        }
+        .md-button {
+          @include border-radius(50%)
+        }
+      }
+    }
   }
   h1 {
     font-size: 2em;
@@ -86,14 +115,6 @@ header {
   }
   .md-button {
     margin-left: 5px;
-  }
-  @at-root .header-right {
-    p {
-      padding: 0 5px;
-    }
-    .md-button {
-      @include border-radius(50%)
-    }
   }
 }
 </style>

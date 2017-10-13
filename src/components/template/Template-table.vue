@@ -1,5 +1,5 @@
 <template>
-  <div class="template-table" :class="{ 'col3' : 3 === leng }">
+  <div class="template-table" :class="{ 'col3' : 3 === columnSize }">
     <table class="table-area">
       <thead>
         <tr>
@@ -16,7 +16,7 @@
       </thead>
       <tbody>
         <tr>
-          <td>td</td>
+          <td>{{bla}}</td>
           <td>td</td>
           <td>td</td>
         </tr>
@@ -28,10 +28,14 @@
 export default {
   name: 'TemplateTable',
   extends: {},
-  props: {},
+  props: {
+    columnSize: {
+      type: Number
+    }
+  },
   data() {
     return {
-      leng : 3
+      bla: "bla bla bla bla bla bla bla bla bla"
 
     }
   },
@@ -56,18 +60,26 @@ export default {
   }
   thead {
     background-color: $color_main;
+    th {
+      line-height: 28px
+    }
   }
   tbody {
-
     tr {
       border-top: 1px solid;
+    }
+    td {
+      line-height: 23px;
+      &:first-child {
+        @include ellipsis;
+      }
     }
   }
   th {
     padding: 0 10px;
     text-align: center;
     &:first-child {
-      padding-left:20px;
+      padding-left: 20px;
       text-align: left;
     }
   }
@@ -78,7 +90,6 @@ export default {
     th {
       &:first-child {
         width: 50%;
-
       }
     }
     td {

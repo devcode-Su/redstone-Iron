@@ -11,22 +11,29 @@ import router from './router'
 import axios from 'axios'
 
 Vue.config.productionTip = false
-Vue.prototype.$http = axios
-Vue.use(VueMaterial)
 
+// axios
+Vue.prototype.$http = axios
+
+// Fillters
+Vue.filter('snippet', value => {
+  return value.slice(0, 100) + '...'
+});
+
+// vue-Material
+Vue.use(VueMaterial);
 Vue.material.registerTheme({
   default: {
     primary: 'indigo',
     accent: 'red',
-    warn : 'grey',
+    warn: 'grey',
   },
   about: {
     primary: 'blue',
     accent: 'red',
-    warn : 'grey',
+    warn: 'grey',
   }
 });
-
 Vue.material.setCurrentTheme('default');
 
 /* eslint-disable no-new */
@@ -35,4 +42,4 @@ new Vue({
   router,
   template: '<App/>',
   components: { App }
-})
+});

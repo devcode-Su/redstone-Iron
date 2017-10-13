@@ -43,13 +43,15 @@ export default {
     return {
       userSets: [
         { type: 'thumb-horizon-bar', title: "Horizontal Bar - A" },
-        { type: 'thumb-table', title: "Table - B" },
-        { type: 'thumb-table-btn', title: "Table Btn - C" },
-        { type: 'thumb-horizon-bar', title: "Horizontal Bar - D" },
+        { type: 'thumb-horizon-bar', title: "Horizontal Bar - B" },
+        { type: 'thumb-horizon-bar', title: "Horizontal Bar - C" },
+
+        { type: 'thumb-table', title: "Table - D" },
         { type: 'thumb-table', title: "Table - E" },
-        { type: 'thumb-table-btn', title: "Table Btn - F" },
-        { type: 'thumb-horizon-bar', title: "Horizontal Bar - G" },
-        { type: 'thumb-table', title: "Table - H" },
+        { type: 'thumb-table', title: "Table - F" },
+
+        { type: 'thumb-table-btn', title: "Table Btn - G" },
+        { type: 'thumb-table-btn', title: "Table Btn - H" },
         { type: 'thumb-table-btn', title: "Table Btn - I" }
       ],
     }
@@ -71,26 +73,23 @@ export default {
   },
   methods: {
     removeThumb(arr, index) {
-      // Remove job from GUI
-      //console.log(arr, index)
       arr.splice(index, 1);
-      //this.$forceUpdate();
     }
   },
   // 컴포넌트 라이프사이클 메서드 그룹
   beforeCreate() { },
   mounted() {
-    this.$nextTick(() => {
-      // console.log("next")
-      // if (self.name !== 'reload') {
-      //   self.name = 'reload';
-      //   this.$router.go(this.$router.currentRoute);
-      //   window.location.reload()
-      // }
-      // else self.name = '';
-      //this.$forceUpdate()
-      //console.log(componentHandler.upgradeDom(this.$el))
-    })
+    //this.$nextTick(() => {
+    // console.log("next")
+    // if (self.name !== 'reload') {
+    //   self.name = 'reload';
+    //   this.$router.go(this.$router.currentRoute);
+    //   window.location.reload()
+    // }
+    // else self.name = '';
+    //this.$forceUpdate()
+    //console.log(componentHandler.upgradeDom(this.$el))
+    //})
   },
 }
 </script>
@@ -101,7 +100,7 @@ export default {
 
 #dashboard {
   .md-button {
-    color: #999;
+    color:$color_default2;
   }
   .md-icon {
     @include iconsize(18px);
@@ -120,6 +119,7 @@ export default {
     margin-bottom: 5px;
     @include transition(all, .5s);
     @media screen and (min-width: 1459px) {
+      width:25%;
       max-width: 25%;
     }
     @media screen and (min-width: 1126px) and (max-width: 1458px) {

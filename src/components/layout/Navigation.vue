@@ -120,7 +120,8 @@ export default {
       >a {
         top: -7px;
         right: -7px;
-        bottom: -7px; // z-index: 1;
+        bottom: -7px;
+        z-index: 1;
         border: 1px solid #414040;
         box-shadow: 2px 3px rgba(65, 64, 64, 0.4);
         .material-icons {
@@ -151,7 +152,6 @@ export default {
     position: absolute;
     top: 5px;
     left: 50px;
-
     z-index: 5;
     opacity: 0;
     overflow: hidden;

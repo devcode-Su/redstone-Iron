@@ -1,15 +1,21 @@
 <template>
   <div class="template-thumb">
     <p>
-      콤포넌트 타입 B <br> title : {{title}}
+      썸네일 콤포넌트 테이블 + 버튼 <br> title : {{title}}
     </p>
-    <md-button-toggle md-single>
-      <md-button :class="{'md-toggle' : i === 0 }" v-for="(week, i) in weeks" :key="week.id" @click="restartProgress(i)">{{week.sort}}</md-button>
-    </md-button-toggle>
-    <slot></slot>
+    <sort-button :weeks="weeks" @sortClick="sortClick"></sort-button>
+    <div>
+      <template-table :columnSize="leng"></template-table>
+      <slot></slot>
+    </div>
   </div>
 </template>
 <script>
+import startProgressMixin from '../mixins/startProgressMixin'
+import restartProgressMixin from '../mixins/restartProgressMixin'
+import TemplateTable from './Template-table'
+import sortButtonClickMixin from '../mixins/sortButtonClickMixin'
+import SortButton from './Sort-button'
 export default {
   name: '',
   extends: {},
@@ -20,7 +26,7 @@ export default {
   },
   data() {
     return {
-      idx: '',
+      leng: 3,
       progress: 0,
       progressInterval: null,
       transition: true,
@@ -34,38 +40,44 @@ export default {
     }
   },
   components: {
-
+    'template-table': TemplateTable,
+    'sort-button': SortButton
   },
   methods: {
-    startProgress() {
-      //console.log(this.count)
-      //console.log(this.title)
-      this.progressInterval = window.setInterval(() => {
-        this.progress += 3;
-        if (this.progress >= this.count) {
-          window.clearInterval(this.progressInterval);
-        }
-      }, 100);
-    },
-    restartProgress(index) {
-      if (this.idx !== index) {
-        this.progress = 0;
-        this.transition = false;
-        window.clearInterval(this.progressInterval);
-        window.setTimeout(() => {
-          this.transition = true;
-          this.startProgress();
-        }, 100);
-        this.idx = index
-      }
-    }
+    // startProgress() {
+    //   //console.log(this.count)
+    //   //console.log(this.title)
+    //   this.progressInterval = window.setInterval(() => {
+    //     this.progress += 3;
+    //     if (this.progress >= this.count) {
+    //       window.clearInterval(this.progressInterval);
+    //     }
+    //   }, 100);
+    // // },
+    // restartProgress(index) {
+    //   if (this.idx !== index) {
+    //     this.progress = 0;
+    //     this.transition = false;
+    //     window.clearInterval(this.progressInterval);
+    //     window.setTimeout(() => {
+    //       this.transition = true;
+    //       this.startProgressMixin;
+    //     }, 100);
+    //     this.idx = index
+    //   }
+    // }
   },
   create() {
 
   },
   mounted() {
     this.startProgress();
-  }
+  },
+  mixins: [
+    startProgressMixin,
+    restartProgressMixin,
+    sortButtonClickMixin
+  ]
 }
 </script>
 <style lang='scss' scoped>

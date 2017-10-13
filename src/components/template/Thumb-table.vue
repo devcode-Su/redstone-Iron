@@ -1,7 +1,7 @@
 <template>
   <div class="template-thumb">
     <p>
-      콤포넌트 타입 C <br> title : {{title}}
+      썸네일 콤포넌트 테이블<br> title : {{title}}
     </p>
     <template-table></template-table>
     <slot></slot>

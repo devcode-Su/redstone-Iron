@@ -3,10 +3,10 @@
     <!-- <iron-header :selected="selected" @btnToggle="toggleSelected"> -->
     <iron-header>
       <!-- <button class="mdl-button mdl-js-button mdl-button--icon" :class="{ 'active': selected }" @click="btnToggle">
-                                    <md-icon>more_vert</md-icon>
-                                  </button> -->
-      <md-button class="md-dense" :class="{ 'active': selected }" @click="btnToggle">
         <md-icon>more_vert</md-icon>
+        </button> -->
+      <md-button class="md-dense group-menu" :class="{ 'active': selected }" @click="btnToggle">
+        <md-icon>menu</md-icon>
       </md-button>
     </iron-header>
     <div class="iron-content">
@@ -54,8 +54,7 @@ export default {
     }
   },
   created() {
-    const url = "Iron";
-    console.log(url + ": " + window.location.href)
+
   }
 }
 </script>
@@ -77,11 +76,12 @@ aside {
 
 .iron-content {
   display: flex;
+  height: calc( 100vh - 50px);
+  overflow: hidden;
 }
 
 .main-view {
   flex: 1;
-  height: calc( 100vh - 50px);
   padding: 7px;
   background-color: $color_main;
   -webkit-box-shadow: 0 0 10px gray inset;
@@ -110,7 +110,7 @@ aside {
         color: $color_highlight;
         background-color: transparent
       }
-      &:active {
+      &.active {
         color: $color_highlight;
         background-color: transparent
       }
@@ -121,7 +121,7 @@ aside {
       color: $color_highlight;
       background-color: transparent
     }
-    &:active {
+    &.active {
       color: $color_highlight;
       background-color: transparent
     }

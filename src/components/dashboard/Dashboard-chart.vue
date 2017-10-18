@@ -98,6 +98,10 @@ export default {
     this.fillData()
     // console.log(selectCanvas)
     // console.log(this.datacollection)
+
+    window.setInterval(() => {
+      this.fillData()
+    }, 1000);
   }
 }
 </script>

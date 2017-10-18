@@ -101,6 +101,7 @@ export default {
     getRandomInt() {
       return Math.floor(Math.random() * (100 - 5 + 1)) + 5
     },
+
   },
   create() {
     //this.chartViewData()

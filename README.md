@@ -32,11 +32,12 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 
 ## Use npm package
-> vue-cli webpack  
-axios  
-scss  
-vue-material  
+> vue-cli webpack
+axios
+scss
+vue-material
 vuedraggable
-  
+
 ## screenshot
-![screensh](./test.gif)
+-![screensh](./test.gif)
+-![screensh](./charttest.gif)

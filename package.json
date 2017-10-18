@@ -17,11 +17,13 @@
     "axios": "^0.16.2",
     "chart.js": "^2.7.0",
     "es6-promise": "^4.1.1",
+    "moment": "^2.19.1",
     "vue": "^2.5.2",
     "vue-chartjs": "^2.8.7",
     "vue-material": "^0.7.5",
     "vue-router": "^2.8.1",
-    "vuedraggable": "^2.14.1"
+    "vuedraggable": "^2.14.1",
+    "vuejs-datepicker": "^0.9.17"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.5",

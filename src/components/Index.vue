@@ -27,7 +27,7 @@ export default {
       const userCheck = a => a.id === input.username;
       //const userValid = this.posts.find(userCheck);
       const userValid = this.posts.filter(userCheck);
-      this.crendentialFail = ''
+      //this.crendentialFail = ''
 
       if (userValid.length !== 0) {
         if (input.password === userValid[0].pass) { //userValid

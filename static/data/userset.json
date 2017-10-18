@@ -1,0 +1,96 @@
+[{
+    "type": "thumb-horizon-bar",
+    "title": "Horizontal Bar - A",
+    "url": "/static/data/Horizontal.a.json",
+    "data": []
+  },
+  {
+    "type": "thumb-horizon-bar",
+    "title": "Horizontal Bar - B",
+    "data": [{
+        "labels": ["January", "February", "March", "April"],
+        "datasets": {
+          "label": "Data One",
+          "backgroundColor": "#f87979",
+          "data": [52, 23, 12, 39]
+        }
+      },
+      {
+        "labels": ["May", "June", "July", "August"],
+        "datasets": {
+          "label": "Data One",
+          "backgroundColor": "#f87979",
+          "data": [13, 40, 36, 82]
+        }
+      },
+      {
+        "labels": ["September", "October", "November", "December"],
+        "datasets": {
+          "label": "Data One",
+          "backgroundColor": "#f87979",
+          "data": [58, 27, 12, 11]
+        }
+      }
+    ]
+  },
+  {
+    "type": "thumb-horizon-bar",
+    "title": "Horizontal Bar - C",
+    "data": [{
+        "labels": ["January", "February", "March", "April"],
+        "datasets": {
+          "label": "Data One",
+          "backgroundColor": "#f87979",
+          "data": [96, 28, 12, 33]
+        }
+      },
+      {
+        "labels": ["May", "June", "July", "August"],
+        "datasets": {
+          "label": "Data One",
+          "backgroundColor": "#f87979",
+          "data": [64, 73, 29, 74]
+        }
+      },
+      {
+        "labels": ["September", "October", "November", "December"],
+        "datasets": {
+          "label": "Data One",
+          "backgroundColor": "#f87979",
+          "data": [88, 7,76, 19]
+        }
+      }
+    ]
+  },
+  {
+    "type": "thumb-table",
+    "title": "Table - D",
+    "data": []
+  },
+  {
+    "type": "thumb-table",
+    "title": "Table - E",
+    "data": []
+  },
+  {
+    "type": "thumb-table",
+    "title": "Table - F",
+    "data": []
+  },
+
+  {
+    "type": "thumb-table-btn",
+    "title": "Table Btn - G",
+    "data": []
+  },
+  {
+    "type": "thumb-table-btn",
+    "title": "Table Btn - H",
+    "data": []
+  },
+  {
+    "type": "thumb-table-btn",
+    "title": "Table Btn - I",
+    "data": []
+  }
+]

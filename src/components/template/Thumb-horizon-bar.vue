@@ -4,32 +4,37 @@
       썸네일 콤포넌트 호라이즌 바 차트<br> title : {{title}}
     </p>
     <!-- <md-button-toggle md-single>
-        <md-button :class="{'md-toggle' : i === 0 }" v-for="(week, i) in weeks" :key="week.id" @click="restartProgress(i)">{{week.sort}}</md-button>
-      </md-button-toggle> -->
-    <sort-button :weeks="weeks" @sortClick="sortClick"></sort-button>
+                <md-button :class="{'md-toggle' : i === 0 }" v-for="(week, i) in weeks" :key="week.id" @click="restartProgress(i)">{{week.sort}}</md-button>
+                </md-button-toggle> -->
+    <sort-button :categorize="categorize" @btnSortClick="sortData"></sort-button>
     <div>
-      <div>1</div>
+      <!-- <div>
+                      <div class="md-progress md-warn md-theme-default">
+                        <div class="md-progress-track" :style="{width:progress +'%', backgroundColor:progressColor}"></div>
+                      </div>
+                    </div> -->
       <div>
-        <div class="md-progress md-warn md-theme-default">
-          <div class="md-progress-track" :style="{width:progress +'%', backgroundColor:progressColor}"></div>
-        </div>
+        <horizontal-bar-chart :chart-data="datacollection" :width="400" :height="200"></horizontal-bar-chart>
       </div>
     </div>
     <slot></slot>
   </div>
 </template>
 <script>
-import startProgressMixin from '../mixins/startProgressMixin'
-import restartProgressMixin from '../mixins/restartProgressMixin'
-import sortButtonClickMixin from '../mixins/sortButtonClickMixin'
+// import startProgressMixin from '../mixins/startProgressMixin'
+// import restartProgressMixin from '../mixins/restartProgressMixin'
 
 import SortButton from './Sort-button'
+import HorizontalBarChart from '../chartjs/HorizontalBar'
 export default {
   name: '',
   extends: {},
   props: {
     title: {
       type: String
+    },
+    thumbData: {
+      type: Array | Object
     }
   },
   data() {
@@ -39,20 +44,17 @@ export default {
       transition: true,
       count: 60,
       progressColor: 'red',
-      weeks: [
-        { sort: "일일" },
-        { sort: "주간" },
-        { sort: "월간" }
-      ]
+      categorize: ["일일", "주간", "월간"],
+      chartNum: 0,
+      datacollection: {}
     }
   },
   components: {
-    'sort-button': SortButton
+    'sort-button': SortButton,
+    'horizontal-bar-chart': HorizontalBarChart
   },
   methods: {
     // startProgress() {
-    //   //console.log(this.count)
-    //   //console.log(this.title)
     //   this.progressInterval = window.setInterval(() => {
     //     this.progress += 3;
     //     if (this.progress >= this.count) {
@@ -72,21 +74,48 @@ export default {
     //     this.idx = index
     //   }
     // }
-    // sortClick(sortNum){
-    //   console.log(sortNum)
-    //   this.restartProgress()
-    // }
+    sortData(sortNum) {
+      //console.log(sortNum)
+      //const select = sortNum.target
+      //this.restartProgress()
+      //console.log(this.responeData[sortNum])
+      //this.datacollection = 'change'
+      //this.chartNum = sortNum
+      this.fillData(sortNum)
+    },
+    fillData(n) {
+      const insertData = this.thumbData
+      if (n === undefined) n = 0
+      this.datacollection = {
+        labels: insertData[n].labels,
+        datasets: [{
+          label: 'Data One',
+          backgroundColor: '#f87979',
+          borderColor: '#f87979',
+          //data: insertData[n].datasets.data,
+          data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(),this.getRandomInt()], //test
+          fill: false
+        }]
+      }
+    },
+    getRandomInt() {
+      return Math.floor(Math.random() * (100 - 5 + 1)) + 5
+    },
   },
   create() {
-
+    //this.chartViewData()
   },
+  computed: {},
   mounted() {
-    this.startProgress();
+    this.fillData()
+    //console.log(this.datacollection)
+  },
+  update() {
+    //this.fillData()
   },
   mixins: [
-    startProgressMixin,
-    restartProgressMixin,
-    sortButtonClickMixin
+    //startProgressMixin,
+    //restartProgressMixin
   ]
 }
 </script>

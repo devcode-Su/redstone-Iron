@@ -3,7 +3,7 @@
     <p>
       썸네일 콤포넌트 테이블 + 버튼 <br> title : {{title}}
     </p>
-    <sort-button :weeks="weeks" @sortClick="sortClick"></sort-button>
+    <sort-button :weeks="weeks" @btnSortClick="sortData"></sort-button>
     <div>
       <template-table :columnSize="leng"></template-table>
       <slot></slot>
@@ -14,7 +14,6 @@
 import startProgressMixin from '../mixins/startProgressMixin'
 import restartProgressMixin from '../mixins/restartProgressMixin'
 import TemplateTable from './Template-table'
-import sortButtonClickMixin from '../mixins/sortButtonClickMixin'
 import SortButton from './Sort-button'
 export default {
   name: '',
@@ -66,6 +65,10 @@ export default {
     //     this.idx = index
     //   }
     // }
+    sortData(sortNum){
+      console.log(sortNum)
+      this.restartProgress()
+    }
   },
   create() {
 
@@ -75,8 +78,7 @@ export default {
   },
   mixins: [
     startProgressMixin,
-    restartProgressMixin,
-    sortButtonClickMixin
+    restartProgressMixin
   ]
 }
 </script>

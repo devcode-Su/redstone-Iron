@@ -1,13 +1,21 @@
 <template>
   <main id="dashboard" class="main-view">
     <p>
-      dashboard
+      dashboard<br>
+      <button @click="test2()">??</button>
     </p>
+    <section>
+      메인 차트
+      <dashboard-chart></dashboard-chart>
+    </section>
+    <section>
+      <template-table-dialog :proptest="test"></template-table-dialog>
+    </section>
     <section class="component-thumb">
       <draggable v-model="userSets">
         <transition-group type="transition" name="thumb" tag="ul" class="thumb-wrap">
           <li class="thumb-item" v-for="(userSet, index) in userSets" :key="userSet.title">
-            <component :is="userSet.type" :title="userSet.title"></component>
+            <component :is="userSet.type" :title="userSet.title" :thumb-data="userSet.data"></component>
             <md-button class="md-dense" @click="removeThumb(userSets, index)">
               <md-icon>delete</md-icon>
             </md-button>
@@ -23,9 +31,11 @@
 
 <script>
 import draggable from 'vuedraggable'
-import ThumbHorizonBar from '../Template/Thumb-horizon-bar'
-import ThumbTable from '../Template/Thumb-table'
-import ThumbTableBtn from '../Template/Thumb-table-button'
+import DashboardChart from './Dashboard-chart'
+import ThumbHorizonBar from '../template/Thumb-horizon-bar'
+import ThumbTable from '../template/Thumb-table'
+import ThumbTableBtn from '../template/Thumb-table-button'
+import TemplateTableDialog from '../template/Template-table-dialog'
 
 export default {
   // 이름 적는 것을 잊지마세요
@@ -41,19 +51,8 @@ export default {
   // 컴포넌트 변수 그룹
   data() {
     return {
-      userSets: [
-        { type: 'thumb-horizon-bar', title: "Horizontal Bar - A" },
-        { type: 'thumb-horizon-bar', title: "Horizontal Bar - B" },
-        { type: 'thumb-horizon-bar', title: "Horizontal Bar - C" },
-
-        { type: 'thumb-table', title: "Table - D" },
-        { type: 'thumb-table', title: "Table - E" },
-        { type: 'thumb-table', title: "Table - F" },
-
-        { type: 'thumb-table-btn', title: "Table Btn - G" },
-        { type: 'thumb-table-btn', title: "Table Btn - H" },
-        { type: 'thumb-table-btn', title: "Table Btn - I" }
-      ],
+      userSets: [],
+      test: ''
     }
   },
   computed: {
@@ -63,9 +62,11 @@ export default {
   },
   // 컴포넌트가 다른 컴포넌트를 사용할 경우
   components: {
+    'dashboard-chart': DashboardChart,
     'thumb-horizon-bar': ThumbHorizonBar,
     'thumb-table': ThumbTable,
     'thumb-table-btn': ThumbTableBtn,
+    'template-table-dialog': TemplateTableDialog,
     draggable,
   },
   // 컴포넌트 메서드 그룹
@@ -77,7 +78,26 @@ export default {
     }
   },
   // 컴포넌트 라이프사이클 메서드 그룹
-  beforeCreate() { },
+  created() {
+    const apiUrl = '/static/data/userset.json'
+    let promise = [];
+    this.$http.get(apiUrl).then((result) => {
+      result.data.forEach((item) => {
+        if (item.hasOwnProperty('url')) {
+          promise.push(this.$http.get(item.url).then((r) => {
+            item.data = r.data;
+          }));
+        }
+      });
+      Promise.all(promise)
+        .then(() => {
+          this.userSets = result.data
+        });
+    });
+    window.localStorage.setItem('name', {
+      
+      });
+  },
   mounted() {
     //this.$nextTick(() => {
     // console.log("next")

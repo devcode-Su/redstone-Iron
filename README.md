@@ -32,11 +32,15 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 
 ## Use npm package
-> vue-cli webpack
-axios
-scss
-vue-material
-vuedraggable
+> vue-cli webpack  
+axios   
+chart.js  
+es6-promise  
+moment  
+vue-chartjs  
+vue-material  
+vuedraggable  
+vuejs-datepicker  
 
 ## screenshot
 -![screensh](./test.gif)

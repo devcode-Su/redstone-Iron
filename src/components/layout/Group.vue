@@ -1,44 +1,21 @@
 <template>
   <section id="gruop">
-    <div class="group-management">
-      <h1>
-        그룹관리
-      </h1>
+    <div class="wrap">
+      <group-management></group-management>
+      <group-user-search :items="items"></group-user-search>
+      <ul class="group-notice">
+        <li>전체 AGENT : 15</li>
+        <li>현재 접속 : 3</li>
+        <li>일주일 이상 미 접속 : 1</li>
+      </ul>
       <slot></slot>
     </div>
-    <div class="user-search">
-      <md-input-container md-inline md-clearable>
-        <label>사용자 검색</label>
-        <md-input v-model="search"></md-input>
-      </md-input-container>
-      <md-table md-sort="id" @sort="reOrder">
-        <md-table-header>
-          <md-table-row>
-            <md-table-head md-sort-by="id">센서 ID</md-table-head>
-            <md-table-head md-sort-by="username">이름</md-table-head>
-            <md-table-head md-sort-by="part" md-numeric>부서</md-table-head>
-          </md-table-row>
-        </md-table-header>
-
-        <md-table-body>
-          <md-table-row v-for="item in orderedItems" :key="item.id">
-            <md-table-cell>{{ item.id }}</md-table-cell>
-            <md-table-cell>{{ item.username }}</md-table-cell>
-            <md-table-cell md-numeric>{{ item.part }}</md-table-cell>
-          </md-table-row>
-        </md-table-body>
-      </md-table>
-    </div>
-    <ul class="group-notice">
-      <li>전체 AGENT : 15</li>
-      <li>현재 접속 : 3</li>
-      <li>일주일 이상 미 접속 : 1</li>
-    </ul>
   </section>
 </template>
 
 <script>
-import _ from 'lodash'
+import GroupManagement from './Group-management'
+import GroupUserSearch from './Group-usersearsh'
 export default {
   // 이름 적는 것을 잊지마세요
   name: 'IronGroup',
@@ -55,9 +32,6 @@ export default {
   // 컴포넌트 변수 그룹
   data() {
     return {
-      search: '',
-      orderField: 'id',
-      direction: 'abc',
       items: [
         { id: 1, username: "홍길동", part: "전략기획개발팀" },
         { id: 2, username: "전우치", part: "전략기획개발팀" },
@@ -83,29 +57,20 @@ export default {
     }
   },
   computed: {
-    orderedItems: function() {
-      return _.orderBy(this.filteredItem, this.orderField, this.direction)
-    },
-    filteredItem() {
-      return this.items.filter((item) => {
-        return item.username.match(this.search);
-      })
-    }
   },
   // 컴포넌트가 다른 컴포넌트를 사용할 경우
-  components: {},
+  components: {
+    'group-management': GroupManagement,
+    'group-user-search': GroupUserSearch
+  },
   // 컴포넌트 메서드 그룹
   watch: {},
   methods: {
-    reOrder(object) {
-      this.orderField = object.name;
-      this.direction = object.type;
-    }
   },
   // 컴포넌트 라이프사이클 메서드 그룹
   created() {
   },
-  mounted() { console.log(this.search) },
+  mounted() { },
 }
 </script>
 
@@ -119,9 +84,14 @@ export default {
   width: 100%;
   background-color: $color_group;
   overflow: hidden;
+  .wrap {
+    width: 300px;
+    position: relative;
+    overflow: hidden;
+  }
   .group-management {
     position: relative;
-    border-bottom:1px solid $color_default;
+    border-bottom: 1px solid $color_default;
     h1 {
       margin: 0;
       padding: 5px;
@@ -131,10 +101,8 @@ export default {
       color: #fff;
       background-color: #4D5E72;
     }
-    button {
-      position: absolute;
-      top: 5px;
-      right: 5px;
+    .md-list {
+      padding: 0
     }
   }
   .md-input-container {
@@ -142,7 +110,7 @@ export default {
     margin: 0;
     padding: 5px;
     background-color: #4D5E72;
-    border-top:1px solid $color_default;
+    border-top: 1px solid $color_default;
     label {
       top: 12px;
       left: 5px;
@@ -194,10 +162,14 @@ export default {
       vertical-align: middle;
     }
   }
-  @at-root{
-    .group-notice{
-      padding:10px 5px
-      ;
+  button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  @at-root {
+    .group-notice {
+      padding: 10px 5px;
     }
   }
 }

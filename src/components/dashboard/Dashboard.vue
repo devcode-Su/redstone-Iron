@@ -2,7 +2,6 @@
   <main id="dashboard" class="main-view">
     <p>
       dashboard<br>
-      <button @click="test2()">??</button>
     </p>
     <section>
       메인 차트
@@ -23,9 +22,6 @@
         </transition-group>
       </draggable>
     </section>
-    <div class="list-group">
-      <pre>{{listString}}</pre>
-    </div>
   </main>
 </template>
 
@@ -96,7 +92,7 @@ export default {
     });
     window.localStorage.setItem('name', {
 
-      });
+    });
   },
   mounted() {
     //this.$nextTick(() => {
@@ -150,7 +146,6 @@ export default {
     }
   }
 }
-
 
 .thumb-enter-acitve,
 .thumb-leave-active {

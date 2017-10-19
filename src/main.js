@@ -6,9 +6,11 @@ import 'es6-promise/auto'
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
 
-import App from './App'
 import router from './router'
 import axios from 'axios'
+
+import App from './App'
+
 
 Vue.config.productionTip = false
 

@@ -76,6 +76,11 @@
   transition: none;
 }
 
+// table
+.md-table table {
+  overflow: visible
+}
+
 // use template
 .template-thumb {
   padding: 10px;

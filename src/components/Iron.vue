@@ -70,7 +70,7 @@ aside {
   position: relative;
   @include transition(all, .3s);
   &.active {
-    width: 300px;
+    width: 350px;
   }
 }
 

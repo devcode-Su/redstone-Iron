@@ -95,7 +95,7 @@ export default {
         });
     });
     window.localStorage.setItem('name', {
-      
+
       });
   },
   mounted() {

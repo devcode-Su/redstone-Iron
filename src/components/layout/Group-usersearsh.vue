@@ -24,7 +24,7 @@
 </template>
 <script>
 import _ from 'lodash'
-import MixinReOrder from '../mixins/mixinReOrder'
+import reOrderMixin from '../mixins/reOrderMixin'
 export default {
   name: 'GroupUserSearch',
   extends: {},
@@ -53,7 +53,7 @@ export default {
   methods: {
   },
   mixins: [
-    MixinReOrder
+    reOrderMixin
   ]
 }
 </script>

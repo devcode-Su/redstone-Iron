@@ -14,11 +14,11 @@
 </template>
 
 <script>
-import GroupManagement from './Group-management'
-import GroupUserSearch from './Group-usersearsh'
+import GroupManagement from "./Group-management";
+import GroupUserSearch from "./Group-usersearsh";
 export default {
   // 이름 적는 것을 잊지마세요
-  name: 'IronGroup',
+  name: "IronGroup",
   // compose new components
   extends: {},
   // 컴포넌트 어트리뷰트 그룹
@@ -27,7 +27,7 @@ export default {
     //   type: Boolean
     // }, // 알파벳순으로 정렬합니다
     foo: {},
-    fooBar: {},
+    fooBar: {}
   },
   // 컴포넌트 변수 그룹
   data() {
@@ -52,26 +52,25 @@ export default {
         { id: 17, username: "문치웅", part: "개발팀" },
         { id: 18, username: "이창일", part: "개발팀" },
         { id: 19, username: "오경훈", part: "개발팀" },
-        { id: 20, username: "박하영", part: "디자인" },
+        { id: 20, username: "박하영", part: "디자인" }
       ]
-    }
+    };
   },
-  computed: {
-  },
+  computed: {},
   // 컴포넌트가 다른 컴포넌트를 사용할 경우
   components: {
-    'group-management': GroupManagement,
-    'group-user-search': GroupUserSearch
+    "group-management": GroupManagement,
+    "group-user-search": GroupUserSearch
   },
   // 컴포넌트 메서드 그룹
   watch: {},
-  methods: {
-  },
+  methods: {},
   // 컴포넌트 라이프사이클 메서드 그룹
-  created() {
-  },
-  mounted() { },
-}
+  created() {},
+  mounted() {
+    console.log(typeof this.items);
+  }
+};
 </script>
 
 <style lang="scss">
@@ -85,7 +84,7 @@ export default {
   background-color: $color_group;
   overflow: hidden;
   .wrap {
-    width: 300px;
+    width: 305px;
     position: relative;
     overflow: hidden;
   }
@@ -99,17 +98,43 @@ export default {
       font-size: 16px;
       font-weight: 500;
       color: #fff;
-      background-color: #4D5E72;
+      background-color: #4d5e72;
     }
     .md-list {
-      padding: 0
+      padding: 0;
+      button {
+        top: 0;
+      }
+    }
+    .md-list-item {
+      &.md-active {
+        > .md-list-item-container .md-list-expand-indicator {
+          transform: rotate(180deg) translate(13px, 17px);
+        }
+      }
+    }
+    .md-list-item-container{
+      min-height:auto;
+      line-height:32px;
+      font-size:14px;
+    }
+
+    .md-icon {
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      top: 21px;
+      left: auto;
+      right: 5px;
+      font-size: 20px;
+      color: $color_icon;
     }
   }
   .md-input-container {
     min-height: auto;
     margin: 0;
     padding: 5px;
-    background-color: #4D5E72;
+    background-color: #4d5e72;
     border-top: 1px solid $color_default;
     label {
       top: 12px;
@@ -127,7 +152,7 @@ export default {
       top: 45%;
       left: 50%;
       color: #fff;
-      @include iconsize(20px)
+      @include iconsize(20px);
     }
     &.md-input-focused,
     &.md-has-value {
@@ -151,7 +176,7 @@ export default {
       text-align: center;
 
       .md-icon {
-        display: none
+        display: none;
       }
     }
     .md-table-cell .md-table-cell-container {
@@ -166,6 +191,12 @@ export default {
     position: absolute;
     top: 5px;
     right: 5px;
+  }
+
+  .inner-list {
+    > .md-list-item-container {
+      padding-left: 30px;
+    }
   }
   @at-root {
     .group-notice {

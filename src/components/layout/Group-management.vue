@@ -72,20 +72,20 @@ export default {
   },
   components: {},
   methods: {
-    testClick(u) {
-      //let el = this.$refs[u][0]
-      console.log(u);
-      //console.log(this.$refs);
-      console.log(
-        this.$refs.department[u].$el.children[0].children[1].innerText
-      );
-      let tt = this.$refs.department[u].$el.children[0].children[1].innerText;
-      let i = this.company.length;
-      while (i--) {
-        let u = tt.match(this.company[i].name);
-        if (u !== null) console.log(this.company[i].team);
-      }
-    }
+    // testClick(u) {
+    //   //let el = this.$refs[u][0]
+    //   //console.log(u);
+    //   //console.log(this.$refs);
+    //   //console.log(
+    //   //  this.$refs.department[u].$el.children[0].children[1].innerText
+    //   //);
+    //   let tt = this.$refs.department[u].$el.children[0].children[1].innerText;
+    //   let i = this.company.length;
+    //   while (i--) {
+    //     let u = tt.match(this.company[i].name);
+    //     if (u !== null) console.log(this.company[i].team);
+    //   }
+    // }
   },
   mounted() {
     // console.clear();

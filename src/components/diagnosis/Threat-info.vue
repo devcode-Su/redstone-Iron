@@ -1,27 +1,27 @@
 <template>
-  <section class="threat-info">
-    <p>
+  <article class="threat-info">
+    <h1>
       위협정보기반
-    </p>
-  </section>
+    </h1>
+    <template-search></template-search>
+
+  </article>
 </template>
 <script>
+import TemplateSearch from "../template/Template-search";
+
 export default {
-  name: 'ThreatInfo',
+  name: "ThreatInfo",
   extends: {},
   props: {},
   data() {
-    return {
-
-    }
+    return {};
   },
   components: {
-
+    TemplateSearch
   },
-  methods: {
-
-  },
-}
+  methods: {}
+};
 </script>
 <style lang='scss' scoped>
 

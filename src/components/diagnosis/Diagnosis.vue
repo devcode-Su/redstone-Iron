@@ -1,8 +1,5 @@
 <template>
-  <main class="main-view">
-    <p>
-      진단
-    </p>
+  <main class="main-view center">
     <router-view></router-view>
   </main>
 </template>

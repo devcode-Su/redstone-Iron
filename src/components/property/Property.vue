@@ -1,5 +1,5 @@
 <template>
-  <main class="main-view">
+  <main class="main-view center">
     <p>
       자산정보
     </p>

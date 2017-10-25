@@ -61,8 +61,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../assets/styles/mixins";
-@import "../assets/styles/variables";
+@import "../assets/styles/variables.scss";
 
 aside {
   display: flex;
@@ -82,12 +81,21 @@ aside {
 
 .main-view {
   flex: 1;
-  padding: 15px 20px;
+  padding: 25px 30px;
   background-color: $color_main;
   -webkit-box-shadow: 0 0 10px gray inset;
   -moz-box-shadow: 0 0 10px gray inset;
   box-shadow: 0 0 10px gray inset;
   overflow-y: auto;
+  &.center{
+    display:flex;
+    justify-content: center;
+    >article{
+      flex:1 0 auto;
+      width:800px;
+      max-width:1200px;
+    }
+  }
 }
 
 #iron {

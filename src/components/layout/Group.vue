@@ -68,7 +68,7 @@ export default {
   // 컴포넌트 라이프사이클 메서드 그룹
   created() {},
   mounted() {
-    console.log(typeof this.items);
+    //console.log(typeof this.items);
   }
 };
 </script>
@@ -113,10 +113,10 @@ export default {
         }
       }
     }
-    .md-list-item-container{
-      min-height:auto;
-      line-height:32px;
-      font-size:14px;
+    .md-list-item-container {
+      min-height: auto;
+      line-height: 32px;
+      font-size: 14px;
     }
 
     .md-icon {
@@ -168,23 +168,8 @@ export default {
       background-color: #fff;
       border-bottom: 2px solid #848484;
     }
-    .md-table-head-text {
-      display: block;
-      padding: 0 !important;
-      font-size: 14px;
-      font-weight: bold;
-      text-align: center;
-
-      .md-icon {
-        display: none;
-      }
-    }
     .md-table-cell .md-table-cell-container {
-      padding: 6px 1%;
       text-align: center;
-    }
-    td {
-      vertical-align: middle;
     }
   }
   button {

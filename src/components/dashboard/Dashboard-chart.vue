@@ -8,7 +8,11 @@
   </div>
 </template>
 <script>
+import moment from "moment"
+import Datepicker from 'vuejs-datepicker'
 import LineChart from '../chartjs/LineChart'
+import SortButton from '../template/Sort-button'
+
 export default {
   name: '',
   extends: {},
@@ -20,17 +24,34 @@ export default {
       gradient3: null,
       gradient4: null,
       datacollection: {},
+      periodStart: "",
+      periodEnd: new Date()
     }
   },
   components: {
-    'line-chart': LineChart
+    LineChart,
+    Datepicker,
+    SortButton
+  },
+  computed: {
+    _endDate() {
+      return moment(this.periodEnd).format("YYYY-MM-DD");
+    },
+    _startDate() {
+      return moment(this.periodStart).format("YYYY-MM-DD");
+    },
+    period() {
+      return this.periodStart
+        ? `${this._startDate}:${this._endDate}`
+        : "last-month";
+    }
   },
   methods: {
     fillData() {
       this.datacollection = {
         labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
         datasets: [{
-          label: 'Data One',
+          label: '프로세스',
           borderColor: '#FC2525',
           pointBackgroundColor: 'grey',
           borderWidth: 1,
@@ -39,7 +60,7 @@ export default {
           data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt()],
           //fill: false
         }, {
-          label: 'Data Two',
+          label: '네트워크',
           borderColor: '#05CBE1',
           pointBackgroundColor: 'grey',
           pointBorderColor: 'white',
@@ -48,7 +69,7 @@ export default {
           data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt()],
           //fill: false
         }, {
-          label: 'Data Three',
+          label: '파일',
           borderColor: '#8cf43d',
           pointBackgroundColor: 'grey',
           pointBorderColor: 'white',
@@ -56,20 +77,17 @@ export default {
           backgroundColor: this.gradient3,
           data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt()],
           //fill: false
-        }, {
-          label: 'Data Four',
-          borderColor: '#f43de7',
-          pointBackgroundColor: 'grey',
-          pointBorderColor: 'white',
-          borderWidth: 1,
-          backgroundColor: this.gradient4,
-          data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt()],
-          //fill: false
         }]
       }
     },
     getRandomInt() {
       return Math.floor(Math.random() * (50 - 5 + 1)) + 5
+    },
+    getDate(date){
+      if(date === 0 || date === undefined) date = 24
+      else if(date === 1 ) date = 7;
+      else if(date > 1) date = 12
+      //console.log(date)
     }
   },
   mounted() {

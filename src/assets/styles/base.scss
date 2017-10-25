@@ -1,7 +1,4 @@
-@import "reset";
 @import "fonts";
-@import "variables";
-@import "mixins";
 // common style
 // button
 .md-button {
@@ -10,6 +7,14 @@
   line-height: 1;
   margin: 0;
   padding: 0;
+  &.md-table-pagination-next,
+  &.md-table-pagination-previous {
+    // pagination
+    .md-icon {
+      top: 50%;
+      left: 50%;
+    }
+  }
 }
 
 // icon
@@ -45,6 +50,12 @@
   font-feature-settings: 'liga';
 }
 
+.md-clear-input {
+  .md-icon {
+    transform: none
+  }
+}
+
 //progress
 .md-progress {
   height: 10px;
@@ -77,6 +88,26 @@
 }
 
 // table
+#app {
+  .md-table-head-text {
+    display: block;
+    padding: 0 !important;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    .md-icon {
+      display: none;
+    }
+  }
+  .md-table-cell {
+    vertical-align: middle;
+    .md-table-cell-container {
+      padding: 6px 1%;
+      text-align: center;
+    }
+  }
+}
+
 .md-table table {
   overflow: visible
 }
@@ -104,4 +135,18 @@
       border-left: 0 none;
     }
   }
+}
+
+// dialog
+.md-dialog-container {
+  flex-flow: row wrap;
+}
+
+.md-dialog {
+  display: flex;
+  flex: 1 0 auto;
+  max-width: 80%;
+  max-width: 1200px;
+  height: 600px;
+  padding: 10px;
 }

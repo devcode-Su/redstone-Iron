@@ -37,7 +37,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$refs)
     // this.gradient = this.$refs.canvas.getContext('2d').createLinearGradient(0, 0, 0, 450)
     // this.gradient2 = this.$refs.canvas.getContext('2d').createLinearGradient(0, 0, 0, 450)
 

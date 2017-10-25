@@ -4,11 +4,15 @@
       dashboard<br>
     </p>
     <section>
+      메인 차트 예제
+      <dashboard-chart-e></dashboard-chart-e>
+    </section>
+    <section>
       메인 차트
       <dashboard-chart></dashboard-chart>
     </section>
     <section>
-      <template-table-dialog :proptest="test"></template-table-dialog>
+      <dashboard-dialog-table :proptest="test"></dashboard-dialog-table>
     </section>
     <section class="component-thumb">
       <draggable v-model="userSets">
@@ -28,10 +32,12 @@
 <script>
 import draggable from 'vuedraggable'
 import DashboardChart from './Dashboard-chart'
+import DashboardChartE from './Dashboard-chart_e'
+import DashboardDialogTabel from './Dashboard-dialog-table'
 import ThumbHorizonBar from '../template/Thumb-horizon-bar'
 import ThumbTable from '../template/Thumb-table'
 import ThumbTableBtn from '../template/Thumb-table-button'
-import TemplateTableDialog from '../template/Template-table-dialog'
+
 
 export default {
   // 이름 적는 것을 잊지마세요
@@ -59,10 +65,11 @@ export default {
   // 컴포넌트가 다른 컴포넌트를 사용할 경우
   components: {
     'dashboard-chart': DashboardChart,
+    'dashboard-chart-e' : DashboardChartE,
     'thumb-horizon-bar': ThumbHorizonBar,
     'thumb-table': ThumbTable,
     'thumb-table-btn': ThumbTableBtn,
-    'template-table-dialog': TemplateTableDialog,
+    'dashboard-dialog-table': DashboardDialogTabel,
     draggable,
   },
   // 컴포넌트 메서드 그룹
@@ -111,7 +118,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/styles/mixins.scss';
 @import '../../assets/styles/variables.scss';
 
 #dashboard {

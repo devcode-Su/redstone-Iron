@@ -60,7 +60,7 @@ export default {
       //console.log(this.locationCheck())
     },
     naviTest() {
-      console.log("link");
+      //console.log("link");
     }
   },
   // 컴포넌트 라이프사이클 메서드 그룹

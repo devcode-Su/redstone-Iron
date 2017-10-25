@@ -5,12 +5,12 @@ import Vue from 'vue'
 import 'es6-promise/auto'
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
+import materialIcons from 'material-design-icons-iconfont/dist/material-design-icons.css'
 
 import router from './router'
 import axios from 'axios'
 
 import App from './App'
-
 
 Vue.config.productionTip = false
 
@@ -23,7 +23,7 @@ Vue.filter('snippet', value => {
 });
 
 // vue-Material
-Vue.use(VueMaterial);
+Vue.use(VueMaterial, materialIcons);
 Vue.material.registerTheme({
   default: {
     primary: 'indigo',

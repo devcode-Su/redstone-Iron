@@ -3,12 +3,12 @@
     <h1>
       위협정보기반
     </h1>
-    <template-search></template-search>
-
+    <template-search-pannel></template-search-pannel>
+    
   </article>
 </template>
 <script>
-import TemplateSearch from "../template/Template-search";
+import TemplateSearchPannel from "../template/Template-search-pannel";
 
 export default {
   name: "ThreatInfo",
@@ -18,7 +18,7 @@ export default {
     return {};
   },
   components: {
-    TemplateSearch
+    TemplateSearchPannel
   },
   methods: {}
 };

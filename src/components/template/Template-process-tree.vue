@@ -1,5 +1,5 @@
 <template>
-  <md-dialog md-open-from="#custom" md-close-to="#custom" ref="dialog" v-bind="openDialog(target.show, target.name)">
+  <md-dialog md-open-from="#process" md-close-to="#process" ref="dialog" v-bind="openDialog(target.show, target.name)">
     <md-dialog-title>프로세스 트리</md-dialog-title>
     <md-dialog-content>
       <section class="process-tree">

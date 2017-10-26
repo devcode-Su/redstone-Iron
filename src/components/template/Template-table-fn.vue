@@ -11,17 +11,20 @@
             <md-table-head md-sort-by="danger">위험도</md-table-head>
             <md-table-head md-sort-by="startdate">부서</md-table-head>
             <md-table-head md-sort-by="enddate">부서</md-table-head>
-
+            <md-table-head ></md-table-head>
           </md-table-row>
         </md-table-header>
         <md-table-body>
-          <md-table-row v-for="item in getCurrentPageData" :key="item.id">
+          <md-table-row v-for="(item, i) in getCurrentPageData" :key="item.id">
             <md-table-cell>{{ item.item }}</md-table-cell>
             <md-table-cell>{{ item.searchname }}</md-table-cell>
             <md-table-cell>{{ item.count }}</md-table-cell>
             <md-table-cell>{{ item.danger }}</md-table-cell>
             <md-table-cell>{{ item.startdate }}</md-table-cell>
             <md-table-cell>{{ item.enddate }}</md-table-cell>
+            <md-table-cell>
+              <md-butto @click="btnMore(i)">더보기</md-butto>
+            </md-table-cell>
           </md-table-row>
         </md-table-body>
       </md-table>
@@ -156,7 +159,7 @@ export default {
         (this.currentPage - 1) * this.currentSize,
         (this.currentPage - 1) * this.currentSize + this.currentSize
       );
-    },
+    }
   },
   components: {
     "template-pagination": TemplatePagination
@@ -170,20 +173,8 @@ export default {
       this.selectedData = data;
       this.$forceUpdate();
     },
-    refresh: function() {
-      this.$refs.table.setPage(1);
-    },
-    prev: function() {
-      return this.$refs.table.prev();
-    },
-    next: function() {
-      return this.$refs.table.next();
-    },
-    prevChunk: function() {
-      return this.$refs.table.prevChunk();
-    },
-    nextChunk: function() {
-      return this.$refs.table.nextChunk();
+    btnMore(index) {
+      console.log(index);
     }
   },
   mixins: [reOrderMixin]

@@ -9,7 +9,7 @@
 </template>
 <script>
 import moment from "moment"
-import Datepicker from 'vuejs-datepicker'
+// import Datepicker from 'vue-datepicker'
 import LineChart from '../chartjs/LineChart'
 import SortButton from '../template/Sort-button'
 
@@ -30,7 +30,7 @@ export default {
   },
   components: {
     LineChart,
-    Datepicker,
+    // Datepicker,
     SortButton
   },
   computed: {

@@ -24,10 +24,10 @@
 // import startProgressMixin from '../mixins/startProgressMixin'
 // import restartProgressMixin from '../mixins/restartProgressMixin'
 
-import SortButton from './Sort-button'
-import HorizontalBarChart from '../chartjs/HorizontalBar'
+import SortButton from "./Sort-button";
+import HorizontalBarChart from "../chartjs/HorizontalBar";
 export default {
-  name: '',
+  name: "",
   extends: {},
   props: {
     title: {
@@ -43,15 +43,15 @@ export default {
       progressInterval: null,
       transition: true,
       count: 60,
-      progressColor: 'red',
+      progressColor: "red",
       categorize: ["일일", "주간", "월간"],
       chartNum: 0,
       datacollection: {}
-    }
+    };
   },
   components: {
-    'sort-button': SortButton,
-    'horizontal-bar-chart': HorizontalBarChart
+    "sort-button": SortButton,
+    "horizontal-bar-chart": HorizontalBarChart
   },
   methods: {
     // startProgress() {
@@ -81,34 +81,40 @@ export default {
       //console.log(this.responeData[sortNum])
       //this.datacollection = 'change'
       //this.chartNum = sortNum
-      this.fillData(sortNum)
+      this.fillData(sortNum);
     },
     fillData(n) {
-      const insertData = this.thumbData
-      if (n === undefined) n = 0
+      const insertData = this.thumbData;
+      if (n === undefined) n = 0;
       this.datacollection = {
         labels: insertData[n].labels,
-        datasets: [{
-          label: 'Data One',
-          backgroundColor: '#f87979',
-          borderColor: '#f87979',
-          //data: insertData[n].datasets.data,
-          data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(),this.getRandomInt()], //test
-          fill: false
-        }]
-      }
+        datasets: [
+          {
+            label: "Data One",
+            backgroundColor: "#f87979",
+            borderColor: "#f87979",
+            //data: insertData[n].datasets.data,
+            data: [
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt()
+            ], //test
+            fill: false
+          }
+        ]
+      };
     },
     getRandomInt() {
-      return Math.floor(Math.random() * (100 - 5 + 1)) + 5
-    },
-
+      return Math.floor(Math.random() * (100 - 5 + 1)) + 5;
+    }
   },
   create() {
     //this.chartViewData()
   },
   computed: {},
   mounted() {
-    this.fillData()
+    this.fillData();
     //console.log(this.datacollection)
   },
   update() {
@@ -118,7 +124,7 @@ export default {
     //startProgressMixin,
     //restartProgressMixin
   ]
-}
+};
 </script>
 <style lang='scss' scoped>
 @import "../../assets/styles/mixins.scss";

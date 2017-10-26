@@ -15,8 +15,8 @@
         </span>
       </div>
       <div class="Search__settings" v-if="showSettings">
-        <datepicker input-class="Search__input" placeholder="Start Date" v-model="periodStart" name="start-date" v-on:selected="validateDataRequest()"></datepicker>
-        <datepicker input-class="Search__input" placeholder="End Date" v-model="periodEnd" name="end-date" v-on:selected="validateDataRequest()"></datepicker>
+        <!-- <datepicker input-class="Search__input" placeholder="Start Date" v-model="periodStart" name="start-date" v-on:selected="validateDataRequest()"></datepicker>
+        <datepicker input-class="Search__input" placeholder="End Date" v-model="periodEnd" name="end-date" v-on:selected="validateDataRequest()"></datepicker> -->
       </div>
 
       <div class="error-message" v-if="showError">
@@ -81,7 +81,7 @@
 </template>
 
 <script>
-import Datepicker from "vuejs-datepicker";
+// import Datepicker from "vue-datepicker";
 
 import LineChart from "@/components/chartjs/LineChart-e";
 
@@ -99,7 +99,7 @@ import SortButton from "../template/Sort-button";
 export default {
   components: {
     LineChart,
-    Datepicker,
+    // Datepicker,
     SortButton
   },
   data() {

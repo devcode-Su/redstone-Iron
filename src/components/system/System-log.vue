@@ -1,9 +1,9 @@
 <template>
-  <section class="system-log">
-    <p>
+  <article class="system-log">
+    <h1>
       시스템 로그
-    </p>
-  </section>
+    </h1>
+  </article>
 </template>
 <script>
 export default {

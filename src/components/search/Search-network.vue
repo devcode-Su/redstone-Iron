@@ -1,8 +1,8 @@
 <template>
-  <section class="search-network">
-    <p>
+  <article class="search-network">
+    <h1>
       네트워크 검색
-    </p>
+    </h1>
     <md-tabs>
       <md-tab id="network-searcr" md-label="네트워크 기반 검색">
         <p>네트워크 기반 검색 - 내용</p>
@@ -11,7 +11,7 @@
         <p>PC 기반 검색 - 내용</p>
       </md-tab>
     </md-tabs>
-  </section>
+  </article>
 </template>
 <script>
 export default {

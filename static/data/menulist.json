@@ -5,7 +5,7 @@
     "icon": "dashboard",
     "sub": [{
       "title": "기본정보",
-      "name": ""
+      "name": "Basic"
     }, {
       "title": "진단정보",
       "name": ""
@@ -14,7 +14,7 @@
       "name": ""
     }, {
       "title": "시스템정보",
-      "name": ""
+      "name": "Systems"
     }]
   },
   {

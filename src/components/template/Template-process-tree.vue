@@ -11,7 +11,10 @@
             <span @click="infoList(index)" :class="{'title' : index === 0}">{{list.name}}</span>
             <div class="info-wrap">
               <dl v-for="dl in list.info" :key="dl.id">
-                <dt>{{dl.dt}}</dt>
+                <dt>
+                  <md-icon>fiber_manual_record</md-icon>
+                  {{dl.dt}}
+                  </dt>
                 <dd>{{dl.dd}}</dd>
               </dl>
             </div>
@@ -115,7 +118,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$refs.infoMenu);
+    //console.log(this.$refs.infoMenu);
   }
 };
 </script>
@@ -134,8 +137,8 @@ export default {
         border: 1px solid color(border);
       }
       h1 {
-        margin:0;
-        line-height:42px;
+        margin: 0;
+        line-height: 42px;
         text-align: center;
       }
       .process-tree {
@@ -143,8 +146,8 @@ export default {
         margin-right: 10px;
       }
       .pc-info {
-        position:relative;
-        overflow:hidden;
+        position: relative;
+        overflow: hidden;
         li {
           height: 32px;
           line-height: 32px;
@@ -157,30 +160,48 @@ export default {
             display: block;
             border-bottom: 1px solid color(border);
           }
-          &:first-child{
-            height:42px;
+          &:first-child {
+            height: 42px;
             line-height: 42px;
             border-top: 0 none;
-            &.on{
-              height:404px;
+            &.on {
+              height: 404px;
+            }
+            span {
+              color: color(white);
+              background-color: #4e6f82;
             }
           }
           &.on {
-            color: red;
             height: 394px;
+            span {
+              font-weight: bold;
+            }
           }
         }
-        div{
+        div {
           padding: 25px;
         }
         dl {
           display: flex;
           margin: 0;
-
+          line-height: 150%;
           text-align: left;
+        }
+        dt,
+        dd {
+          padding: 10px 0;
         }
         dt {
           min-width: 130px;
+          padding-left:15px;
+          position:relative;
+          .md-icon{
+            top:20px;
+            left: 0;
+            color:#1C5BBC;
+            @include iconsize(6px)
+          }
         }
         dd {
           margin: 0;

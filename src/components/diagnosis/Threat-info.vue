@@ -4,11 +4,13 @@
       위협정보기반
     </h1>
     <template-search-pannel></template-search-pannel>
-    
+    <tem-plate-tablefn></tem-plate-tablefn>
+
   </article>
 </template>
 <script>
-import TemplateSearchPannel from "../template/Template-search-pannel";
+import TemplateSearchPannel from "../template/Template-search-pannel"
+import TemPlateTablefn from '../template/Template-table-fn'
 
 export default {
   name: "ThreatInfo",
@@ -18,7 +20,8 @@ export default {
     return {};
   },
   components: {
-    TemplateSearchPannel
+    TemplateSearchPannel,
+    TemPlateTablefn
   },
   methods: {}
 };

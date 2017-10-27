@@ -12,12 +12,12 @@
         <span class="item-label">전사</span>
         <md-list-expand class="group-department">
           <md-list>
-            <md-list-item v-for="(department, i) in company" :key="department.i" @click="testClick(i)" ref="department" class="inner-list" >
+            <md-list-item v-for="(department, i) in company" @click="partClick(i)" :key="department.i" ref="department" class="inner-list" >
               <md-icon>folder_shared</md-icon>
-              <span class="item-label">{{department.name}}</span>
+              <span class="item-label">{{department.part}}</span>
               <md-list-expand>
                 <md-list>
-                  <md-list-item v-for="(team,i) in department.team" :key="team.i" class="md-inset">{{team}}</md-list-item>
+                  <md-list-item v-for="(team,i) in department.subpart" :key="team.i" @click="subpartClick(i)" class="md-inset">{{team}}</md-list-item>
                 </md-list>
               </md-list-expand>
             </md-list-item>
@@ -37,12 +37,12 @@ export default {
       condition: "",
       company: [
         {
-          name: "연구소",
-          team: ["연구소"]
+          part: "연구소",
+          subpart: ["연구소"]
         },
         {
-          name: "서울사무소",
-          team: [
+          part: "서울사무소",
+          subpart: [
             "서울 영업 팀",
             "회계팀",
             "서울 개발 팀",
@@ -53,8 +53,8 @@ export default {
           ]
         },
         {
-          name: "부산사무소",
-          team: [
+          part: "부산사무소",
+          subpart: [
             "부산 영업 1팀",
             "부산 영업 2팀",
             "부산 지원 1팀",
@@ -67,25 +67,34 @@ export default {
             "부산 영업 3팀"
           ]
         }
-      ]
+      ],
+      partNum: ""
     };
   },
   components: {},
   methods: {
-    // testClick(u) {
-    //   //let el = this.$refs[u][0]
-    //   //console.log(u);
-    //   //console.log(this.$refs);
-    //   //console.log(
-    //   //  this.$refs.department[u].$el.children[0].children[1].innerText
-    //   //);
-    //   let tt = this.$refs.department[u].$el.children[0].children[1].innerText;
-    //   let i = this.company.length;
-    //   while (i--) {
-    //     let u = tt.match(this.company[i].name);
-    //     if (u !== null) console.log(this.company[i].team);
-    //   }
-    // }
+    partClick(index) {
+      //let el = this.$refs[u][0]
+      //console.log(u);
+      //console.log(this.$refs);
+      //console.log(
+      //  this.$refs.department[u].$el.children[0].children[1].innerText
+      //);
+      //let depart = this.$refs.department[u].$el.children[0].children[1].innerText;
+      console.log(index);
+      let i = this.company.length;
+      console.log(this.company[index].part);
+      this.partNum = index;
+      while (i--) {
+        //console.log(this.company[i].name);
+        //let c = depart.match(this.company[i].name);
+        //if (c !== null) console.log(this.company[i].team);
+      }
+    },
+    subpartClick(index) {
+      console.log("파트번호 : " + this.partNum);
+      console.log("서브파트 : " + index);
+    }
   },
   mounted() {
     // console.clear();

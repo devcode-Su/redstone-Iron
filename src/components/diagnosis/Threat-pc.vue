@@ -1,9 +1,9 @@
 <template>
-  <section class="threat-pc">
-    <p>
+  <article class="threat-pc">
+    <h1>
       위협 PC 기반
-    </p>
-  </section>
+    </h1>
+  </article>
 </template>
 <script>
 export default {

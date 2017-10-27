@@ -1,9 +1,9 @@
 <template>
-  <section class="system-admin">
-    <p>
+  <article class="system-admin">
+    <h1>
       관리자 설정
-    </p>
-  </section>
+    </h1>
+  </article>
 </template>
 <script>
 export default {

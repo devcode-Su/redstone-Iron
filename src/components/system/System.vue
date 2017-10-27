@@ -1,5 +1,5 @@
 <template>
-  <main id="system" class="main-view center">
+  <main id="system" class="main-view">
     <p>
       시스템
     </p>

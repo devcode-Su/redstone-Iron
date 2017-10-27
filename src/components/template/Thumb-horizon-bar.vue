@@ -1,23 +1,22 @@
 <template>
   <div class="template-thumb">
     <p>
-      썸네일 콤포넌트 호라이즌 바 차트<br> title : {{title}}
+      {{title}}
     </p>
     <!-- <md-button-toggle md-single>
                 <md-button :class="{'md-toggle' : i === 0 }" v-for="(week, i) in weeks" :key="week.id" @click="restartProgress(i)">{{week.sort}}</md-button>
                 </md-button-toggle> -->
     <sort-button :categorize="categorize" @btnSortClick="sortData"></sort-button>
-    <div>
+    <div class="visual">
       <!-- <div>
                       <div class="md-progress md-warn md-theme-default">
                         <div class="md-progress-track" :style="{width:progress +'%', backgroundColor:progressColor}"></div>
                       </div>
                     </div> -->
-      <div>
+
         <horizontal-bar-chart :chart-data="datacollection" :width="400" :height="200"></horizontal-bar-chart>
-      </div>
+
     </div>
-    <slot></slot>
   </div>
 </template>
 <script>
@@ -91,8 +90,8 @@ export default {
         datasets: [
           {
             label: "Data One",
-            backgroundColor: "#f87979",
-            borderColor: "#f87979",
+            backgroundColor: insertData[n].datasets.backgroundColor,
+            borderWidth: 1,
             //data: insertData[n].datasets.data,
             data: [
               this.getRandomInt(),
@@ -115,7 +114,7 @@ export default {
   computed: {},
   mounted() {
     this.fillData();
-    //console.log(this.datacollection)
+    //console.log(this.thumbData);
   },
   update() {
     //this.fillData()

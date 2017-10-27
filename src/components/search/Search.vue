@@ -1,5 +1,5 @@
 <template>
-  <main class="main-view center">
+  <main class="main-view">
     <p>
       검색
     </p>

@@ -17,6 +17,7 @@
     "axios": "^0.16.2",
     "chart.js": "^2.7.0",
     "es6-promise": "^4.1.1",
+    "json2csv": "^3.11.5",
     "lodash": "^4.17.4",
     "material-design-icons-iconfont": "^3.0.3",
     "moment": "^2.19.1",

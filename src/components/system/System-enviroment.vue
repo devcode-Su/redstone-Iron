@@ -1,8 +1,8 @@
 <template>
-  <section class="system-enviroment">
-    <p>
+  <article class="system-enviroment">
+    <h1>
       환경설정
-    </p>
+    </h1>
     <md-tabs>
       <md-tab id="set-local" md-label="내부 IP 대역 설정">
         <p>내부 IP 대역 설정 - 내용</p>
@@ -11,7 +11,7 @@
         <p>주요 IP 대역 - 내용</p>
       </md-tab>
     </md-tabs>
-  </section>
+  </article>
 </template>
 <script>
 export default {

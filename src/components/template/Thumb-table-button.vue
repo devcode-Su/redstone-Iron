@@ -1,26 +1,28 @@
 <template>
   <div class="template-thumb">
     <p>
-      썸네일 콤포넌트 테이블 + 버튼 <br> title : {{title}}
+      {{title}}
     </p>
-    <sort-button :weeks="weeks" @btnSortClick="sortData"></sort-button>
-    <div>
-      <template-table :columnSize="leng"></template-table>
-      <slot></slot>
+    <sort-button :categorize="categorize" @btnSortClick="sortData"></sort-button>
+    <div class="visual">
+      <template-table :columnSize="leng" :tabledata="datacollection"></template-table>
     </div>
   </div>
 </template>
 <script>
-import startProgressMixin from '../mixins/startProgressMixin'
-import restartProgressMixin from '../mixins/restartProgressMixin'
-import TemplateTable from './Template-table'
-import SortButton from './Sort-button'
+import startProgressMixin from "../mixins/startProgressMixin";
+import restartProgressMixin from "../mixins/restartProgressMixin";
+import TemplateTable from "./Template-table";
+import SortButton from "./Sort-button";
 export default {
-  name: '',
+  name: "",
   extends: {},
   props: {
     title: {
       type: String
+    },
+    thumbData: {
+      type: Array | Object
     }
   },
   data() {
@@ -30,17 +32,14 @@ export default {
       progressInterval: null,
       transition: true,
       count: 60,
-      progressColor: 'red',
-      weeks: [
-        { sort: "일일" },
-        { sort: "주간" },
-        { sort: "월간" }
-      ]
-    }
+      progressColor: "red",
+      categorize: ["일일", "주간", "월간"],
+      datacollection: {}
+    };
   },
   components: {
-    'template-table': TemplateTable,
-    'sort-button': SortButton
+    "template-table": TemplateTable,
+    "sort-button": SortButton
   },
   methods: {
     // startProgress() {
@@ -65,22 +64,26 @@ export default {
     //     this.idx = index
     //   }
     // }
-    sortData(sortNum){
-      console.log(sortNum)
-      this.restartProgress()
+    sortData(sortNum) {
+      this.fillData(sortNum);
+      console.log(this.datacollection.columns);
+    },
+    fillData(n) {
+      const insertData = this.thumbData;
+      if (n === undefined) n = 0;
+      this.datacollection = {
+        fields: insertData.fields,
+        columns: insertData.columns[n]
+      };
     }
   },
-  create() {
+  create() {},
+  mounted() {
+    this.fillData();
 
   },
-  mounted() {
-    this.startProgress();
-  },
-  mixins: [
-    startProgressMixin,
-    restartProgressMixin
-  ]
-}
+  mixins: [startProgressMixin, restartProgressMixin]
+};
 </script>
 <style lang='scss' scoped>
 

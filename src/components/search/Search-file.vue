@@ -1,9 +1,9 @@
 <template>
-  <section class="search-file">
-    <p>
+  <article class="search-file">
+    <h1>
       파일 검색
-    </p>
-  </section>
+    </h1>
+  </article>
 </template>
 <script>
 export default {

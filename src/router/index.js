@@ -5,6 +5,8 @@ import Index from '@/components/Index'
 import Iron from '../components/Iron'
 
 import Dashboard from '../components/dashboard/Dashboard'
+import Dashboard_basic from '../components/dashboard/Dashboard-basic'
+import Dashboard_systems from '../components/dashboard/Dashboard-systems'
 
 import Diagnosis from '../components/diagnosis/Diagnosis'
 import Threat_info from '../components/diagnosis/Threat-info'
@@ -52,7 +54,21 @@ export default new Router({
         },
         {
           path: 'Dashboard',
-          component: Dashboard
+          component: Dashboard,
+          children: [
+            {
+              path: '/',
+              redirect: 'Basic'
+            },
+            {
+              path: 'Basic',
+              component: Dashboard_basic
+            },
+            {
+              path: 'Systems',
+              component: Dashboard_systems
+            }
+          ]
         },
         {
           path: 'Diagnosis',

@@ -1,9 +1,9 @@
 <template>
-  <section class="security-media">
-    <p>
+  <article class="security-media">
+    <h1>
       매체접근
-    </p>
-  </section>
+    </h1>
+  </article>
 </template>
 <script>
 export default {

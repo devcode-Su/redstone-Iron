@@ -1,75 +1,57 @@
 <template>
   <div class="template-table" :class="{ 'col3' : 3 === columnSize }">
-    <table class="table-area">
-      <thead>
-        <tr>
-          <th>
-            th
-          </th>
-          <th>
-            th
-          </th>
-          <th>
-            th
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{bla}}</td>
-          <td>td</td>
-          <td>td</td>
-        </tr>
-      </tbody>
-    </table>
+    <md-table>
+      <md-table-header>
+        <md-table-row>
+          <md-table-head v-for="th in tabledata.fields" :key="th.id">{{th}}</md-table-head>
+        </md-table-row>
+      </md-table-header>
+
+      <md-table-body>
+        <md-table-row v-for="(row, index) in tabledata.columns" :key="index">
+          <md-table-cell v-for="(col, index) in row" :key="index" md-numeric>{{col}}</md-table-cell>
+        </md-table-row>
+      </md-table-body>
+    </md-table>
   </div>
 </template>
 <script>
 export default {
-  name: 'TemplateTable',
+  name: "TemplateTable",
   extends: {},
   props: {
     columnSize: {
       type: Number
+    },
+    tabledata:{
+      type: Object | Array
     }
   },
   data() {
-    return {
-      bla: "bla bla bla bla bla bla bla bla bla"
-
-    }
+    return {};
   },
-  components: {
-
-  },
-  methods: {
-
-  },
-}
+  components: {},
+  methods: {},
+  mounted(){
+    //console.log(this.tabledata)
+  }
+};
 </script>
 <style lang='scss' scoped>
-@import "../../assets/styles/mixins.scss";
 @import "../../assets/styles/variables.scss";
 
 .template-table {
   border-top: 2px solid;
   border-bottom: 1px solid;
-  table {
-    width: 100%;
-    table-layout: fixed;
-  }
+
   thead {
     background-color: $color_main;
-    th {
-      line-height: 28px
-    }
   }
   tbody {
     tr {
       border-top: 1px solid;
     }
     td {
-      line-height: 23px;
       &:first-child {
         @include ellipsis;
       }
@@ -84,7 +66,7 @@ export default {
     }
   }
   td {
-    @extend th
+    @extend th;
   }
   &.col3 {
     th {
@@ -93,7 +75,7 @@ export default {
       }
     }
     td {
-      @extend th
+      @extend th;
     }
   }
 }

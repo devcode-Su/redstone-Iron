@@ -1,8 +1,8 @@
 <template>
   <div class="table-fn-wrap">
-    <button>excel</button>
+    <button @click="exportCsv()">excel</button>
     <md-table-card>
-      <md-table id="table_wrpper" md-sort="enddate" @select="onSelect" @sort="reOrder">
+      <md-table id="table_wrpper" md-sort="enddate" @select="onSelect" @sort="reOrder" ref="table">
         <md-table-header>
           <md-table-row>
             <md-table-head md-sort-by="item">진단항목</md-table-head>
@@ -10,20 +10,19 @@
             <md-table-head md-sort-by="count">진단 건수</md-table-head>
             <md-table-head md-sort-by="danger">위험도</md-table-head>
             <md-table-head md-sort-by="startdate">부서</md-table-head>
-            <md-table-head md-sort-by="enddate">부서</md-table-head>
-            <md-table-head ></md-table-head>
+            <md-table-head md-sort-by="enddate" class="">부서</md-table-head>
           </md-table-row>
         </md-table-header>
         <md-table-body>
           <md-table-row v-for="(item, i) in getCurrentPageData" :key="item.id">
-            <md-table-cell>{{ item.item }}</md-table-cell>
-            <md-table-cell>{{ item.searchname }}</md-table-cell>
-            <md-table-cell>{{ item.count }}</md-table-cell>
-            <md-table-cell>{{ item.danger }}</md-table-cell>
-            <md-table-cell>{{ item.startdate }}</md-table-cell>
-            <md-table-cell>{{ item.enddate }}</md-table-cell>
-            <md-table-cell>
-              <md-butto @click="btnMore(i)">더보기</md-butto>
+            <md-table-cell><span>{{ item.item }}</span></md-table-cell>
+            <md-table-cell><span>{{ item.searchname }}</span></md-table-cell>
+            <md-table-cell><span>{{ item.count }}</span></md-table-cell>
+            <md-table-cell><span>{{ item.danger }}</span></md-table-cell>
+            <md-table-cell><span>{{ item.startdate }}</span></md-table-cell>
+            <md-table-cell class="insert-button">
+              <span>{{ item.enddate }}</span>
+              <md-button @click="btnMore(i)">더보기</md-button>
             </md-table-cell>
           </md-table-row>
         </md-table-body>
@@ -38,14 +37,13 @@
       @pagination="onPagination">
       </md-table-pagination>
     </md-table-card>
-<template-pagination :records="orderedItems.length" :perpage="dataOnPage.length"></template-pagination>
   </div>
 </template>
 <script>
 import _ from "lodash";
 import reOrderMixin from "../mixins/reOrderMixin";
+//import CsvExport from "../../utils/CsvExport";
 
-import TemplatePagination from "../template/Template-pagination";
 export default {
   name: "TemplateTabelfn",
   extends: {},
@@ -161,9 +159,7 @@ export default {
       );
     }
   },
-  components: {
-    "template-pagination": TemplatePagination
-  },
+  components: {},
   methods: {
     onPagination(paging) {
       this.currentPage = paging.page;
@@ -175,6 +171,15 @@ export default {
     },
     btnMore(index) {
       console.log(index);
+    },
+    exportCsv() {
+      let columns = this.$refs.table.$children.filter(t => t.prop != null);
+      console.log();
+      console.log(columns);
+      console.log(this.$refs.table.$children);
+      // const fields = columns.map(t => t.prop);
+      // const fieldNames = columns.map(t => t.label);
+      // CsvExport(this.tableData, fields, fieldNames, "列表");
     }
   },
   mixins: [reOrderMixin]
@@ -182,4 +187,7 @@ export default {
 </script>
 <style lang='scss' scoped>
 
+.md-table .md-table-cell .md-button:last-child{
+  margin:0;
+}
 </style>

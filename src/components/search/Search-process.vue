@@ -1,9 +1,9 @@
 <template>
-  <section class="search-process">
-    <p>
+  <article class="search-process">
+    <h1>
       프로세스 검색
-    </p>
-  </section>
+    </h1>
+  </article>
 </template>
 <script>
 export default {

@@ -1,21 +1,22 @@
 <template>
-  <main class="main-view">
-    <router-view></router-view>
-  </main>
+  <section class="dashboard-systems">
+    <p>
+      시스템
+    </p>
+  </section>
 </template>
 <script>
 export default {
-  name: "Diagnosis",
+  name: "DashboardSystems",
   extends: {},
   props: {},
   data() {
     return {};
   },
-  component: {},
+  components: {},
   methods: {}
 };
 </script>
 <style lang='scss' scoped>
 
 </style>
-

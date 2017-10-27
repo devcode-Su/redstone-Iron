@@ -1,37 +1,63 @@
 <template>
   <div class="template-thumb">
     <p>
-      썸네일 콤포넌트 테이블<br> title : {{title}}
+      {{title}}
     </p>
-    <template-table></template-table>
-    <slot></slot>
+    <div class="visual">
+      <template-table :columnSize="columsize" :tabledata="thumbData"></template-table>
+    </div>
   </div>
 </template>
 <script>
-import TemplateTable from './Template-table'
-
+import startProgressMixin from "../mixins/startProgressMixin";
+import restartProgressMixin from "../mixins/restartProgressMixin";
+import TemplateTable from "./Template-table";
 export default {
-  name: 'ThumbTable',
+  name: "",
   extends: {},
   props: {
     title: {
       type: String
+    },
+    thumbData: {
+      type: Array | Object
     }
   },
   data() {
     return {
-
+      datacollection: {}
+    };
+  },
+  computed: {
+    columsize() {
+      return this.thumbData.fields.length;
     }
   },
   components: {
-    'template-table': TemplateTable
+    "template-table": TemplateTable
   },
   methods: {
-
+    // sortData(sortNum){
+    //   console.log(sortNum)
+    //   this.restartProgress()
+    // },
+    // fillData(n) {
+    //   const insertData = this.thumbData;
+    //   if (n === undefined) n = 0;
+    //   this.datacollection = {
+    //     fields: insertData.fields,
+    //     columns: insertData.columns
+    //   };
+    // },
   },
-}
+  create() {},
+  mounted() {
+    //this.fillData();
+    //console.log(this.thumbData);
+  },
+  mixins: [startProgressMixin, restartProgressMixin]
+};
 </script>
 <style lang='scss' scoped>
-@import "../../assets/styles/mixins.scss";
-@import "../../assets/styles/variables.scss";
+
 </style>

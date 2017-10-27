@@ -3,6 +3,7 @@
     <iron-header>
       <md-button class="md-dense group-menu" :class="{ 'active': selected }" @click="btnToggle" >
         <md-icon>menu</md-icon>
+        <md-tooltip class="group-tooltip" md-direction="right">조직도</md-tooltip>
       </md-button>
     </iron-header>
     <div class="iron-content">
@@ -81,20 +82,18 @@ aside {
 
 .main-view {
   flex: 1;
+  display: flex;
+  justify-content: center;
   padding: 25px 30px;
   background-color: $color_main;
   -webkit-box-shadow: 0 0 10px gray inset;
   -moz-box-shadow: 0 0 10px gray inset;
   box-shadow: 0 0 10px gray inset;
   overflow-y: auto;
-  &.center{
-    display:flex;
-    justify-content: center;
-    >article{
-      flex:1 0 auto;
-      width:800px;
-      max-width:1200px;
-    }
+  > article {
+    flex: 1 0 auto;
+    width: 800px;
+    max-width: 1600px;
   }
 }
 
@@ -121,6 +120,20 @@ aside {
       &.active {
         color: $color_highlight;
         background-color: transparent;
+      }
+    }
+    .md-tooltip {
+      min-width: 60px;
+      padding: 0 3px;
+      left: 33px !important;
+      font-size: 12px;
+      line-height: 20px;
+      text-align: center;
+      background-color: rgba(26, 34, 47, 0.8);
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+        0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      &.group-tooltip {
+        margin-top: -7px;
       }
     }
   }

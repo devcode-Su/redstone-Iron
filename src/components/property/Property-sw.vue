@@ -1,8 +1,8 @@
 <template>
-  <section class="property-sw">
-    <p>
+  <article class="property-sw">
+    <h1>
       SW 정보
-    </p>
+    </h1>
     <md-tabs>
       <md-tab id="sw-operatingsystem" md-label="운영체제">
         <p>운영체제 - 내용</p>
@@ -14,7 +14,7 @@
         <p>소프트웨어 - 내용</p>
       </md-tab>
     </md-tabs>
-  </section>
+  </article>
 </template>
 <script>
 export default {

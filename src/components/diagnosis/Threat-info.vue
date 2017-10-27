@@ -5,7 +5,6 @@
     </h1>
     <template-search-pannel></template-search-pannel>
     <tem-plate-tablefn></tem-plate-tablefn>
-
   </article>
 </template>
 <script>

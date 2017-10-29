@@ -91,9 +91,19 @@ aside {
   box-shadow: 0 0 10px gray inset;
   overflow-y: auto;
   > article {
-    flex: 1 0 auto;
-    width: 800px;
-    max-width: 1600px;
+    flex:1;
+    > section{
+      width:100%;
+      min-width:800px;
+      max-width:1600px;
+      margin:0 auto;
+      h1{
+        display:inline-block;
+        padding:3px 5px;
+        font-size:16px;
+        border-bottom:2px solid color(highlight);
+      }
+    }
   }
 }
 

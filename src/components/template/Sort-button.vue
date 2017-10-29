@@ -35,9 +35,9 @@ export default {
 @import "../../assets/styles/variables.scss";
 .md-button-toggle {
   // toggle button
-  width:160px;
+  //width:160px;
   border: 1px solid $color_border_dark;
-  @include border-radius(5px);
+  //@include border-radius(5px);
   overflow: hidden;
   .md-button {
     flex: 1 0 auto;

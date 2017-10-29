@@ -126,10 +126,11 @@ export default {
   padding: 6px;
   line-height: 22px;
   font-size: 16px;
-  border: 2px solid #fff;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 2px;
   color: #5f5f5f;
+  background:#fff url(../../assets/images/date-icon.jpg) no-repeat right 5px center;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  border: 2px solid #fff;
+  border-radius: 2px;
 }
 .hour-item,
 .min-item {

@@ -1,6 +1,5 @@
 <template>
   <md-dialog md-open-from="#process" md-close-to="#process" ref="dialog" v-bind="openDialog(target.show, target.name)">
-    <md-dialog-title>프로세스 트리</md-dialog-title>
     <md-dialog-content>
       <section class="process-tree">
         <h1>프로세스 트리</h1>
@@ -12,7 +11,7 @@
             <div class="info-wrap">
               <dl v-for="dl in list.info" :key="dl.id">
                 <dt>
-                  <md-icon>fiber_manual_record</md-icon>
+                  <md-icon class="dot">fiber_manual_record</md-icon>
                   {{dl.dt}}
                   </dt>
                 <dd>{{dl.dd}}</dd>
@@ -23,7 +22,7 @@
       </section>
     </md-dialog-content>
     <md-dialog-actions>
-      <md-button class="md-primary" @click="closeDialog('dialog')">Close</md-button>
+      <md-button @click="closeDialog('dialog')">Close</md-button>
     </md-dialog-actions>
   </md-dialog>
 </template>
@@ -139,7 +138,11 @@ export default {
       h1 {
         margin: 0;
         line-height: 42px;
+        font-size:18px;
+        font-weight:500;
         text-align: center;
+        color:color(white);
+        background-color:#6e8d9f;
       }
       .process-tree {
         min-width: 830px;
@@ -165,15 +168,17 @@ export default {
             line-height: 42px;
             border-top: 0 none;
             &.on {
-              height: 404px;
+              height: 450px;
             }
             span {
+              font-size:18px;
+              font-weight:500;
               color: color(white);
               background-color: #4e6f82;
             }
           }
           &.on {
-            height: 394px;
+            height: 440px;
             span {
               font-weight: bold;
             }
@@ -196,11 +201,10 @@ export default {
           min-width: 130px;
           padding-left:15px;
           position:relative;
-          .md-icon{
+          .md-icon.dot{
             top:20px;
             left: 0;
             color:#1C5BBC;
-            @include iconsize(6px)
           }
         }
         dd {
@@ -212,7 +216,10 @@ export default {
 }
 
 .md-dialog-actions {
+  min-height:auto;
+  padding:0;
   position: absolute;
+  top:-35px;
   right: 0;
 }
 </style>

@@ -1,15 +1,17 @@
 <template>
   <article class="threat-info">
-    <h1>
-      위협정보기반
-    </h1>
-    <template-search-pannel></template-search-pannel>
-    <tem-plate-tablefn></tem-plate-tablefn>
+    <section>
+      <h1>
+        위협정보기반
+      </h1>
+      <template-search-pannel :setData="['engine']"></template-search-pannel>
+      <template-tablefn></template-tablefn>
+    </section>
   </article>
 </template>
 <script>
 import TemplateSearchPannel from "../template/Template-search-pannel"
-import TemPlateTablefn from '../template/Template-table-fn'
+import TemplateTablefn from '../template/Template-table-fn'
 
 export default {
   name: "ThreatInfo",
@@ -20,7 +22,7 @@ export default {
   },
   components: {
     TemplateSearchPannel,
-    TemPlateTablefn
+    TemplateTablefn
   },
   methods: {}
 };

@@ -4,9 +4,9 @@
       <group-management></group-management>
       <group-user-search :items="items"></group-user-search>
       <ul class="group-notice">
-        <li>전체 AGENT : 15</li>
-        <li>현재 접속 : 3</li>
-        <li>일주일 이상 미 접속 : 1</li>
+        <li><md-icon class="dot all">fiber_manual_record</md-icon>전체 AGENT : 15</li>
+        <li><md-icon class="dot now">fiber_manual_record</md-icon>현재 접속 : 3</li>
+        <li><md-icon class="dot not">fiber_manual_record</md-icon>일주일 이상 미 접속 : 1</li>
       </ul>
       <slot></slot>
     </div>
@@ -186,6 +186,23 @@ export default {
   @at-root {
     .group-notice {
       padding: 10px 5px;
+      li{
+        position:relative;
+        padding-left:20px;
+        line-height:24px;
+      }
+      .dot{
+        left:8px;
+        &.all{
+          color:#3a49d8
+        }
+        &.now{
+          color:#0072ff
+        }
+        &.not{
+          color:#5d5d5d
+        }
+      }
     }
   }
 }

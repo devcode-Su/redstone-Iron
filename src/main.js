@@ -1,25 +1,26 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
+import Vue from 'vue';
 
-import 'es6-promise/auto'
-import VueMaterial from 'vue-material'
-import 'vue-material/dist/vue-material.css'
-import materialIcons from 'material-design-icons-iconfont/dist/material-design-icons.css'
+import 'babel-polyfill';
+import 'es6-promise/auto';
+import VueMaterial from 'vue-material';
+import 'vue-material/dist/vue-material.css';
+import materialIcons from 'material-design-icons-iconfont/dist/material-design-icons.css';
 
-import router from './router'
-import axios from 'axios'
+import router from './router';
+import axios from 'axios';
 
-import App from './App'
+import App from './App';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 // axios
-Vue.prototype.$http = axios
+Vue.prototype.$http = axios;
 
 // Fillters
 Vue.filter('snippet', value => {
-  return value.slice(0, 100) + '...'
+  return value.slice(0, 100) + '...';
 });
 
 // vue-Material

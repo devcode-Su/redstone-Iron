@@ -1,101 +1,48 @@
-<template>
-  <article id="dashboard" class="dashboard-basic">
-    <h1>
-      Dashboard 기본정보
-    </h1>
-    <section class="basic-pannel section-wrap">
-      <dl class="pannel-content first">
-        <dt>센서 현황</dt>
-        <dd>19,380 /
-          <small>20,789</small>
-        </dd>
-      </dl>
-      <dl class="pannel-content">
-        <dt>일간 프로세스탐지</dt>
-        <dd>19M</dd>
-      </dl>
-      <dl class="pannel-content">
-        <dt>일간 네트워크 탐지</dt>
-        <dd>380K</dd>
-      </dl>
-    </section>
-    <!-- <section>
-      메인 차트 예제
-      <dashboard-chart-e></dashboard-chart-e>
-    </section> -->
-    <section class="section-wrap">
-      <dashboard-chart></dashboard-chart>
-    </section>
-
-    <section class="section-wrap">
-      <dashboard-dialog-table></dashboard-dialog-table>
-    </section>
-
-    <section class="component-thumb">
-      <draggable v-model="userSets" class="thumb-wrap">
-        <transition-group type="transition" name="thumb" tag="ul" class="thumb-wrap">
-          <li class="thumb-item" v-for="(userSet, index) in userSets" :key="userSet.title">
-            <component :is="userSet.type" :title="userSet.title" :thumb-data="userSet.data"></component>
-            <router-link tag="md-button" to="#" class="md-raised">More</router-link>
-            <md-button class="md-dense" @click="removeThumb(userSets, index)">
-              <md-icon>delete</md-icon>
-            </md-button>
-          </li>
-        </transition-group>
-      </draggable>
-    </section>
-  </article>
-</template>
-
-<script>
-import draggable from "vuedraggable";
+<template><article id="dashboard" class="dashboard-basic"><h1>Dashboard 기본정보 </h1><section class="basic-pannel section-wrap"><dl class="pannel-content first"><dt>센서 현황</dt><dd>19,
+380 / <small>20,
+789</small></dd></dl><dl class="pannel-content"><dt>일간 프로세스탐지</dt><dd>19M</dd></dl><dl class="pannel-content"><dt>일간 네트워크 탐지</dt><dd>380K</dd></dl></section><!-- <section>메인 차트 예제 <dashboard-chart-e></dashboard-chart-e></section>--><section class="section-wrap"><dashboard-chart></dashboard-chart></section><section class="section-wrap"><dashboard-dialog-table></dashboard-dialog-table></section><section class="component-thumb"><draggable v-model="userSets" class="thumb-wrap"><transition-group type="transition" name="thumb" tag="ul" class="thumb-wrap"><li class="thumb-item" v-for="(userSet, index) in userSets" :key="userSet.title"><component :is="userSet.type" :title="userSet.title" :thumb-data="userSet.data"></component><router-link tag="md-button" to="#" class="md-raised">More</router-link><md-button class="md-dense" @click="removeThumb(userSets, index)"><md-icon>delete</md-icon></md-button></li></transition-group></draggable></section></article></template><script>import draggable from "vuedraggable";
 import DashboardChart from "./Dashboard-chart";
 import DashboardChartE from "./Dashboard-chart_e";
 import DashboardDialogTabel from "./Dashboard-dialog-table";
 import ThumbHorizonBar from "../template/Thumb-horizon-bar";
 import ThumbTable from "../template/Thumb-table";
 import ThumbTableBtn from "../template/Thumb-table-button";
-
 export default {
   // 이름 적는 것을 잊지마세요
-  name: "Dashboard",
-  // compose new components
-  extends: {},
-  // 컴포넌트 어트리뷰트 그룹
+  name: "Dashboard", // compose new components
+  extends: {}
+  , // 컴포넌트 어트리뷰트 그룹
   props: {
-    bar: {}, // 알파벳순으로 정렬합니다
-    foo: {},
+    bar: {}
+    , // 알파벳순으로 정렬합니다
+    foo: {}
+    ,
     fooBar: {}
-  },
-  // 컴포넌트 변수 그룹
+  }
+  , // 컴포넌트 변수 그룹
   data() {
     return {
-      userSets: [],
-      test: ""
-    };
-  },
+      userSets: [], test: ""
+    }
+    ;
+  }
+  ,
   computed: {
     listString() {
       return JSON.stringify(this.userSets, null, 2);
     }
-  },
-  // 컴포넌트가 다른 컴포넌트를 사용할 경우
+  }
+  , // 컴포넌트가 다른 컴포넌트를 사용할 경우
   components: {
-    "dashboard-chart": DashboardChart,
-    "dashboard-chart-e": DashboardChartE,
-    "thumb-horizon-bar": ThumbHorizonBar,
-    "thumb-table": ThumbTable,
-    "thumb-table-btn": ThumbTableBtn,
-    "dashboard-dialog-table": DashboardDialogTabel,
-    draggable
-  },
-  // 컴포넌트 메서드 그룹
-  watch: {},
+    "dashboard-chart": DashboardChart, "dashboard-chart-e": DashboardChartE, "thumb-horizon-bar": ThumbHorizonBar, "thumb-table": ThumbTable, "thumb-table-btn": ThumbTableBtn, "dashboard-dialog-table": DashboardDialogTabel, draggable
+  }
+  , // 컴포넌트 메서드 그룹
+  watch: {}
+  ,
   methods: {
     removeThumb(arr, index) {
       arr.splice(index, 1);
-    }
-    // csvExport() {
+    } // csvExport() {
     //   var csvContent = "data:text/csv;charset=utf-8,";
     //   csvContent += this.userSets.map(function(d){
     //     console.log(d);
@@ -105,27 +52,31 @@ export default {
     //   .replace(/(^\{)|(\}$)/mg, '');
     //   window.open( encodeURI(csvContent) );
     // }
-  },
-  // 컴포넌트 라이프사이클 메서드 그룹
+  }
+  , // 컴포넌트 라이프사이클 메서드 그룹
   created() {
-    const apiUrl = "/static/data/userset.json";
-    let promise = [];
-    this.$http.get(apiUrl).then(result => {
-      result.data.forEach(item => {
+    const apiUrl="/static/data/userset.json";
+    let promise=[];
+    this.$http.get(apiUrl).then(result=> {
+      result.data.forEach(item=> {
         if (item.hasOwnProperty("url")) {
-          promise.push(
-            this.$http.get(item.url).then(r => {
-              item.data = r.data;
-            })
-          );
+          promise.push( this.$http.get(item.url).then(r=> {
+            item.data=r.data;
+          }
+          ));
         }
-      });
-      Promise.all(promise).then(() => {
-        this.userSets = result.data;
-      });
-    });
-    window.localStorage.setItem("name", {});
-  },
+      }
+      );
+      Promise.all(promise).then(()=> {
+        this.userSets=result.data;
+      }
+      );
+    }
+    );
+    window.localStorage.setItem("name", {}
+    );
+  }
+  ,
   mounted() {
     //this.$nextTick(() => {
     // console.log("next")
@@ -139,12 +90,12 @@ export default {
     //console.log(componentHandler.upgradeDom(this.$el))
     //})
   }
-};
-</script>
+}
 
+;
+</script>
 <style lang="scss" scoped>
 @import "../../assets/styles/variables.scss";
-
 #dashboard {
   .md-button {
     position: absolute;
@@ -252,4 +203,5 @@ export default {
 .thumb-leave-to {
   opacity: 0;
 }
+
 </style>

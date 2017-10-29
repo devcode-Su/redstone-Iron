@@ -84,6 +84,7 @@ header {
           height: 50px;
           margin-left: 0;
           position: absolute;
+          top:0;
           left: 0;
           color: $color_icon;
           background-color: $color_default;

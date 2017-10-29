@@ -4,7 +4,7 @@
       {{title}}
     </p>
     <sort-button :categorize="categorize" @btnSortClick="sortData"></sort-button>
-    <div class="visual">
+    <div class="visual table">
       <template-table :columnSize="leng" :tabledata="datacollection"></template-table>
     </div>
   </div>

@@ -22,7 +22,10 @@
             <md-table-cell><span>{{ item.startdate }}</span></md-table-cell>
             <md-table-cell class="insert-button">
               <span>{{ item.enddate }}</span>
-              <md-button @click="btnMore(i)">더보기</md-button>
+              <md-button @click="btnMore(i)" class="btn-more">
+                보기
+                <md-icon>title</md-icon>
+              </md-button>
             </md-table-cell>
           </md-table-row>
         </md-table-body>
@@ -189,5 +192,8 @@ export default {
 
 .md-table .md-table-cell .md-button:last-child{
   margin:0;
+}
+.md-table-pagination{
+  flex:none
 }
 </style>

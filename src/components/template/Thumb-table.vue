@@ -3,7 +3,7 @@
     <p>
       {{title}}
     </p>
-    <div class="visual">
+    <div class="visual table">
       <template-table :columnSize="columsize" :tabledata="thumbData"></template-table>
     </div>
   </div>

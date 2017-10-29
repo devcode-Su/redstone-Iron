@@ -11,8 +11,8 @@
   &.md-table-pagination-previous {
     // pagination
     .md-icon {
-      top: 50%;
-      left: 50%;
+      top: 50% !important;
+      left: 50% !important;
     }
   }
 }
@@ -48,6 +48,16 @@
   -moz-osx-font-smoothing: grayscale;
   /* Support for IE. */
   font-feature-settings: 'liga';
+  &.dot{
+    @include iconsize(6px)
+  }
+}
+
+.md-chip{
+  .md-icon{
+    top: 50% !important;
+    left: 50% !important;
+  }
 }
 
 .md-clear-input {
@@ -106,6 +116,11 @@
       text-align: center;
     }
   }
+  .visual{
+    .md-table-cell-container {
+      padding: 8px 1%;
+    }
+  }
   .insert-button{
     .md-table-cell-container{
       justify-content: center;
@@ -113,7 +128,7 @@
         min-width:25px;
       }
       .md-button{
-        margin-left:5px;
+        margin-left:10px;
       }
       .md-icon{
         top:50%;
@@ -138,9 +153,21 @@
   }
 }
 
+// table
 .md-table table {
   overflow: visible
 }
+
+// sort button -dashboard
+.dashboard-basic{
+  .md-button-toggle {
+    // toggle button
+    width: 160px;
+    border: 1px solid $color_border_dark;
+    @include border-radius(5px);
+  }
+}
+
 
 // use template
 .template-thumb {
@@ -159,7 +186,14 @@
     position:absolute;
   }
   .visual{
-    margin-top:42px
+    margin-top:42px;
+    &.table{
+      margin-top:50px;
+    }
+    .md-table-head-container{
+      height:48px;
+      padding:12px 0;
+    }
   }
   .md-table-head-container{
     height:38px;
@@ -182,4 +216,10 @@
   max-width: 1200px;
   height: 600px;
   padding: 10px;
+  overflow:visible;
+}
+
+// date picker
+.md-tabs-wrapper{
+  height:100%;
 }

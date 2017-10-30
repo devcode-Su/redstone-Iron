@@ -1,5 +1,5 @@
 <template>
-  <md-dialog md-open-from="#more" md-close-to="#more" ref="dialog" v-bind="openDialog(target.show, target.name)">
+  <md-dialog md-open-from="#mcustom" md-close-to="#mcustom" ref="dialog" v-bind="openDialog(target.show, target.name)">
     <md-dialog-content>
       <md-table v-once>
         <md-table-header>

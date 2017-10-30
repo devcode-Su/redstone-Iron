@@ -148,7 +148,11 @@
     },
     methods: {
       modal() {
-        this.dialog.show = true;
+        if(this.dialog.show !== true) this.dialog.show = true;
+        else{
+          this.dialog.show = false;
+          this.dialog.show = true
+        }
       },
       getRandomInt() {
         return Math.floor(Math.random() * (100 - 5 + 1)) + 5;

@@ -1,5 +1,5 @@
 <template>
-  <md-dialog md-open-from="#process" md-close-to="#process" ref="dialog" v-bind="openDialog(target.show, target.name)">
+  <md-dialog md-open-from="#mcustom" md-close-to="#mcustom" ref="dialog" v-bind="openDialog(target.show, target.name)">
     <md-dialog-content>
       <section class="process-tree">
         <h1>프로세스 트리</h1>
@@ -105,6 +105,12 @@ export default {
     closeDialog(ref) {
       this.$refs[ref].close();
       this.target.show = false;
+    },
+    onOpen() {
+      console.log('Opened');
+    },
+    onClose(type) {
+      console.log('Closed', type);
     },
     // onOpen() {
     //   console.log('Opened');

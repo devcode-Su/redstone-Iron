@@ -6,18 +6,18 @@
       <h1>Dashboard 기본정보 </h1>
       <section class="basic-pannel section-wrap">
         <dl class="pannel-content first">
-          <dt>센서 현황</dt>
+          <dt class="sensor">센서 현황</dt>
           <dd>19, 380 /
             <small>20, 789
             </small>
           </dd>
         </dl>
         <dl class="pannel-content">
-          <dt>일간 프로세스탐지</dt>
+          <dt class="process">일간 프로세스탐지</dt>
           <dd>19M</dd>
         </dl>
         <dl class="pannel-content">
-          <dt>일간 네트워크 탐지</dt>
+          <dt class="network">일간 네트워크 탐지</dt>
           <dd>380K</dd>
         </dl>
       </section>
@@ -177,9 +177,19 @@ export default {
       }
     }
     dt {
-      padding: 5px 0 0 80px;
-      line-height: 36px;
+      padding: 5px 0 0 70px;
+      line-height: 40px;
       font-size: 20px;
+      background: no-repeat left center;
+      &.sensor {
+        background-image: url(../../assets/images/icon-sensor.png);
+      }
+      &.process {
+        background-image: url(../../assets/images/icon-process.png);
+      }
+      &.network {
+        background-image: url(../../assets/images/icon-network.png);
+      }
     }
     dd {
       margin: 0 10px 0 0;

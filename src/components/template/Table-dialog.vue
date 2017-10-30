@@ -10,7 +10,6 @@
             <md-table-head md-numeric>위험도</md-table-head>
           </md-table-row>
         </md-table-header>
-
         <md-table-body>
           <md-table-row v-for="(row, index) in propsData" :key="index">
             <md-table-cell>{{row.date}}</md-table-cell>
@@ -21,7 +20,6 @@
         </md-table-body>
       </md-table>
     </md-dialog-content>
-
     <md-dialog-actions>
       <md-button class="md-primary" @click="closeDialog('dialog')">Close</md-button>
     </md-dialog-actions>
@@ -41,26 +39,26 @@ export default {
       propsData: [
         {
           date: "2017-09-13",
-          path: "C:\Program Files ~~~~~\*.exe",
-          pipe: "C:\Users\~~~~~",
+          path: "C:Program Files ~~~~~*.exe",
+          pipe: "C:Users~~~~~",
           danger: 70
         },
         {
           data: "2017-09-13",
-          path: "C:\Program Files ~~~~~\*.exe",
-          pipe: "C:\Users\~~~~~",
+          path: "C:Program Files ~~~~~*.exe",
+          pipe: "C:Users~~~~~",
           danger: 70
         },
         {
           data: "2017-09-13",
-          path: "C:\Program Files ~~~~~\*.exe",
-          pipe: "C:\Users\~~~~~",
+          path: "C:Program Files ~~~~~*.exe",
+          pipe: "C:Users~~~~~",
           danger: 70
         },
         {
           data: "2017-09-13",
-          path: "C:\Program Files ~~~~~\*.exe",
-          pipe: "C:\Users\~~~~~",
+          path: "C:Program Files ~~~~~*.exe",
+          pipe: "C:Users~~~~~",
           danger: 70
         }
       ]

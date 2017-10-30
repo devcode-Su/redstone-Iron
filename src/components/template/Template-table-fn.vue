@@ -189,11 +189,10 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
-
-.md-table .md-table-cell .md-button:last-child{
-  margin:0;
+.md-table .md-table-cell .md-button:last-child {
+  margin: 0;
 }
-.md-table-pagination{
-  flex:none
+.md-table-pagination {
+  flex: none;
 }
 </style>

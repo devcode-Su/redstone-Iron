@@ -1,11 +1,12 @@
 <template>
-<div class="template-datepickker" v-if="picker">
-  <date-picker :date="startDate" :option="dayoption"></date-picker> ~ <date-picker :date="endDate" :option="dayoption"></date-picker>
-
-</div>
-<div class="template-datepickker" v-else>
-  <date-picker :date="startDate" :option="timeoption"></date-picker> ~ <date-picker :date="endTime" :option="timeoption"></date-picker>
-</div>
+  <div class="template-datepickker" v-if="picker">
+    <date-picker :date="startDate" :option="dayoption"></date-picker> ~
+    <date-picker :date="endDate" :option="dayoption"></date-picker>
+  </div>
+  <div class="template-datepickker" v-else>
+    <date-picker :date="startDate" :option="timeoption"></date-picker> ~
+    <date-picker :date="endTime" :option="timeoption"></date-picker>
+  </div>
 </template>
 <script>
 import myDatepicker from "vue-datepicker/vue-datepicker-es6.vue";
@@ -21,8 +22,8 @@ export default {
   name: "",
   extends: {},
   props: {
-    picker : {
-      type : Boolean
+    picker: {
+      type: Boolean
     }
   },
   data() {
@@ -104,7 +105,7 @@ export default {
       limit: [
         {
           type: "weekday",
-          available: [1,2,3,4,5,6,7,8]
+          available: [1, 2, 3, 4, 5, 6, 7, 8]
         },
         {
           type: "fromto",
@@ -127,11 +128,13 @@ export default {
   line-height: 22px;
   font-size: 16px;
   color: #5f5f5f;
-  background:#fff url(../../assets/images/date-icon.jpg) no-repeat right 5px center;
+  background: #fff url(../../assets/images/date-icon.jpg) no-repeat right 5px
+    center;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
   border: 2px solid #fff;
   border-radius: 2px;
 }
+
 .hour-item,
 .min-item {
   line-height: 1 !important;

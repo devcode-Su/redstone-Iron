@@ -80,7 +80,6 @@ export default {
   create() {},
   mounted() {
     this.fillData();
-
   },
   mixins: [startProgressMixin, restartProgressMixin]
 };

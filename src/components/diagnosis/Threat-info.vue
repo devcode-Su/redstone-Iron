@@ -10,8 +10,8 @@
   </article>
 </template>
 <script>
-import TemplateSearchPannel from "../template/Template-search-pannel"
-import TemplateTablefn from '../template/Template-table-fn'
+import TemplateSearchPannel from "../template/Template-search-pannel";
+import TemplateTablefn from "../template/Template-table-fn";
 
 export default {
   name: "ThreatInfo",

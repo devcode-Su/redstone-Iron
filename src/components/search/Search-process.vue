@@ -10,25 +10,21 @@
   </article>
 </template>
 <script>
-import TemplateSearchPannel from "../template/Template-search-pannel"
-import TemplateTablefn from '../template/Template-table-fn'
+import TemplateSearchPannel from "../template/Template-search-pannel";
+import TemplateTablefn from "../template/Template-table-fn";
 export default {
-  name: 'Process',
+  name: "Process",
   extends: {},
   props: {},
   data() {
-    return {
-
-    }
+    return {};
   },
   components: {
-TemplateSearchPannel,
+    TemplateSearchPannel,
     TemplateTablefn
   },
-  methods: {
-
-  },
-}
+  methods: {}
+};
 </script>
 <style lang='scss' scoped>
 

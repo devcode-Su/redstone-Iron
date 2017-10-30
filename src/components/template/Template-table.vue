@@ -23,7 +23,7 @@ export default {
     columnSize: {
       type: Number
     },
-    tabledata:{
+    tabledata: {
       type: Object | Array
     }
   },
@@ -32,7 +32,7 @@ export default {
   },
   components: {},
   methods: {},
-  mounted(){
+  mounted() {
     //console.log(this.tabledata)
   }
 };

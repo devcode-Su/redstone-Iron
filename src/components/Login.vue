@@ -28,7 +28,6 @@
 </template>
 
 <script>
-
 export default {
   name: "Login",
   props: {
@@ -49,15 +48,15 @@ export default {
       isLoading: false,
       submitBtn: false,
       rememberMe: false,
-      userName: '',
-      passWord: ''
-    }
+      userName: "",
+      passWord: ""
+    };
   },
   watch: {
     loginFailedMsg() {
-      if (this.loginFailedMsg !== '') {
-        this.isLoading = false
-        this.submitBtn = false
+      if (this.loginFailedMsg !== "") {
+        this.isLoading = false;
+        this.submitBtn = false;
       }
     }
   },
@@ -74,40 +73,42 @@ export default {
 
       // 'key=value; expires=current dateTime in UTC; path=/'
       if (this.rememberMe) {
-        let d = new Date()
-        d.setTime(d.getTime() + (180 * 24 * 60 * 60 * 1000)) //
-        document.cookie = 'username=' + username + ';expires=' + d.toUTCString() + ';path=/'
-        document.cookie = 'password=' + password + ';expires=' + d.toUTCString() + ';path=/'
+        let d = new Date();
+        d.setTime(d.getTime() + 180 * 24 * 60 * 60 * 1000); //
+        document.cookie =
+          "username=" + username + ";expires=" + d.toUTCString() + ";path=/";
+        document.cookie =
+          "password=" + password + ";expires=" + d.toUTCString() + ";path=/";
         //console.log('We just set the cookies: ' + document.cookie)
       } else {
-        document.cookie = 'username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
-        document.cookie = 'password=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
+        document.cookie =
+          "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie =
+          "password=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         //console.log('We just deleted the cookies: ' + document.cookie)
       }
 
-      this.isLoading = true
-      this.submitBtn = true
+      this.isLoading = true;
+      this.submitBtn = true;
 
-      this.$emit('loginCrendentials', {
-        'username': username,
-        'password': password,
-      })
+      this.$emit("loginCrendentials", {
+        username: username,
+        password: password
+      });
 
       this.checkInputEmpty(username, password);
     },
     checkInputEmpty(u, p) {
-      if (u === '' || p === '') {
+      if (u === "" || p === "") {
         this.isLoading = false;
         this.submitBtn = false;
-        if (u === '' && p === '') {
+        if (u === "" && p === "") {
           this.isIdRequired = true;
           this.isPassRequired = true;
-        }
-        else if (u === '') {
+        } else if (u === "") {
           this.isIdRequired = true;
           this.isPassRequired = false;
-        }
-        else if (p === '') {
+        } else if (p === "") {
           this.isIdRequired = false;
           this.isPassRequired = true;
         }
@@ -115,25 +116,28 @@ export default {
         this.isIdRequired = false;
         this.isPassRequired = false;
       }
-
     }
   },
   mounted() {
-    let username = document.cookie.match('(^|;)\\s*' + 'username' + '\\s*=\\s*([^;]+)')
-    let password = document.cookie.match('(^|;)\\s*' + 'password' + '\\s*=\\s*([^;]+)')
+    let username = document.cookie.match(
+      "(^|;)\\s*" + "username" + "\\s*=\\s*([^;]+)"
+    );
+    let password = document.cookie.match(
+      "(^|;)\\s*" + "password" + "\\s*=\\s*([^;]+)"
+    );
 
     // this.$refs.username.$el.value = username ? username.pop() : ''
     // this.$refs.password.$el.value = password ? password.pop() : ''
-    this.userName = username ? username.pop() : ''
-    this.passWord = password ? password.pop() : ''
-    if (username) this.submitBtn = false
+    this.userName = username ? username.pop() : "";
+    this.passWord = password ? password.pop() : "";
+    if (username) this.submitBtn = false;
     //console.log('We just check to see if there were cookies: ' + document.cookie)
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/styles/variables';
+@import "../assets/styles/variables";
 
 #login {
   width: 320px;
@@ -145,23 +149,22 @@ export default {
       bottom: 45px;
       font-size: 16px;
       font-weight: bold;
-      color: $color_highlight
+      color: $color_highlight;
     }
   }
   .input-area {
     margin-bottom: 5px;
     .mdl-textfied {
-      width: 100%
+      width: 100%;
     }
   }
   .md-input-invalid {
     &:after {
-      background-color: $color_highlight
+      background-color: $color_highlight;
     }
     label,
-    .md-error,
-    {
-      color: $color_highlight
+    .md-error {
+      color: $color_highlight;
     }
   }
   .btn-area {
@@ -169,7 +172,7 @@ export default {
     align-items: center;
     justify-content: space-between;
     .mdl-checkbox {
-      width: auto
+      width: auto;
     }
   }
 }

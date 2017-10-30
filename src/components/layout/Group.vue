@@ -186,21 +186,21 @@ export default {
   @at-root {
     .group-notice {
       padding: 10px 5px;
-      li{
-        position:relative;
-        padding-left:20px;
-        line-height:24px;
+      li {
+        position: relative;
+        padding-left: 20px;
+        line-height: 24px;
       }
-      .dot{
-        left:8px;
-        &.all{
-          color:#3a49d8
+      .dot {
+        left: 8px;
+        &.all {
+          color: #3a49d8;
         }
-        &.now{
-          color:#0072ff
+        &.now {
+          color: #0072ff;
         }
-        &.not{
-          color:#5d5d5d
+        &.not {
+          color: #5d5d5d;
         }
       }
     }

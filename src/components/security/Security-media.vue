@@ -7,21 +7,15 @@
 </template>
 <script>
 export default {
-  name: 'Media_access',
+  name: "Media_access",
   extends: {},
   props: {},
   data() {
-    return {
-
-    }
+    return {};
   },
-  components: {
-
-  },
-  methods: {
-
-  },
-}
+  components: {},
+  methods: {}
+};
 </script>
 <style lang='scss' scoped>
 

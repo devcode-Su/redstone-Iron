@@ -23,10 +23,10 @@
   </div>
 </template>
 <script>
-import _ from 'lodash'
-import reOrderMixin from '../mixins/reOrderMixin'
+import _ from "lodash";
+import reOrderMixin from "../mixins/reOrderMixin";
 export default {
-  name: 'GroupUserSearch',
+  name: "GroupUserSearch",
   extends: {},
   props: {
     items: {
@@ -35,27 +35,24 @@ export default {
   },
   data() {
     return {
-      search: '',
-      orderField: 'id',
-      direction: 'abc',
-    }
+      search: "",
+      orderField: "id",
+      direction: "abc"
+    };
   },
   computed: {
     orderedItems: function() {
-      return _.orderBy(this.filteredItem, this.orderField, this.direction)
+      return _.orderBy(this.filteredItem, this.orderField, this.direction);
     },
     filteredItem() {
-      return this.items.filter((item) => {
+      return this.items.filter(item => {
         return item.username.match(this.search);
-      })
+      });
     }
   },
-  methods: {
-  },
-  mixins: [
-    reOrderMixin
-  ]
-}
+  methods: {},
+  mixins: [reOrderMixin]
+};
 </script>
 <style lang='scss'>
 

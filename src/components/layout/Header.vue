@@ -22,7 +22,7 @@
 <script>
 export default {
   // 이름 적는 것을 잊지마세요
-  name: 'IronHeader',
+  name: "IronHeader",
   // compose new components
   extends: {},
   // 컴포넌트 어트리뷰트 그룹
@@ -31,13 +31,11 @@ export default {
     //   type: Boolean
     // }, // 알파벳순으로 정렬합니다
     foo: {},
-    fooBar: {},
+    fooBar: {}
   },
   // 컴포넌트 변수 그룹
   data() {
-    return {
-
-    }
+    return {};
   },
   computed: {},
   // 컴포넌트가 다른 컴포넌트를 사용할 경우
@@ -56,9 +54,9 @@ export default {
     }
   },
   // 컴포넌트 라이프사이클 메서드 그룹
-  beforeCreate() { },
-  mounted() { },
-}
+  beforeCreate() {},
+  mounted() {}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -72,7 +70,7 @@ header {
   padding: 0 5px 0 0;
   border-top: 1px solid $color_default;
   border-bottom: 1px solid $color_default;
-  >div {
+  > div {
     display: flex;
     align-items: center;
     @at-root {
@@ -84,7 +82,7 @@ header {
           height: 50px;
           margin-left: 0;
           position: absolute;
-          top:0;
+          top: 0;
           left: 0;
           color: $color_icon;
           background-color: $color_default;
@@ -103,7 +101,7 @@ header {
         }
         .md-button {
           color: $color_default;
-          @include border-radius(50%)
+          @include border-radius(50%);
         }
       }
     }
@@ -113,7 +111,7 @@ header {
   }
   h1,
   p {
-    margin: 0
+    margin: 0;
   }
   .md-button {
     margin-left: 5px;

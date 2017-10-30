@@ -70,152 +70,142 @@
     </form>
   </div>
 </template>
-<script> // import myDatepicker from "vue-datepicker";
+<script>
+// import myDatepicker from "vue-datepicker";
 import TemplateDatepicker from "./Template-datepicker";
 import SortButton from "./Sort-button";
 export default {
   name: "TemplateSearchPannel",
-  extends: {}
-  ,
+  extends: {},
   props: {
-    setData : {
-      type : Array
-    },
-
-  }
-  ,
+    setData: {
+      type: Array
+    }
+  },
   data() {
     return {
-      detail:'',
-      searchType:'a',
+      detail: "",
+      searchType: "a",
       checkNum: "",
-      radio: '',
-      checkbox:{
-        all:false,
-        file:'',
-        url:'',
-        engine:''
+      radio: "",
+      checkbox: {
+        all: false,
+        file: "",
+        url: "",
+        engine: ""
       },
       categorize: ["1시간", "일일", "주간", "월간"],
       propsData: ["engine", "label", "labels", "search", "searches"]
-    }
-    ;
-  }
-  ,
-  computed: {
-  }
-  ,
+    };
+  },
+  computed: {},
   components: {
     TemplateDatepicker,
     SortButton
-  }
-  ,
+  },
   methods: {
     showEl(input) {
-      if (typeof input !=="string") return;
-      const data=this.setData;
-      let i=data.length;
+      if (typeof input !== "string") return;
+      const data = this.setData;
+      let i = data.length;
       while (i--) {
-        let show=input.match(data[i]);
-        if (show !==null) return true;
+        let show = input.match(data[i]);
+        if (show !== null) return true;
       }
-    }
-    ,
+    },
     sortData(sortNum) {
       console.log(sortNum);
     }
-  }
-  ,
+  },
   mounted() {
     console.log(this.s2);
   }
-}
-
-;
-</script><style lang='scss'>@import "../../assets/styles/variables.scss";
+};
+</script><style lang='scss'>
+@import "../../assets/styles/variables.scss";
 .template-search-pannel {
   .search-box {
     padding: 20px 20px 20px 130px;
-    position:relative;
-    background: color(white) url(../../assets/images/search-box.jpg) no-repeat 40px center;
+    position: relative;
+    background: color(white) url(../../assets/images/search-box.jpg) no-repeat
+      40px center;
     border: 1px solid color(border);
-    >div {
+    > div {
       display: flex;
       align-items: center;
-      padding:8px 0 8px 40px;
+      padding: 8px 0 8px 40px;
       border-left: 1px solid color(border);
-      &.multi-line{
-        align-items:flex-start
+      &.multi-line {
+        align-items: flex-start;
       }
     }
-    .inner-box{
-      display:flex;
+    .inner-box {
+      display: flex;
       align-items: center;
-      padding-top:5px;
-      span{
-        margin-right:15px;
+      padding-top: 5px;
+      span {
+        margin-right: 15px;
       }
     }
     .line-title {
       width: 120px;
-      font-weight:bold;
+      font-weight: bold;
       &:before {
-        content: '·';
+        content: "·";
         display: inline-block;
         margin-right: 5px;
       }
     }
     .datepickbox {
-      width:170px;
+      width: 170px;
       border: 1px solid color(border);
-      input{
-        width:100%;
-        padding:1px 6px;
+      input {
+        width: 100%;
+        padding: 1px 6px;
       }
     }
     .md-button-toggle {
-      margin-left:10px;
-      border:0 none;
+      margin-left: 10px;
+      border: 0 none;
       .md-button {
         width: 60px;
-        margin-left:5px;
-        border:1px solid color(border);
-        &:first-child{
-          margin-left:0;
-          border:1px solid color(border);
+        margin-left: 5px;
+        border: 1px solid color(border);
+        &:first-child {
+          margin-left: 0;
+          border: 1px solid color(border);
         }
       }
     }
-    .md-button.md-raised.btn-search{
-      width:60px;
+    .md-button.md-raised.btn-search {
+      width: 60px;
       min-width: auto;
       height: 28px;
-      min-height:auto;
-      position:absolute;
-      right:50px;
-      bottom:20px;
-      color:color(white);
-      background-color:#2196f3;
+      min-height: auto;
+      position: absolute;
+      right: 50px;
+      bottom: 20px;
+      color: color(white);
+      background-color: #2196f3;
     }
     .md-radio,
     .md-checkbox {
       margin: 0 20px 0 0;
     }
-    .md-input-container{
-      min-height:auto;
-      margin:0 10px 0 0;
-      padding:0;
-      label{
-        top:7px;
+    .md-input-container {
+      min-height: auto;
+      margin: 0 10px 0 0;
+      padding: 0;
+      label {
+        top: 7px;
       }
     }
-    .md-input-inline{
-      max-width:630px;
+    .md-input-inline {
+      max-width: 630px;
     }
-    .md-has-select{
-      max-width:150px;
+    .md-has-select {
+      max-width: 150px;
     }
   }
 }
-
 </style>

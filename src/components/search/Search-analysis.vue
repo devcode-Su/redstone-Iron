@@ -15,21 +15,15 @@
 </template>
 <script>
 export default {
-  name: 'Detailed_analysis',
+  name: "Detailed_analysis",
   extends: {},
   props: {},
   data() {
-    return {
-
-    }
+    return {};
   },
-  components: {
-
-  },
-  methods: {
-
-  },
-}
+  components: {},
+  methods: {}
+};
 </script>
 <style lang='scss' scoped>
 

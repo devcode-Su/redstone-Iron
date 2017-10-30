@@ -42,7 +42,7 @@ export default {
   .md-button {
     flex: 1 0 auto;
     height: 28px;
-    min-width:auto;
+    min-width: auto;
     min-height: auto;
     line-height: 28px;
     border-left: 1px solid $color_border_inner;

@@ -123,8 +123,7 @@ export default {
       periodEnd: new Date(),
       rawData: "",
       totalDownloads: "",
-      categorize: ["일일", "주간", "월간"],
-
+      categorize: ["일일", "주간", "월간"]
     };
   },
   mounted() {
@@ -141,11 +140,11 @@ export default {
     },
     _startDate() {
       return dateToDay(this.periodStart) === "Invalid date"
-        ? dateToDay(this.periodEnd.setDate(this.periodEnd.getDate()-1))
+        ? dateToDay(this.periodEnd.setDate(this.periodEnd.getDate() - 1))
         : dateToDay(this.periodStart);
     },
     period() {
-      console.log(this.periodStart)
+      console.log(this.periodStart);
       return this.periodStart
         ? `${this._startDate}:${this._endDate}`
         : `${this._startDate}:${this._endDate}`;
@@ -224,7 +223,7 @@ export default {
       this.requestData(sortNum);
     },
     groupDataByDate(c) {
-      console.log(c)
+      console.log(c);
       if (c === 0) return;
       //this.formatYear();
       //this.formatMonth();
@@ -244,7 +243,7 @@ export default {
     },
     formatWeek() {
       //this.labelsWeek = this.rawData;
-      console.log()
+      console.log();
       this.labels = this.rawData
         .map(entry => dateToTime(entry.day))
         .reduce(removeDuplicate, []);

@@ -5,21 +5,15 @@
 </template>
 <script>
 export default {
-  name: 'Serach',
+  name: "Serach",
   extends: {},
   props: {},
   data() {
-    return {
-
-    }
+    return {};
   },
-  component: {
-
-  },
-  methods: {
-
-  },
-}
+  component: {},
+  methods: {}
+};
 </script>
 <style lang='scss' scoped>
 

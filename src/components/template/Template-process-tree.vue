@@ -138,11 +138,11 @@ export default {
       h1 {
         margin: 0;
         line-height: 42px;
-        font-size:18px;
-        font-weight:500;
+        font-size: 18px;
+        font-weight: 500;
         text-align: center;
-        color:color(white);
-        background-color:#6e8d9f;
+        color: color(white);
+        background-color: #6e8d9f;
       }
       .process-tree {
         min-width: 830px;
@@ -171,8 +171,8 @@ export default {
               height: 450px;
             }
             span {
-              font-size:18px;
-              font-weight:500;
+              font-size: 18px;
+              font-weight: 500;
               color: color(white);
               background-color: #4e6f82;
             }
@@ -199,12 +199,12 @@ export default {
         }
         dt {
           min-width: 130px;
-          padding-left:15px;
-          position:relative;
-          .md-icon.dot{
-            top:20px;
+          padding-left: 15px;
+          position: relative;
+          .md-icon.dot {
+            top: 20px;
             left: 0;
-            color:#1C5BBC;
+            color: #1c5bbc;
           }
         }
         dd {
@@ -216,10 +216,10 @@ export default {
 }
 
 .md-dialog-actions {
-  min-height:auto;
-  padding:0;
+  min-height: auto;
+  padding: 0;
   position: absolute;
-  top:-35px;
+  top: -35px;
   right: 0;
 }
 </style>

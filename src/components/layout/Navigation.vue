@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import locationCheckMixin from '../mixins/locationCheckMixin'
+import locationCheckMixin from "../mixins/locationCheckMixin";
 export default {
   // 이름 적는 것을 잊지마세요
   name: "IronNavigation",
@@ -37,8 +37,7 @@ export default {
       toolTip: false
     };
   },
-  computed: {
-  },
+  computed: {},
   // 컴포넌트가 다른 컴포넌트를 사용할 경우
   components: {},
   // 컴포넌트 메서드 그룹
@@ -80,9 +79,7 @@ export default {
       if (u !== null) this.selectNum = i;
     }
   },
-  mixins: [
-    locationCheckMixin
-  ]
+  mixins: [locationCheckMixin]
 };
 </script>
 

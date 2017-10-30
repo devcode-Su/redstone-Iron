@@ -7,21 +7,15 @@
 </template>
 <script>
 export default {
-  name: 'User_account',
+  name: "User_account",
   extends: {},
   props: {},
   data() {
-    return {
-
-    }
+    return {};
   },
-  components: {
-
-  },
-  methods: {
-
-  },
-}
+  components: {},
+  methods: {}
+};
 </script>
 <style lang='scss' scoped>
 

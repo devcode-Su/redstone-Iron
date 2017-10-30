@@ -1,7 +1,7 @@
 <template>
   <header id="header">
     <div class="header-left">
-      <h1><img src="" alt="IRON"></h1>
+      <h1><img src="../../assets/images/text-logo.png" alt="IRON"></h1>
       <slot></slot>
     </div>
 
@@ -108,6 +108,9 @@ header {
   }
   h1 {
     font-size: 2em;
+    img{
+      width:90px;
+    }
   }
   h1,
   p {

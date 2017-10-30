@@ -36,6 +36,7 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 axios   
 chart.js  
 es6-promise  
+lodash  
 moment  
 vue-chartjs  
 vue-material  

@@ -11,6 +11,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "./assets/styles/reset.scss";
+@import "./assets/styles/variables.scss";
 @import "./assets/styles/base.scss";
 
 #app {

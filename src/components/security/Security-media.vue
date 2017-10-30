@@ -1,27 +1,21 @@
 <template>
-  <section class="security-media">
-    <p>
+  <article class="security-media">
+    <h1>
       매체접근
-    </p>
-  </section>
+    </h1>
+  </article>
 </template>
 <script>
 export default {
-  name: 'Media_access',
+  name: "Media_access",
   extends: {},
   props: {},
   data() {
-    return {
-
-    }
+    return {};
   },
-  components: {
-
-  },
-  methods: {
-
-  },
-}
+  components: {},
+  methods: {}
+};
 </script>
 <style lang='scss' scoped>
 

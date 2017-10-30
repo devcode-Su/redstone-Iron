@@ -1,27 +1,21 @@
 <template>
-  <section class="security-account">
-    <p>
+  <article class="security-account">
+    <h1>
       사용자계정
-    </p>
-  </section>
+    </h1>
+  </article>
 </template>
 <script>
 export default {
-  name: 'User_account',
+  name: "User_account",
   extends: {},
   props: {},
   data() {
-    return {
-
-    }
+    return {};
   },
-  components: {
-
-  },
-  methods: {
-
-  },
-}
+  components: {},
+  methods: {}
+};
 </script>
 <style lang='scss' scoped>
 

@@ -1,19 +1,14 @@
 <template>
   <section id="iron">
-    <!-- <iron-header :selected="selected" @btnToggle="toggleSelected"> -->
     <iron-header>
-      <!-- <button class="mdl-button mdl-js-button mdl-button--icon" :class="{ 'active': selected }" @click="btnToggle">
-            <md-icon>more_vert</md-icon>
-            </button> -->
-      <md-button class="md-dense group-menu" :class="{ 'active': selected }" @click="btnToggle">
+      <md-button class="md-dense group-menu" :class="{ 'active': selected }" @click="btnToggle" >
         <md-icon>menu</md-icon>
+        <md-tooltip class="group-tooltip" md-direction="right">조직도</md-tooltip>
       </md-button>
     </iron-header>
     <div class="iron-content">
-      <!-- <iron-aside :selected="selected" @btnToggle="toggleSelected"></iron-aside> -->
       <aside id="aside" :class="{ 'active' : selected }">
-        <iron-navigation></iron-navigation>
-        <!-- <iron-group :selected="selected" @btnToggle="toggleSelected"> -->
+        <iron-navigation @selectedBoolean="selectedBoolean"></iron-navigation>
         <iron-group>
           <md-button class="md-dense" :class="{ 'active': selected }" @click="btnToggle">
             <md-icon>close</md-icon>
@@ -22,77 +17,99 @@
       </aside>
       <router-view></router-view>
     </div>
-
   </section>
 </template>
 
 <script>
-import IronHeader from './layout/Header'
-import IronAside from './layout/Aside'
-import IronNavigation from './layout/Navigation'
-import IronGroup from './layout/Group'
-
+import IronHeader from "./layout/Header";
+import IronAside from "./layout/Aside";
+import IronNavigation from "./layout/Navigation";
+import IronGroup from "./layout/Group";
+import locationCheckMixin from "./mixins/locationCheckMixin";
 export default {
   name: "Iron",
   data() {
     return {
       selected: false,
-    }
+      selectedDisabled: true
+    };
   },
+  computed: {},
   components: {
-    'iron-header': IronHeader,
-    'iron-aside': IronAside,
-    'iron-navigation': IronNavigation,
-    'iron-group': IronGroup
+    "iron-header": IronHeader,
+    "iron-aside": IronAside,
+    "iron-navigation": IronNavigation,
+    "iron-group": IronGroup
   },
   methods: {
-    // toggleSelected(toggle) {
-    //   this.selected = !toggle.selected
-    // },
     btnToggle() {
-      this.selected = !this.selected
+      this.locationCheck() !== undefined
+        ? (this.selected = this.locationCheck())
+        : (this.selected = !this.selected);
+    },
+    selectedBoolean(check) {
+      check === undefined
+        ? (this.selected = this.selected)
+        : (this.selected = check);
     }
   },
-  created() {
-
-  }
-}
+  created() {},
+  mounted() {
+    //console.log(this.selectedDisabled)
+  },
+  mixins: [locationCheckMixin]
+};
 </script>
 
 <style lang="scss">
-@import "../assets/styles/mixins";
-@import "../assets/styles/variables";
-
+@import "../assets/styles/variables.scss";
 
 aside {
   display: flex;
   width: 45px;
   position: relative;
-  @include transition(all, .3s);
+  @include transition(all, 0.3s);
   &.active {
-    width: 300px;
+    width: 350px;
   }
 }
 
 .iron-content {
   display: flex;
-  height: calc( 100vh - 50px);
+  height: calc(100vh - 50px);
   overflow: hidden;
 }
 
 .main-view {
   flex: 1;
-  padding: 15px 20px;
+  display: flex;
+  justify-content: center;
+  padding: 25px 30px;
   background-color: $color_main;
   -webkit-box-shadow: 0 0 10px gray inset;
   -moz-box-shadow: 0 0 10px gray inset;
   box-shadow: 0 0 10px gray inset;
   overflow-y: auto;
+  > article {
+    flex: 1;
+    > section {
+      width: 100%;
+      min-width: 800px;
+      max-width: 1600px;
+      margin: 0 auto;
+      h1 {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 16px;
+        border-bottom: 2px solid color(highlight);
+      }
+    }
+  }
 }
 
 #iron {
   @at-root {
-    ul:not(.md-list)>li+li {
+    ul:not(.md-list) > li + li {
       margin: 0;
     }
     .md-icon {
@@ -108,22 +125,36 @@ aside {
       line-height: initial;
       &:hover {
         color: $color_highlight;
-        background-color: transparent
+        background-color: transparent;
       }
       &.active {
         color: $color_highlight;
-        background-color: transparent
+        background-color: transparent;
+      }
+    }
+    .md-tooltip {
+      min-width: 60px;
+      padding: 0 3px;
+      left: 33px !important;
+      font-size: 12px;
+      line-height: 20px;
+      text-align: center;
+      background-color: rgba(26, 34, 47, 0.8);
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+        0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      &.group-tooltip {
+        margin-top: -7px;
       }
     }
   }
   .md-button.md-dense {
     &:hover {
       color: $color_highlight;
-      background-color: transparent
+      background-color: transparent;
     }
     &.active {
       color: $color_highlight;
-      background-color: transparent
+      background-color: transparent;
     }
   }
 }

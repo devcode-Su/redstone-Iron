@@ -1,8 +1,8 @@
 <template>
-  <section class="system-response">
-    <p>
+  <article class="system-response">
+    <h1>
       대응
-    </p>
+    </h1>
     <md-tabs>
       <md-tab id="block-file" md-label="파일 차단 리스트">
         <p>파일 차단 리스트 - 내용</p>
@@ -11,7 +11,7 @@
         <p>네크워크 차단 리스트 - 내용</p>
       </md-tab>
     </md-tabs>
-  </section>
+  </article>
 </template>
 <script>
 export default {

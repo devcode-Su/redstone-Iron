@@ -8,21 +8,15 @@
 </template>
 <script>
 export default {
-  name: 'Security',
+  name: "Security",
   extends: {},
   props: {},
   data() {
-    return {
-
-    }
+    return {};
   },
-  component: {
-
-  },
-  methods: {
-
-  },
-}
+  component: {},
+  methods: {}
+};
 </script>
 <style lang='scss' scoped>
 

@@ -1,9 +1,9 @@
 <template>
-  <section class="system-sensor">
-    <p>
+  <article class="system-sensor">
+    <h1>
       센서설정
-    </p>
-  </section>
+    </h1>
+  </article>
 </template>
 <script>
 export default {

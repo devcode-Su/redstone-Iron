@@ -1,9 +1,9 @@
 <template>
-  <section class="property-sensor">
-    <p>
+  <article class="property-sensor">
+    <h1>
       센서 정보
-    </p>
-  </section>
+    </h1>
+  </article>
 </template>
 <script>
 export default {

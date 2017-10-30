@@ -6,18 +6,18 @@
 </template>
 
 <script>
-import Login from './Login'
+import Login from "./Login";
 
 export default {
-  name: 'AppIndex',
+  name: "AppIndex",
   components: {
-    'login': Login
+    login: Login
   },
   data() {
     return {
       posts: {},
-      crendentialFail: '',
-    }
+      crendentialFail: ""
+    };
   },
   methods: {
     loginAttempt(input) {
@@ -30,24 +30,25 @@ export default {
       //this.crendentialFail = ''
 
       if (userValid.length !== 0) {
-        if (input.password === userValid[0].pass) { //userValid
+        if (input.password === userValid[0].pass) {
+          //userValid
           //console.log("login success");
-          this.$router.push("Iron")
+          this.$router.push("Iron");
         } else {
           //console.log("password error");
-          if (input.password !== '') this.errorNotice()
+          if (input.password !== "") this.errorNotice();
         }
       } else {
-        console.log("who are you?");
-        if (input.username !== '' && input.password !== '') {
+        //console.log("who are you?");
+        if (input.username !== "" && input.password !== "") {
           //console.log("둘다 글자가 있음");
-          this.errorNotice()
+          this.errorNotice();
         }
       }
     },
     errorNotice() {
       setTimeout(() => {
-        this.crendentialFail = "Bad ID or Password"
+        this.crendentialFail = "Bad ID or Password";
       }, 1000);
     }
   },
@@ -60,19 +61,17 @@ export default {
     // else self.name = '';
   },
   created() {
-    const apiURL = './static/data/userdata.json' // /static 폴더가 아니면 404
-    this.$http.get(apiURL).then((result) => {
-      this.posts = result.data
-    })
+    const apiURL = "./static/data/userdata.json"; // /static 폴더가 아니면 404
+    this.$http.get(apiURL).then(result => {
+      this.posts = result.data;
+    });
   },
-  mounted() {
-
-  }
-}
+  mounted() {}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss">
+<style lang="scss" scoped>
 #appIndex {
   display: flex;
   flex-direction: column;

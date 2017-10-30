@@ -1,8 +1,8 @@
 <template>
-  <section class="search-analysis">
-    <p>
+  <article class="search-analysis">
+    <h1>
       상세분석
-    </p>
+    </h1>
     <md-tabs>
       <md-tab id="process-tree" md-label="프로세스 트리">
         <p>프로세스 트리 - 내용</p>
@@ -11,25 +11,19 @@
         <p>네크워크 트리 - 내용</p>
       </md-tab>
     </md-tabs>
-  </section>
+  </article>
 </template>
 <script>
 export default {
-  name: 'Detailed_analysis',
+  name: "Detailed_analysis",
   extends: {},
   props: {},
   data() {
-    return {
-
-    }
+    return {};
   },
-  components: {
-
-  },
-  methods: {
-
-  },
-}
+  components: {},
+  methods: {}
+};
 </script>
 <style lang='scss' scoped>
 

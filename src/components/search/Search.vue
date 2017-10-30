@@ -1,28 +1,19 @@
 <template>
   <main class="main-view">
-    <p>
-      검색
-    </p>
     <router-view></router-view>
   </main>
 </template>
 <script>
 export default {
-  name: 'Serach',
+  name: "Serach",
   extends: {},
   props: {},
   data() {
-    return {
-
-    }
+    return {};
   },
-  component: {
-
-  },
-  methods: {
-
-  },
-}
+  component: {},
+  methods: {}
+};
 </script>
 <style lang='scss' scoped>
 

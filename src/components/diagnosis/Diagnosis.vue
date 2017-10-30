@@ -1,28 +1,19 @@
 <template>
-  <main class="main-view">
-    <p>
-      진단
-    </p>
+  <main class="main-view center">
     <router-view></router-view>
   </main>
 </template>
 <script>
 export default {
-  name: 'Diagnosis',
+  name: "Diagnosis",
   extends: {},
   props: {},
   data() {
-    return {
-
-    }
+    return {};
   },
-  component: {
-
-  },
-  methods: {
-
-  },
-}
+  component: {},
+  methods: {}
+};
 </script>
 <style lang='scss' scoped>
 

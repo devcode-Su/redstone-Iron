@@ -1,9 +1,9 @@
 <template>
-  <section class="property-hw">
-    <p>
+  <article class="property-hw">
+    <h1>
       HW 정보
-    </p>
-  </section>
+    </h1>
+  </article>
 </template>
 <script>
 export default {

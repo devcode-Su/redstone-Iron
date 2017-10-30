@@ -17,29 +17,29 @@
 </template>
 
 <script>
+import locationCheckMixin from "../mixins/locationCheckMixin";
 export default {
   // 이름 적는 것을 잊지마세요
-  name: 'IronNavigation',
+  name: "IronNavigation",
   // compose new components
   extends: {},
   // 컴포넌트 어트리뷰트 그룹
   props: {
     // 알파벳순으로 정렬합니다
     foo: {},
-    fooBar: {},
+    fooBar: {}
   },
   // 컴포넌트 변수 그룹
   data() {
     return {
       menuList: [],
-      selectNum: '',
+      selectNum: "",
       toolTip: false
-    }
+    };
   },
   computed: {},
   // 컴포넌트가 다른 컴포넌트를 사용할 경우
-  components: {
-  },
+  components: {},
   // 컴포넌트 메서드 그룹
   watch: {},
   methods: {
@@ -53,32 +53,34 @@ export default {
       //   this.selectNum = select
       // }
       if (this.selectNum !== select) {
-        this.selectNum = select
+        this.selectNum = select;
       }
+      this.$emit("selectedBoolean", this.locationCheck());
+      //console.log(this.locationCheck())
     },
     naviTest() {
-      console.log("link")
+      //console.log("link");
     }
   },
   // 컴포넌트 라이프사이클 메서드 그룹
-  beforeCreate() { },
+  beforeCreate() {},
   created() {
-    const apiUrl = '/static/data/menulist.json'
-    this.$http.get(apiUrl).then((result) => {
-      this.menuList = result.data
-    })
+    const apiUrl = "/static/data/menulist.json";
+    this.$http.get(apiUrl).then(result => {
+      this.menuList = result.data;
+    });
   },
-  mounted() {
-  },
+  mounted() {},
   updated() {
-    let pageUrl = location.href
-    let i = this.menuList.length
+    let pageUrl = location.href;
+    let i = this.menuList.length;
     while (i--) {
-      let u = pageUrl.match(this.menuList[i].name)
-      if (u !== null) this.selectNum = i
+      let u = pageUrl.match(this.menuList[i].name);
+      if (u !== null) this.selectNum = i;
     }
-  }
-}
+  },
+  mixins: [locationCheckMixin]
+};
 </script>
 
 <style lang="scss" scoped>
@@ -97,7 +99,7 @@ export default {
         top: 10px;
       }
     }
-    >a {
+    > a {
       display: block;
       position: absolute;
       top: 0;
@@ -106,7 +108,7 @@ export default {
       left: 0;
       color: #414040;
       background-color: $color_default;
-      @include transition(all, .15s);
+      @include transition(all, 0.15s);
     }
     &.on {
       .material-icons {
@@ -114,12 +116,12 @@ export default {
       }
     }
     &:hover {
-      >a {
+      > a {
         top: -7px;
         right: -7px;
         bottom: -7px;
         z-index: 1;
-        border: 1px solid #1A222F;
+        border: 1px solid #1a222f;
         box-shadow: 2px 3px rgba(26, 34, 47, 0.4);
         .material-icons {
           color: $color_highlight;
@@ -131,8 +133,8 @@ export default {
       }
     }
     &:first-child:hover {
-      >a {
-        top: 0
+      > a {
+        top: 0;
       }
     }
   }
@@ -148,14 +150,15 @@ export default {
     z-index: 5;
     opacity: 0;
     overflow: hidden;
-    @include transition(width, .5s);
+    @include transition(width, 0.5s);
     li {
       display: block;
       margin: 0 0 5px 15px;
       padding: 0;
       background-color: rgba(26, 34, 47, 0.6);
       border-radius: 2px;
-      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+        0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
       &.on,
       &:hover {
         background-color: rgba(26, 34, 47, 0.9);
@@ -176,16 +179,5 @@ export default {
       color: $color_white;
     }
   }
-}
-
-.md-tooltip {
-  min-width: 60px;
-  padding: 0 3px;
-  left: 33px !important;
-  font-size: 12px;
-  line-height: 20px;
-  text-align: center;
-  background-color: rgba(26, 34, 47, 0.8);
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
 }
 </style>

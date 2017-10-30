@@ -1,0 +1,34 @@
+$colors: (
+  alpha:#BEF781,
+  bravo:#F3F781,
+  charile:#F7BE81,
+  delta:#FA5858,
+  default:#212E3E,
+  default2:#a3a3a3,
+  border:#ccc,
+  highlight:rgb(204, 55, 65),
+  main:#F2F2F2,
+  white:#fff,
+  ghost-white: #FAFBFE,
+  fjord: #4F5566,
+  robin-egg-blue: #00C4C9,
+  solitude: #E8E9ED,
+  background-primary: color(ghost-white),
+  background-secondary: color(fjord),
+  text-color: color(fjord),
+  highlight-color: color(robin-egg-blue),
+  dark-gray: color(solitude)
+);
+
+@function color($name) {
+  @if map-has-key(getColors(), $name) {
+    @return map-get(getColors(), $name);
+  } @else {
+    @warn "Color not found: #{$name}";
+    @return #000;
+  }
+}
+
+@function getColors() {
+  @return $colors;
+}

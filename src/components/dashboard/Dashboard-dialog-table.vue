@@ -37,144 +37,135 @@
   </div>
 </template>
 <script>
-  import {
-    dateToTime
-  } from "@/utils/dateFormatter";
-  import TemplateProcessTree from "../template/Template-process-tree";
-  export default {
-    name: "TemplateTableDialog",
-    extends: {},
-    props: {
-      columnSize: {
-        type: Number
-      },
-      proptest: {
-        type: String
-      }
+import { dateToTime } from "@/utils/dateFormatter";
+import modalMixin from "../mixins/modalMixin";
+import TemplateProcessTree from "../template/Template-process-tree";
+export default {
+  name: "TemplateTableDialog",
+  extends: {},
+  props: {
+    columnSize: {
+      type: Number
     },
-    data() {
-      return {
-        dialog: {
-          show: false,
-          name: "dialog"
-        },
-        tabledata: [{
-            date: dateToTime(new Date().setMinutes(-this.getRandomInt())),
-            category: "악성파일검출",
-            name: "홍길동",
-            department: "연구소",
-            IP: "192.16.0.1",
-            danger: this.getRandomInt()
-          },
-          {
-            date: dateToTime(new Date().setMinutes(-this.getRandomInt())),
-            category: "악성파일검출",
-            name: "전우치",
-            department: "마케팅",
-            IP: "192.16.0.2",
-            danger: this.getRandomInt()
-          },
-          {
-            date: dateToTime(new Date().setMinutes(-this.getRandomInt())),
-            category: "RSC엔진검출",
-            name: "이순신",
-            department: "지원실",
-            IP: "182.16.0.1",
-            danger: this.getRandomInt()
-          },
-          {
-            date: dateToTime(new Date().setMinutes(-this.getRandomInt())),
-            category: "악성파일검출",
-            name: "광대토대왕",
-            department: "지원실",
-            IP: "162.17.0.1",
-            danger: this.getRandomInt()
-          },
-          {
-            date: dateToTime(new Date().setMinutes(-this.getRandomInt())),
-            category: "RSC엔진검출",
-            name: "장보고",
-            department: "제품개발",
-            IP: "192.16.0.1",
-            danger: this.getRandomInt()
-          },
-          {
-            date: dateToTime(new Date().setMinutes(-this.getRandomInt())),
-            category: "RSC엔진검출",
-            name: "을지문덕",
-            department: "제품개발",
-            IP: "172.16.0.1",
-            danger: this.getRandomInt()
-          },
-          {
-            date: dateToTime(new Date().setMinutes(-this.getRandomInt())),
-            category: "악성파일검출",
-            name: "권율",
-            department: "서버실",
-            IP: "162.16.0.2",
-            danger: this.getRandomInt()
-          },
-          {
-            date: dateToTime(new Date().setMinutes(-this.getRandomInt())),
-            category: "악성파일검출",
-            name: "이산",
-            department: "서버실",
-            IP: "192.16.0.1",
-            danger: this.getRandomInt()
-          },
-          {
-            date: dateToTime(new Date().setMinutes(-this.getRandomInt())),
-            category: "악성파일검출",
-            name: "홍진호",
-            department: "제품개발",
-            IP: "182.16.0.2",
-            danger: this.getRandomInt()
-          },
-          {
-            date: dateToTime(new Date().setMinutes(-this.getRandomInt())),
-            category: "RSC엔진검출",
-            name: "유재석",
-            department: "연구소",
-            IP: "152.12.0.1",
-            danger: this.getRandomInt()
-          }
-        ]
-      };
-    },
-    computed:{
-    },
-    components: {
-      TemplateProcessTree
-    },
-    methods: {
-      modal() {
-        if(this.dialog.show !== true) this.dialog.show = true;
-        else{
-          this.dialog.show = false;
-          this.dialog.show = true
-        }
-      },
-      getRandomInt() {
-        return Math.floor(Math.random() * (100 - 5 + 1)) + 5;
-      }
+    proptest: {
+      type: String
     }
-  };
-
+  },
+  data() {
+    return {
+      dialog: {
+        show: false,
+        name: "dialog"
+      },
+      tabledata: [
+        {
+          date: dateToTime(new Date().setMinutes(-this.getRandomInt())),
+          category: "악성파일검출",
+          name: "홍길동",
+          department: "연구소",
+          IP: "192.16.0.1",
+          danger: this.getRandomInt()
+        },
+        {
+          date: dateToTime(new Date().setMinutes(-this.getRandomInt())),
+          category: "악성파일검출",
+          name: "전우치",
+          department: "마케팅",
+          IP: "192.16.0.2",
+          danger: this.getRandomInt()
+        },
+        {
+          date: dateToTime(new Date().setMinutes(-this.getRandomInt())),
+          category: "RSC엔진검출",
+          name: "이순신",
+          department: "지원실",
+          IP: "182.16.0.1",
+          danger: this.getRandomInt()
+        },
+        {
+          date: dateToTime(new Date().setMinutes(-this.getRandomInt())),
+          category: "악성파일검출",
+          name: "광대토대왕",
+          department: "지원실",
+          IP: "162.17.0.1",
+          danger: this.getRandomInt()
+        },
+        {
+          date: dateToTime(new Date().setMinutes(-this.getRandomInt())),
+          category: "RSC엔진검출",
+          name: "장보고",
+          department: "제품개발",
+          IP: "192.16.0.1",
+          danger: this.getRandomInt()
+        },
+        {
+          date: dateToTime(new Date().setMinutes(-this.getRandomInt())),
+          category: "RSC엔진검출",
+          name: "을지문덕",
+          department: "제품개발",
+          IP: "172.16.0.1",
+          danger: this.getRandomInt()
+        },
+        {
+          date: dateToTime(new Date().setMinutes(-this.getRandomInt())),
+          category: "악성파일검출",
+          name: "권율",
+          department: "서버실",
+          IP: "162.16.0.2",
+          danger: this.getRandomInt()
+        },
+        {
+          date: dateToTime(new Date().setMinutes(-this.getRandomInt())),
+          category: "악성파일검출",
+          name: "이산",
+          department: "서버실",
+          IP: "192.16.0.1",
+          danger: this.getRandomInt()
+        },
+        {
+          date: dateToTime(new Date().setMinutes(-this.getRandomInt())),
+          category: "악성파일검출",
+          name: "홍진호",
+          department: "제품개발",
+          IP: "182.16.0.2",
+          danger: this.getRandomInt()
+        },
+        {
+          date: dateToTime(new Date().setMinutes(-this.getRandomInt())),
+          category: "RSC엔진검출",
+          name: "유재석",
+          department: "연구소",
+          IP: "152.12.0.1",
+          danger: this.getRandomInt()
+        }
+      ]
+    };
+  },
+  computed: {},
+  components: {
+    TemplateProcessTree
+  },
+  methods: {
+    getRandomInt() {
+      return Math.floor(Math.random() * (100 - 5 + 1)) + 5;
+    }
+  },
+  mixins: [modalMixin]
+};
 </script>
 <style lang='scss' scoped>
-  @import "../../assets/styles/variables.scss";
-  .template-table-modal {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    h2 {
-      margin: 0;
-      padding: 10px;
-    }
-    .md-table {
-      margin: 10px 10px;
-      border-top: 2px solid color(border);
-      border-bottom: 1px solid color(border);
-    }
+@import "../../assets/styles/variables.scss";
+.template-table-modal {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  h2 {
+    margin: 0;
+    padding: 10px;
   }
-
+  .md-table {
+    margin: 10px 10px;
+    border-top: 2px solid color(border);
+    border-bottom: 1px solid color(border);
+  }
+}
 </style>

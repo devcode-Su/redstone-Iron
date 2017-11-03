@@ -1,9 +1,8 @@
 <template>
   <article id="dashboard" class="dashboard-basic">
     <section>
-
-
       <h1>Dashboard 기본정보 </h1>
+      <button @click="modal()">설정</button>
       <section class="basic-pannel section-wrap">
         <dl class="pannel-content first">
           <dt class="sensor">센서 현황</dt>
@@ -41,17 +40,20 @@
           </transition-group>
         </draggable>
       </section>
+      <dashboard-set :target="dialog"></dashboard-set>
     </section>
   </article>
 </template>
 <script>
 import draggable from "vuedraggable";
+import modalMixin from "../mixins/modalMixin";
 import DashboardChart from "./Dashboard-chart";
 import DashboardChartE from "./Dashboard-chart_e";
 import DashboardDialogTabel from "./Dashboard-dialog-table";
 import ThumbHorizonBar from "../template/Thumb-horizon-bar";
 import ThumbTable from "../template/Thumb-table";
 import ThumbTableBtn from "../template/Thumb-table-button";
+import DashboardSet from "./Dashboard-set";
 export default {
   // 이름 적는 것을 잊지마세요
   name: "Dashboard", // compose new components
@@ -63,6 +65,10 @@ export default {
   }, // 컴포넌트 변수 그룹
   data() {
     return {
+      dialog: {
+        show: false,
+        name: "dialog"
+      },
       userSets: [],
       test: ""
     };
@@ -73,13 +79,14 @@ export default {
     }
   }, // 컴포넌트가 다른 컴포넌트를 사용할 경우
   components: {
+    draggable,
     "dashboard-chart": DashboardChart,
     "dashboard-chart-e": DashboardChartE,
     "thumb-horizon-bar": ThumbHorizonBar,
     "thumb-table": ThumbTable,
     "thumb-table-btn": ThumbTableBtn,
     "dashboard-dialog-table": DashboardDialogTabel,
-    draggable
+    "dashboard-set": DashboardSet
   }, // 컴포넌트 메서드 그룹
   watch: {},
   methods: {
@@ -113,7 +120,6 @@ export default {
         this.userSets = result.data;
       });
     });
-    window.localStorage.setItem("name", {});
   },
   mounted() {
     //this.$nextTick(() => {
@@ -127,7 +133,8 @@ export default {
     //this.$forceUpdate()
     //console.log(componentHandler.upgradeDom(this.$el))
     //})
-  }
+  },
+  mixins: [modalMixin]
 };
 </script>
 <style lang="scss" scoped>

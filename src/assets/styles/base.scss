@@ -9,12 +9,14 @@
   padding: 0;
   &.md-table-pagination-next,
   &.md-table-pagination-previous {
-    // pagination
+    //pagination
     .md-icon {
       top: 50% !important;
       left: 50% !important;
     }
-  }
+  } //&:hover:not([disabled]):not(.md-raised) {
+  //  background-color: transparent
+  //}
 }
 
 // icon
@@ -48,13 +50,13 @@
   -moz-osx-font-smoothing: grayscale;
   /* Support for IE. */
   font-feature-settings: 'liga';
-  &.dot{
+  &.dot {
     @include iconsize(6px)
   }
 }
 
-.md-chip{
-  .md-icon{
+.md-chip {
+  .md-icon {
     top: 50% !important;
     left: 50% !important;
   }
@@ -116,37 +118,37 @@
       text-align: center;
     }
   }
-  .visual{
+  .visual {
     .md-table-cell-container {
       padding: 8px 1%;
     }
   }
-  .insert-button{
-    .md-table-cell-container{
+  .insert-button {
+    .md-table-cell-container {
       justify-content: center;
-      span{
-        min-width:25px;
+      span {
+        min-width: 25px;
       }
-      .md-button{
-        margin-left:10px;
+      .md-button {
+        margin-left: 10px;
       }
-      .md-icon{
-        top:50%;
-        left:62%;
-        &.normal{
-          color:transparent
+      .md-icon {
+        top: 50%;
+        left: 62%;
+        &.normal {
+          color: transparent
         }
-        &.alpha{
-          color:color(alpha);
+        &.alpha {
+          color: color(alpha);
         }
-        &.bravo{
-          color:color(bravo);
+        &.bravo {
+          color: color(bravo);
         }
-        &.charile{
-          color:color(charile);
+        &.charile {
+          color: color(charile);
         }
-        &.delta{
-          color:color(delta);
+        &.delta {
+          color: color(delta);
         }
       }
     }
@@ -159,7 +161,7 @@
 }
 
 // sort button -dashboard
-.dashboard-basic{
+.dashboard-basic {
   .md-button-toggle {
     // toggle button
     width: 160px;
@@ -168,39 +170,38 @@
   }
 }
 
-
 // use template
 .template-thumb {
   padding: 10px;
   background-color: color(white);
   border: 1px solid $color_border;
   @include defaultShadow;
-  p{
-    height:24px;
-    margin-bottom:7px;
-    font-size:16px;
-    font-weight:bold;
-    line-height:24px;
+  p {
+    height: 24px;
+    margin-bottom: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 24px;
   }
-  .md-button-toggle{
-    position:absolute;
+  .md-button-toggle {
+    position: absolute;
   }
-  .visual{
-    margin-top:42px;
-    &.table{
-      margin-top:50px;
+  .visual {
+    margin-top: 42px;
+    &.table {
+      margin-top: 50px;
     }
-    .md-table-head-container{
-      height:48px;
-      padding:12px 0;
+    .md-table-head-container {
+      height: 48px;
+      padding: 12px 0;
     }
   }
-  .md-table-head-container{
-    height:38px;
-    padding:5px 0;
+  .md-table-head-container {
+    height: 38px;
+    padding: 5px 0;
   }
-  .md-table-cell{
-    height:auto;
+  .md-table-cell {
+    height: auto;
   }
 }
 
@@ -216,10 +217,34 @@
   max-width: 1200px;
   height: 600px;
   padding: 10px;
-  overflow:visible;
+  overflow: visible;
+}
+
+.dashboard-set {
+  .md-dialog {
+    max-width: 750px;
+    height: auto;
+    padding: 0;
+    .md-dialog-content {
+      padding: 0;
+    }
+  }
+}
+
+.group-management-set {
+  .md-dialog {
+    max-width:900px;
+    height: auto;
+  }
+  .item-root {
+    >.md-list-expand {
+      height: 484px;
+      overflow-y: auto;
+    }
+  }
 }
 
 // date picker
-.md-tabs-wrapper{
-  height:100%;
+.md-tabs-wrapper {
+  height: 100%;
 }

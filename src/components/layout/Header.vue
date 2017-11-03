@@ -12,6 +12,9 @@
       <md-button class="md-dense">
         <md-icon>help</md-icon>
       </md-button>
+      <md-button class="md-dense" @click="fullScreen()">
+        <md-icon>open_with</md-icon>
+      </md-button>
       <md-button class="md-dense" @click="logout">
         <md-icon>power_settings_new</md-icon>
       </md-button>
@@ -48,6 +51,19 @@ export default {
     //     'selected': this.selected
     //   })
     // }
+    fullScreen() {
+      const element = document.documentElement
+      //document.documentElement.webkitRequestFullscreen();
+      if (element.requestFullScreen) {
+        element.requestFullScreen();
+      } else if (element.webkitRequestFullScreen) {
+        element.webkitRequestFullScreen();
+      } else if (element.mozRequestFullScreen) {
+        element.mozRequestFullScreen();
+      } else if (element.msRequestFullscreen) {
+        element.msRequestFullscreen(); // IE
+      }
+    },
     logout() {
       this.$router.replace("/");
       //this.$router.go(this.$router.currentRoute);
@@ -108,8 +124,8 @@ header {
   }
   h1 {
     font-size: 2em;
-    img{
-      width:90px;
+    img {
+      width: 90px;
     }
   }
   h1,

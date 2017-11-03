@@ -1,21 +1,30 @@
 <template>
   <section id="gruop">
     <div class="wrap">
-      <group-management></group-management>
+      <h1 @click="modal()">
+        그룹관리
+      </h1>
+      <group-department></group-department>
       <group-user-search :items="items"></group-user-search>
       <ul class="group-notice">
-        <li><md-icon class="dot all">fiber_manual_record</md-icon>전체 AGENT : 15</li>
-        <li><md-icon class="dot now">fiber_manual_record</md-icon>현재 접속 : 3</li>
-        <li><md-icon class="dot not">fiber_manual_record</md-icon>일주일 이상 미 접속 : 1</li>
+        <li>
+          <md-icon class="dot all">fiber_manual_record</md-icon>전체 AGENT : 15</li>
+        <li>
+          <md-icon class="dot now">fiber_manual_record</md-icon>현재 접속 : 3</li>
+        <li>
+          <md-icon class="dot not">fiber_manual_record</md-icon>일주일 이상 미 접속 : 1</li>
       </ul>
       <slot></slot>
+      <group-management :target="dialog"></group-management>
     </div>
   </section>
 </template>
 
 <script>
-import GroupManagement from "./Group-management";
-import GroupUserSearch from "./Group-usersearsh";
+import modalMixin from "../mixins/modalMixin";
+import GroupDepartment from "../group/Group-department";
+import GroupManagement from "../group/Group-management";
+import GroupUserSearch from "../group/Group-usersearsh";
 export default {
   // 이름 적는 것을 잊지마세요
   name: "IronGroup",
@@ -32,35 +41,120 @@ export default {
   // 컴포넌트 변수 그룹
   data() {
     return {
+      dialog: {
+        show: false,
+        name: "dialog"
+      },
       items: [
-        { id: 1, username: "홍길동", part: "전략기획개발팀" },
-        { id: 2, username: "전우치", part: "전략기획개발팀" },
-        { id: 3, username: "이순신", part: "전략기획개발팀" },
-        { id: 4, username: "김창수", part: "전략기획개발팀" },
-        { id: 5, username: "이세돌", part: "제품개발팀" },
-        { id: 6, username: "홍진호", part: "제품개발팀" },
-        { id: 7, username: "임요환", part: "제품개발팀" },
-        { id: 8, username: "이덕희", part: "유지보수" },
-        { id: 9, username: "김경남", part: "제품개발팀" },
-        { id: 10, username: "홍가영", part: "디자인" },
-        { id: 11, username: "진수환", part: "신사업" },
-        { id: 12, username: "이예진", part: "유지보수" },
-        { id: 13, username: "이성주", part: "개발1팀" },
-        { id: 14, username: "손동찬", part: "개발1팀" },
-        { id: 15, username: "곽은재", part: "유지보수" },
-        { id: 16, username: "이상호", part: "유지보수" },
-        { id: 17, username: "문치웅", part: "개발팀" },
-        { id: 18, username: "이창일", part: "개발팀" },
-        { id: 19, username: "오경훈", part: "개발팀" },
-        { id: 20, username: "박하영", part: "디자인" }
+        {
+          id: 1,
+          username: "홍길동",
+          part: "전략기획개발팀"
+        },
+        {
+          id: 2,
+          username: "전우치",
+          part: "전략기획개발팀"
+        },
+        {
+          id: 3,
+          username: "이순신",
+          part: "전략기획개발팀"
+        },
+        {
+          id: 4,
+          username: "김창수",
+          part: "전략기획개발팀"
+        },
+        {
+          id: 5,
+          username: "이세돌",
+          part: "제품개발팀"
+        },
+        {
+          id: 6,
+          username: "홍진호",
+          part: "제품개발팀"
+        },
+        {
+          id: 7,
+          username: "임요환",
+          part: "제품개발팀"
+        },
+        {
+          id: 8,
+          username: "이덕희",
+          part: "유지보수"
+        },
+        {
+          id: 9,
+          username: "김경남",
+          part: "제품개발팀"
+        },
+        {
+          id: 10,
+          username: "홍가영",
+          part: "디자인"
+        },
+        {
+          id: 11,
+          username: "진수환",
+          part: "신사업"
+        },
+        {
+          id: 12,
+          username: "이예진",
+          part: "유지보수"
+        },
+        {
+          id: 13,
+          username: "이성주",
+          part: "개발1팀"
+        },
+        {
+          id: 14,
+          username: "손동찬",
+          part: "개발1팀"
+        },
+        {
+          id: 15,
+          username: "곽은재",
+          part: "유지보수"
+        },
+        {
+          id: 16,
+          username: "이상호",
+          part: "유지보수"
+        },
+        {
+          id: 17,
+          username: "문치웅",
+          part: "개발팀"
+        },
+        {
+          id: 18,
+          username: "이창일",
+          part: "개발팀"
+        },
+        {
+          id: 19,
+          username: "오경훈",
+          part: "개발팀"
+        },
+        {
+          id: 20,
+          username: "박하영",
+          part: "디자인"
+        }
       ]
     };
   },
   computed: {},
   // 컴포넌트가 다른 컴포넌트를 사용할 경우
   components: {
-    "group-management": GroupManagement,
-    "group-user-search": GroupUserSearch
+    "group-department": GroupDepartment,
+    "group-user-search": GroupUserSearch,
+    GroupManagement
   },
   // 컴포넌트 메서드 그룹
   watch: {},
@@ -69,12 +163,12 @@ export default {
   created() {},
   mounted() {
     //console.log(typeof this.items);
-  }
+  },
+  mixins: [modalMixin]
 };
 </script>
 
 <style lang="scss">
-@import "../../assets/styles/mixins.scss";
 @import "../../assets/styles/variables.scss";
 
 #gruop {
@@ -88,28 +182,30 @@ export default {
     position: relative;
     overflow: hidden;
   }
+  h1 {
+    margin: 0;
+    padding: 5px;
+    line-height: 32px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #4d5e72;
+    cursor: pointer;
+  }
   .group-management {
     position: relative;
-    border-bottom: 1px solid $color_default;
-    h1 {
-      margin: 0;
-      padding: 5px;
-      line-height: 32px;
-      font-size: 16px;
-      font-weight: 500;
-      color: #fff;
-      background-color: #4d5e72;
-    }
     .md-list {
       padding: 0;
       button {
+        min-height: 32px;
         top: 0;
       }
     }
     .md-list-item {
+      min-height:32px;
       &.md-active {
         > .md-list-item-container .md-list-expand-indicator {
-          transform: rotate(180deg) translate(13px, 17px);
+          transform: rotate(180deg) translate(14px, 17px);
         }
       }
     }

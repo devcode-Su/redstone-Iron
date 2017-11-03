@@ -14,7 +14,7 @@
                       </div>
                     </div> -->
 
-        <horizontal-bar-chart :chart-data="datacollection" :width="400" :height="200"></horizontal-bar-chart>
+        <horizontal-bar-chart :chart-data="datacollection" :width="400" :height="400"></horizontal-bar-chart>
 
     </div>
   </div>

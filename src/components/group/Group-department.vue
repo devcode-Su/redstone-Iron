@@ -1,8 +1,5 @@
 <template>
   <div id="group-management" class="group-management">
-    <h1>
-      그룹관리
-    </h1>
     <!-- <ul>
       <li v-for="(team, i) in 5" :key="team.i" @click="testClick('u'+i)" :ref="'u'+i">{{i}}</li>
     </ul> -->
@@ -104,7 +101,6 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
-@import "../../assets/styles/mixins.scss";
 @import "../../assets/styles/variables.scss";
 #group-management {
   .md-list-item {

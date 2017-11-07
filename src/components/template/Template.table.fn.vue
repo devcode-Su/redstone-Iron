@@ -172,14 +172,13 @@ export default {
       this.selectedData = data;
       this.$forceUpdate();
     },
-    btnMore(index) {
-      console.log(index);
-    },
+    // btnMore(index) {
+    //   console.log(index);
+    // },
     exportCsv() {
-      let columns = this.$refs.table.$children.filter(t => t.prop != null);
-      console.log();
-      console.log(columns);
-      console.log(this.$refs.table.$children);
+      // let columns = this.$refs.table.$children.filter(t => t.prop != null);
+      // console.log(columns);
+      // console.log(this.$refs.table.$children);
       // const fields = columns.map(t => t.prop);
       // const fieldNames = columns.map(t => t.label);
       // CsvExport(this.tableData, fields, fieldNames, "列表");

@@ -14,7 +14,7 @@
 //import moment from "moment";
 //import Datepicker from 'vue-datepicker'
 import LineChart from "../chartjs/LineChart";
-import SortButton from "../template/Sort-button";
+import SortButton from "../template/Sort.button";
 
 export default {
   name: "",
@@ -129,8 +129,7 @@ export default {
     getRandomInt() {
       return Math.floor(Math.random() * (100 - 5 + 1)) + 5;
     },
-    sortData(sortNum) {
-      console.log(sortNum);
+    sortData() {
     }
   },
   mounted() {

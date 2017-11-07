@@ -47,13 +47,12 @@
 <script>
 import draggable from "vuedraggable";
 import modalMixin from "../mixins/modalMixin";
-import DashboardChart from "./Dashboard-chart";
-import DashboardChartE from "./Dashboard-chart_e";
-import DashboardDialogTabel from "./Dashboard-dialog-table";
-import ThumbHorizonBar from "../template/Thumb-horizon-bar";
-import ThumbTable from "../template/Thumb-table";
-import ThumbTableBtn from "../template/Thumb-table-button";
-import DashboardSet from "./Dashboard-set";
+import DashboardChart from "./Dashboard.chart";
+import DashboardDialogTabel from "./Dashboard.dialog.table";
+import ThumbHorizonBar from "../template/Thumb.horizon.bar";
+import ThumbTable from "../template/Thumb.table";
+import ThumbTableBtn from "../template/Thumb.table.button";
+import DashboardSet from "./Dashboard.set";
 export default {
   // 이름 적는 것을 잊지마세요
   name: "Dashboard", // compose new components
@@ -81,7 +80,6 @@ export default {
   components: {
     draggable,
     "dashboard-chart": DashboardChart,
-    "dashboard-chart-e": DashboardChartE,
     "thumb-horizon-bar": ThumbHorizonBar,
     "thumb-table": ThumbTable,
     "thumb-table-btn": ThumbTableBtn,

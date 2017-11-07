@@ -8,6 +8,9 @@ import VueMaterial from 'vue-material';
 import 'vue-material/dist/vue-material.css';
 import materialIcons from 'material-design-icons-iconfont/dist/material-design-icons.css';
 
+import 'vis/dist/vis.min.css';
+//import 'vis/dist/vis-timeline-graph2d.min.css';
+
 import router from './router';
 import axios from 'axios';
 

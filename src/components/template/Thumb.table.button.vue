@@ -12,8 +12,8 @@
 <script>
 import startProgressMixin from "../mixins/startProgressMixin";
 import restartProgressMixin from "../mixins/restartProgressMixin";
-import TemplateTable from "./Template-table";
-import SortButton from "./Sort-button";
+import TemplateTable from "./Template.table";
+import SortButton from "./Sort.button";
 export default {
   name: "",
   extends: {},
@@ -66,7 +66,7 @@ export default {
     // }
     sortData(sortNum) {
       this.fillData(sortNum);
-      console.log(this.datacollection.columns);
+      //console.log(this.datacollection.columns);
     },
     fillData(n) {
       const insertData = this.thumbData;

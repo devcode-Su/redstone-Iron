@@ -170,7 +170,7 @@ export default {
       });
     },
     moveList(from, to, element) {
-      console.log(from);
+      //console.log(from);
       to.push(element);
       from.splice(from.indexOf(element), 1);
     },

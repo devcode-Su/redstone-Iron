@@ -28,7 +28,7 @@
   </md-dialog>
 </template>
 <script>
-import GroupTreeItem from "./Group-tree-item";
+import GroupTreeItem from "./Group.tree.item";
 export default {
   name: "TableDialog",
   extends: {},
@@ -142,7 +142,7 @@ export default {
     //   console.log('Closed', type);
     // }
     addTodo() {
-      console.log();
+      //console.log();
       this.todos.push({
         // id: this.todos.length,
         // title: this.newTodo,
@@ -167,7 +167,7 @@ export default {
       //localStorage.setItem(STORAGE_KEY, JSON.stringify(this.todos));
     },
     cccc(ob) {
-      console.log(ob);
+      //console.log(ob);
       this.companyData = ob;
     }
   },

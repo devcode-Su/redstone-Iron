@@ -1,19 +1,20 @@
 <template>
-  <article class="search-process">
+  <article class="search-file">
     <section>
       <h1>
-        프로세스 검색
+        파일 검색
       </h1>
-      <template-search-pannel :setData="['engine', 'search']"></template-search-pannel>
+      <template-search-pannel :setData="['search']"></template-search-pannel>
       <template-tablefn></template-tablefn>
     </section>
   </article>
 </template>
 <script>
-import TemplateSearchPannel from "../template/Template-search-pannel";
-import TemplateTablefn from "../template/Template-table-fn";
+import TemplateSearchPannel from "../template/Template.search.pannel";
+import TemplateTablefn from "../template/Template.table.fn";
+
 export default {
-  name: "Process",
+  name: "SearchFile",
   extends: {},
   props: {},
   data() {

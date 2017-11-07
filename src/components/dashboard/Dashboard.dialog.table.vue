@@ -33,13 +33,17 @@
         </md-table-row>
       </md-table-body>
     </md-table>
-    <template-process-tree :target="dialog"></template-process-tree>
+    <!-- <template-process-tree :target="dialog"></template-process-tree> -->
+    <template-dialog :target="dialog">
+      <template-process-tree></template-process-tree>
+    </template-dialog>
   </div>
 </template>
 <script>
 import { dateToTime } from "@/utils/dateFormatter";
 import modalMixin from "../mixins/modalMixin";
-import TemplateProcessTree from "../template/Template-process-tree";
+import TemplateProcessTree from "../template/Template.process.tree";
+import TemplateDialog from "../template/Template.dialog";
 export default {
   name: "TemplateTableDialog",
   extends: {},
@@ -143,7 +147,8 @@ export default {
   },
   computed: {},
   components: {
-    TemplateProcessTree
+    TemplateProcessTree,
+    TemplateDialog
   },
   methods: {
     getRandomInt() {

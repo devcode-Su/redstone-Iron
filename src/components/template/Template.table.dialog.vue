@@ -22,7 +22,7 @@
   </div>
 </template>
 <script>
-import TableDialog from "../template/Table-dialog";
+import TableDialog from "../template/Table.dialog";
 export default {
   name: "TemplateTableDialog",
   extends: {},

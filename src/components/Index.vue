@@ -1,7 +1,12 @@
 <template>
   <div id="appIndex">
     <img src="../assets/images/logo.png">
-    <login idErrorMsg="아이디를 입력하세요." passwordErrorMsg="비밀번호를 입력하세요." :loginFailedMsg="crendentialFail" @loginCrendentials="loginAttempt"></login>
+    <login idErrorMsg="아이디를 입력하세요." passwordErrorMsg="비밀번호를 입력하세요." :loginFailedMsg="crendentialFail" @loginCrendentials="loginAttempt">
+      <router-link tag="md-button" to="/register" class="md-raised md-primary register">
+        <md-icon>person_add</md-icon>
+        <md-tooltip md-direction="right">관리자 등록</md-tooltip>
+      </router-link>
+    </login>
   </div>
 </template>
 
@@ -11,7 +16,7 @@ import Login from "./Login";
 export default {
   name: "AppIndex",
   components: {
-    login: Login
+    Login
   },
   data() {
     return {
@@ -21,9 +26,6 @@ export default {
   },
   methods: {
     loginAttempt(input) {
-      //console.log(crendetials.username)
-      //console.log(crendetials.password)
-
       const userCheck = a => a.id === input.username;
       //const userValid = this.posts.find(userCheck);
       const userValid = this.posts.filter(userCheck);
@@ -72,11 +74,24 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+@import "../assets/styles/variables";
 #appIndex {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
+  .register {
+    width: 36px;
+    min-width:auto;
+    position:relative;
+    .md-icon{
+      position:static;
+      transform: none;
+    }
+    &:hover{
+      color:color(highlight);
+    }
+  }
 }
 </style>

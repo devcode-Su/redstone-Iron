@@ -25,7 +25,7 @@
   </article>
 </template>
 <script>
-import GroupTreeItem from "../group/Group-tree-item";
+import GroupTreeItem from "../group/Group.tree.item";
 const STORAGE_KEY = "todo-storage";
 export default {
   name: "Media_access",
@@ -123,7 +123,7 @@ export default {
   },
   methods: {
     addTodo() {
-      console.log();
+      //console.log();
       this.todos.push({
         // id: this.todos.length,
         // title: this.newTodo,
@@ -148,7 +148,7 @@ export default {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(this.todos));
     },
     cccc(ob){
-      console.log(ob)
+      //console.log(ob)
       this.companyData = ob
     }
   }

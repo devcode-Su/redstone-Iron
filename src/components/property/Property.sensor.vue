@@ -1,23 +1,27 @@
 <template>
   <article class="property-sensor">
-    <section>
     <h1>
-      센서 정보
+      HW 정보
     </h1>
-</section>
   </article>
 </template>
 <script>
 export default {
-  name: "Sensor_info",
+  name: 'SEN_info',
   extends: {},
   props: {},
   data() {
-    return {};
+    return {
+
+    }
   },
-  components: {},
-  methods: {}
-};
+  components: {
+
+  },
+  methods: {
+
+  },
+}
 </script>
 <style lang='scss' scoped>
 

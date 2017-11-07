@@ -23,7 +23,7 @@
 // import startProgressMixin from '../mixins/startProgressMixin'
 // import restartProgressMixin from '../mixins/restartProgressMixin'
 
-import SortButton from "./Sort-button";
+import SortButton from "./Sort.button";
 import HorizontalBarChart from "../chartjs/HorizontalBar";
 export default {
   name: "",

@@ -1,7 +1,7 @@
 import VueChartJs from 'vue-chartjs'
 
 export default {
-  extends: VueChartJs.HorizontalBar,
+  extends: VueChartJs.Bubble,
   mixins: [VueChartJs.mixins.reactiveProp],
   props: {
     chartData: {
@@ -29,8 +29,18 @@ export default {
         legend: {
           display: false
         },
+        tooltips: {
+          enabled: true,
+          mode: 'single',
+          callbacks: {
+            label: function (tooltipItems) {
+              return '$' + tooltipItems.yLabel;
+            }
+          }
+        },
         responsive: true,
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
+        radius: 4
       }
     }
   },

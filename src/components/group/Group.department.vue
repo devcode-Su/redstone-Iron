@@ -78,9 +78,9 @@ export default {
       //  this.$refs.department[u].$el.children[0].children[1].innerText
       //);
       //let depart = this.$refs.department[u].$el.children[0].children[1].innerText;
-      console.log(index);
+      //console.log(index);
       let i = this.company.length;
-      console.log(this.company[index].part);
+      //console.log(this.company[index].part);
       this.partNum = index;
       while (i--) {
         //console.log(this.company[i].name);
@@ -88,10 +88,10 @@ export default {
         //if (c !== null) console.log(this.company[i].team);
       }
     },
-    subpartClick(index) {
-      console.log("파트번호 : " + this.partNum);
-      console.log("서브파트 : " + index);
-    }
+    // subpartClick(index) {
+    //   console.log("파트번호 : " + this.partNum);
+    //   console.log("서브파트 : " + index);
+    // }
   },
   mounted() {
     // console.clear();

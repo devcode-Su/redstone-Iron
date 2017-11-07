@@ -11,7 +11,7 @@
 <script>
 import startProgressMixin from "../mixins/startProgressMixin";
 import restartProgressMixin from "../mixins/restartProgressMixin";
-import TemplateTable from "./Template-table";
+import TemplateTable from "./Template.table";
 export default {
   name: "",
   extends: {},

@@ -61,6 +61,13 @@
     left: 50% !important;
   }
 }
+.md-clearable{
+  .md-clear-input{
+    .md-icon{
+      top:5px;
+    }
+  }
+}
 
 .md-clear-input {
   .md-icon {
@@ -218,6 +225,13 @@
   height: 600px;
   padding: 10px;
   overflow: visible;
+}
+
+.register{
+  .md-dialog{
+    max-width:400px;
+    height:auto;
+  }
 }
 
 .dashboard-set {

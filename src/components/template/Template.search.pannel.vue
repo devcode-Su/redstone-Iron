@@ -72,8 +72,8 @@
 </template>
 <script>
 // import myDatepicker from "vue-datepicker";
-import TemplateDatepicker from "./Template-datepicker";
-import SortButton from "./Sort-button";
+import TemplateDatepicker from "./Template.datepicker";
+import SortButton from "./Sort.button";
 export default {
   name: "TemplateSearchPannel",
   extends: {},
@@ -118,7 +118,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.s2);
+    //console.log(this.s2);
   }
 };
 </script><style lang='scss'>

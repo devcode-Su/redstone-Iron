@@ -2,37 +2,38 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Index from '@/components/Index'
-import Iron from '../components/Iron'
+import Register from '@/components/register/Register'
+import Iron from '@/components/Iron'
 
 import Dashboard from '../components/dashboard/Dashboard'
-import Dashboard_basic from '../components/dashboard/Dashboard-basic'
-import Dashboard_systems from '../components/dashboard/Dashboard-systems'
+import Dashboard_basic from '../components/dashboard/Dashboard.basic'
+import Dashboard_systems from '../components/dashboard/Dashboard.systems'
 
 import Diagnosis from '../components/diagnosis/Diagnosis'
-import Threat_info from '../components/diagnosis/Threat-info'
-import Threat_PC from '../components/diagnosis/Threat-pc'
+import Threat_info from '../components/diagnosis/Threat.info'
+import Threat_PC from '../components/diagnosis/Threat.pc'
 
 import Search from '../components/search/Search'
-import Files from '../components/search/Search-file'
-import Process from '../components/search/Search-process'
-import Network from '../components/search/Search-network'
-import Detailed_analysis from '../components/search/Search-analysis'
+import Files from '../components/search/Search.file'
+import Process from '../components/search/Search.process'
+import Network from '../components/search/Search.network'
+import Detailed_analysis from '../components/search/Search.analysis'
 
 import Security from '../components/security/Security'
-import Media_access from '../components/security/Security-media'
-import User_account from '../components/security/Security-account'
+import Media_access from '../components/security/Security.media'
+import User_account from '../components/security/Security.account'
 
 import Property from '../components/property/Property'
-import SW_info from '../components/property/Property-sw'
-import HW_info from '../components/property/Property-hw'
-import Sensor_info from '../components/property/Property-sensor'
+import SW_info from '../components/property/Property.sw'
+import HW_info from '../components/property/Property.hw'
+import Sensor_info from '../components/property/Property.sensor'
 
 import System from '../components/system/System'
-import Admin_set from '../components/system/System-admin'
-import Secsor_set from '../components/system/System-sensor'
-import Enviroment_set from '../components/system/System-enviroment'
-import Log from '../components/system/System-log'
-import Response from '../components/system/System-response'
+import Admin_set from '../components/system/System.admin'
+import Secsor_set from '../components/system/System.sensor'
+import Enviroment_set from '../components/system/System.enviroment'
+import Log from '../components/system/System.log'
+import Response from '../components/system/System.response'
 
 Vue.use(Router)
 
@@ -43,6 +44,11 @@ export default new Router({
       path: '/',
       name: 'Index',
       component: Index
+    },
+    {
+      path : '/Register',
+      name: 'Register',
+      component : Register
     },
     {
       path: '/Iron',

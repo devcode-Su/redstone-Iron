@@ -22,9 +22,9 @@
 
 <script>
 import modalMixin from "../mixins/modalMixin";
-import GroupDepartment from "../group/Group-department";
-import GroupManagement from "../group/Group-management";
-import GroupUserSearch from "../group/Group-usersearsh";
+import GroupDepartment from "../group/Group.department";
+import GroupManagement from "../group/Group.management";
+import GroupUserSearch from "../group/Group.usersearsh";
 export default {
   // 이름 적는 것을 잊지마세요
   name: "IronGroup",

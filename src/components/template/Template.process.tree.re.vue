@@ -106,12 +106,12 @@ export default {
       this.$refs[ref].close();
       this.target.show = false;
     },
-    onOpen() {
-      console.log('Opened');
-    },
-    onClose(type) {
-      console.log('Closed', type);
-    },
+    // onOpen() {
+    //   //console.log('Opened');
+    // },
+    // onClose(type) {
+    //   //console.log('Closed', type);
+    // },
     // onOpen() {
     //   console.log('Opened');
     // },

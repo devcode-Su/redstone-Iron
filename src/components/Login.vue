@@ -16,18 +16,34 @@
         </div>
         <div class="btn-area">
           <md-checkbox id="remember-me" name="remember-me" v-model="rememberMe" class="md-primary">Remmeber Me</md-checkbox>
-          <md-button :disabled="submitBtn" type="submit" class="md-raised md-primary">
-            <span v-if="isLoading">Loading...</span>
-            <span v-else>Login</span>
-          </md-button>
+          <div>
+            <md-button :disabled="submitBtn" type="submit" class="md-raised md-primary">
+              <span v-if="isLoading">Loading...</span>
+              <span v-else>Login</span>
+            </md-button>
+            <slot></slot>
+            <!-- <md-button class="md-raised md-primary register" @click="modal">
+              <md-icon>person_add</md-icon>
+              <md-tooltip md-direction="right">관리자 등록</md-tooltip>
+            </md-button> -->
+            <md-button class="md-raised md-primary register" @click="showModal = true">
+              <md-icon>person_add</md-icon>
+              <md-tooltip md-direction="right">관리자 등록</md-tooltip>
+            </md-button>
+          </div>
         </div>
         <span class="login-failed-msg" v-if="loginFailedMsg">{{loginFailedMsg}}</span>
       </form>
     </div>
+    <testmodal v-if="showModal" @close="showModal = false"></testmodal>
+    <!-- <register-form :target="dialog"></register-form> -->
   </section>
 </template>
 
 <script>
+import modalMixin from "./mixins/modalMixin";
+import RegisterForm from "./register/Register-dialog";
+import testmodal from "./register/Modal-test"
 export default {
   name: "Login",
   props: {
@@ -43,13 +59,18 @@ export default {
   },
   data() {
     return {
+      dialog: {
+        show: false,
+        name: "dialog"
+      },
       isIdRequired: false,
       isPassRequired: false,
       isLoading: false,
       submitBtn: false,
       rememberMe: false,
       userName: "",
-      passWord: ""
+      passWord: "",
+      showModal : false,
     };
   },
   watch: {
@@ -59,6 +80,10 @@ export default {
         this.submitBtn = false;
       }
     }
+  },
+  components: {
+    RegisterForm,
+    testmodal
   },
   methods: {
     logCheck() {
@@ -132,7 +157,8 @@ export default {
     this.passWord = password ? password.pop() : "";
     if (username) this.submitBtn = false;
     //console.log('We just check to see if there were cookies: ' + document.cookie)
-  }
+  },
+  mixins: [modalMixin]
 };
 </script>
 
@@ -173,6 +199,18 @@ export default {
     justify-content: space-between;
     .mdl-checkbox {
       width: auto;
+    }
+  }
+  .register {
+    width: 36px;
+    min-width: auto;
+    position: relative;
+    .md-icon {
+      position: static;
+      transform: none;
+    }
+    &:hover {
+      color: color(highlight);
     }
   }
 }

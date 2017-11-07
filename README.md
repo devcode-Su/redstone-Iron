@@ -34,14 +34,16 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 ## Use npm package
 > vue-cli webpack  
 axios   
+babel-polyfill  
 chart.js  
 es6-promise  
 lodash  
 moment  
+vis  
 vue-chartjs  
+vue-datepicker  
 vue-material  
 vuedraggable  
-vuejs-datepicker  
 
 ## screenshot
 -![screensh](./test.gif)

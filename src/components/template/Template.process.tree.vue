@@ -206,7 +206,9 @@ export default {
 
 .process-tree {
   display: flex;
+
   >div{
+    background-color:color(white);
     border: 1px solid color(border);
   }
   h1 {
@@ -222,10 +224,12 @@ export default {
     border:0 none;
   }
   &-area {
-    min-width: 830px;
+    flex:1 0 auto;
+    width: 830px;
     margin-right: 10px;
   }
   .pc-info {
+    width:360px;
     position: relative;
     overflow: hidden;
     li {

@@ -1,10 +1,10 @@
 <template>
-  <div class="time-line">
-    <h2>
+  <div class="time-line sub-pannel">
+    <h2 class="sub-title">
       타임라인
     </h2>
     <!-- <timeline :chart-data="datacollection" :height="200"></timeline>
-    <button @click="fillData()">Randomize</button> -->
+      <button @click="fillData()">Randomize</button> -->
     <div id="visualization"></div>
   </div>
 </template>
@@ -57,8 +57,9 @@ export default {
         {
           id: 5,
           title: "감지 상태 내용 5",
-          content: "item 5",
-          start: "2017-11-05 14:30:32"
+          start: "2017-11-05 14:30:32",
+          type: "point",
+          className: 's'+5
         },
         {
           id: 6,
@@ -168,7 +169,9 @@ export default {
 </script>
 <style lang='scss' scoped>
 @import "../../assets/styles/variables.scss";
+
 #visualization {
   background-color: color(white);
 }
+
 </style>

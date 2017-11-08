@@ -2,21 +2,29 @@
   <section>
     <templata-process-tree></templata-process-tree>
     <template-time-line></template-time-line>
-    <div>
-      결과 내 검색
+    <div class="sub-pannel">
+      <h2 class="sub-title">
+        결과 내 검색
+      </h2>
       <div>
         <form v-cloak class="search-box">
           <div class="multi-line">
             <span class="line-title">검색항목</span>
-            <div class="input-wrap">
-              <md-radio md-theme="about" id="search-type" name="search-type" md-value="all" v-model="radio" class="md-primary">전체</md-radio>
-              <md-radio md-theme="about" id="search-type" name="search-type" md-value="tievent" v-model="radio" class="md-primary">TI 진단이벤트</md-radio>
-              <md-radio md-theme="about" id="search-type" name="search-type" md-value="url" v-model="radio" class="md-primary">악성 URL/IT 접근 이벤트</md-radio>
-              <md-radio md-theme="about" id="search-type" name="search-type" md-value="rsc" v-model="radio" class="md-primary">RSC 엔진 진단 이벤트</md-radio>
-              <md-radio md-theme="about" id="search-type" name="search-type" md-value="process" v-model="radio" class="md-primary">프로세스</md-radio>
-              <md-radio md-theme="about" id="search-type" name="search-type" md-value="network" v-model="radio" class="md-primary">네트워크</md-radio>
-              <md-radio md-theme="about" id="search-type" name="search-type" md-value="files" v-model="radio" class="md-primary">파일</md-radio>
-              <md-radio md-theme="about" id="search-type" name="search-type" md-value="registree" v-model="radio" class="md-primary">레지스트리</md-radio>
+            <div class="line-input">
+              <div class="input-wrap">
+                <md-radio md-theme="about" id="search-type-important" name="search-type" :md-value="false" v-model="radio" class="md-primary">중요 이벤트</md-radio>
+                <md-radio md-theme="about" id="search-type-all" name="search-type" :md-value="true" v-model="radio" class="md-primary">모든 이벤트</md-radio>
+              </div>
+              <div class="input-wrap" v-if="radio">
+                <md-checkbox md-theme="about" id="check-type" name="check-type-all" md-value="all" v-model="checkedAll" class="md-primary">전체</md-checkbox>
+                <md-checkbox md-theme="about" id="check-type-TI" name="check-type-TI" md-value="tievent" v-model="checked" class="md-primary">TI 진단이벤트</md-checkbox>
+                <md-checkbox md-theme="about" id="check-type-url" name="check-type-url" md-value="url" v-model="checked" class="md-primary">악성 URL/IT 접근 이벤트</md-checkbox>
+                <md-checkbox md-theme="about" id="check-type-RSC" name="check-type-RSC" md-value="rsc" v-model="checked" class="md-primary">RSC 엔진 진단 이벤트</md-checkbox>
+                <md-checkbox md-theme="about" id="check-type-process" name="check-type-process" md-value="process" v-model="checked" class="md-primary">프로세스</md-checkbox>
+                <md-checkbox md-theme="about" id="check-type-network" name="check-type-network" md-value="network" v-model="checked" class="md-primary">네트워크</md-checkbox>
+                <md-checkbox md-theme="about" id="check-type-files" name="check-type-files" md-value="files" v-model="checked" class="md-primary">파일</md-checkbox>
+                <md-checkbox md-theme="about" id="check-type-registree" name="check-type-registree" md-value="registree" v-model="checked" class="md-primary">레지스트리</md-checkbox>
+              </div>
             </div>
           </div>
           <div>
@@ -34,7 +42,7 @@
 </template>
 <script>
 import TemplataProcessTree from "../template/Template.process.tree";
-import TemplateTimeLine from "../template/Template.timeline"
+import TemplateTimeLine from "../template/Template.timeline";
 export default {
   name: "SearchAnalysisProcess",
   extends: {},
@@ -43,19 +51,42 @@ export default {
   },
   data() {
     return {
-      radio: "",
+      radio: false,
+      checked: true
     };
+  },
+  computed: {
+    checkedAll: {
+      get() {
+        return this.checked;
+      },
+      set(val) {
+        let i = val.length;
+        const txt = "all";
+        if (i > 0) {
+          while (i--) {
+            const u = txt.match(val[i]);
+            if (u !== null) this.checked = true;
+          }
+        } else {
+          this.checked = [];
+        }
+      }
+    }
   },
   components: {
     TemplataProcessTree,
     TemplateTimeLine
   },
   watch: {},
-  methods: {},
+  methods: {
+  },
   beforeCreate() {},
   created() {},
   beforeMounted() {},
-  mounted() {},
+  mounted() {
+    //console.log(this.all)
+  },
   beforeUpdate() {},
   updated() {},
   actvated() {},
@@ -80,6 +111,9 @@ export default {
     &.multi-line {
       align-items: flex-start;
     }
+  }
+  .line-input {
+    width: 50%;
   }
   .input-wrap {
     display: flex;

@@ -3,13 +3,7 @@
     <div class="container">
       <div class="Search__container">
         <sort-button :categorize="categorize" @btnSortClick="sortData"></sort-button>
-        <input
-          class="Search__input"
-          @keyup.enter="requestData"
-          placeholder="npm package name"
-          type="search" name="search"
-          v-model="package"
-        >
+        <input class="Search__input" @keyup.enter="requestData" placeholder="npm package name" type="search" name="search" v-model="package">
         <button class="Search__button" @click="requestData()">Find</button>
         <span class="Search__icon" @click="toggleSettings()">설정
         </span>
@@ -20,26 +14,27 @@
       </div>
 
       <div class="error-message" v-if="showError">
-       {{ errorMessage }}
+        {{ errorMessage }}
       </div>
       <hr>
       <div v-if="loading" class="loading">
-        🔧  Building Charts ...
+        🔧 Building Charts ...
         <div class="sk-cube-grid">
-        <div class="sk-cube sk-cube1"></div>
-        <div class="sk-cube sk-cube2"></div>
-        <div class="sk-cube sk-cube3"></div>
-        <div class="sk-cube sk-cube4"></div>
-        <div class="sk-cube sk-cube5"></div>
-        <div class="sk-cube sk-cube6"></div>
-        <div class="sk-cube sk-cube7"></div>
-        <div class="sk-cube sk-cube8"></div>
-        <div class="sk-cube sk-cube9"></div>
-      </div>
+          <div class="sk-cube sk-cube1"></div>
+          <div class="sk-cube sk-cube2"></div>
+          <div class="sk-cube sk-cube3"></div>
+          <div class="sk-cube sk-cube4"></div>
+          <div class="sk-cube sk-cube5"></div>
+          <div class="sk-cube sk-cube6"></div>
+          <div class="sk-cube sk-cube7"></div>
+          <div class="sk-cube sk-cube8"></div>
+          <div class="sk-cube sk-cube9"></div>
+        </div>
       </div>
       <div class="Chart__container" v-if="loaded">
         <div class="Chart__title">
-          Downloads per Day <span>{{ formattedPeriod }}</span>
+          Downloads per Day
+          <span>{{ formattedPeriod }}</span>
           <hr>
         </div>
         <div class="Chart__content">
@@ -49,33 +44,33 @@
 
       <!-- <div class="Chart__container" v-if="loaded">
         <div class="Chart__title">
-          Downloads per Week <span>{{ formattedPeriod }}</span>
-          <hr>
+        Downloads per Week <span>{{ formattedPeriod }}</span>
+        <hr>
         </div>
         <div class="Chart__content">
-          <line-chart v-if="loaded" :chart-data="downloadsWeek" :chart-labels="labelsWeek"></line-chart>
+        <line-chart v-if="loaded" :chart-data="downloadsWeek" :chart-labels="labelsWeek"></line-chart>
         </div>
-      </div>
+        </div>
 
-      <div class="Chart__container" v-if="loaded">
+        <div class="Chart__container" v-if="loaded">
         <div class="Chart__title">
-          Downloads per Month <span>{{ formattedPeriod }}</span>
-          <hr>
+        Downloads per Month <span>{{ formattedPeriod }}</span>
+        <hr>
         </div>
         <div class="Chart__content">
-          <line-chart v-if="loaded" :chart-data="downloadsMonth" :chart-labels="labelsMonth"></line-chart>
+        <line-chart v-if="loaded" :chart-data="downloadsMonth" :chart-labels="labelsMonth"></line-chart>
         </div>
-      </div>
+        </div>
 
-      <div class="Chart__container" v-if="loaded">
+        <div class="Chart__container" v-if="loaded">
         <div class="Chart__title">
-          Downloads per Year <span>{{ formattedPeriod }}</span>
-          <hr>
+        Downloads per Year <span>{{ formattedPeriod }}</span>
+        <hr>
         </div>
         <div class="Chart__content">
-          <line-chart v-if="loaded" :chart-data="downloadsYear" :chart-labels="labelsYear"></line-chart>
+        <line-chart v-if="loaded" :chart-data="downloadsYear" :chart-labels="labelsYear"></line-chart>
         </div>
-      </div> -->
+        </div> -->
     </div>
   </div>
 </template>

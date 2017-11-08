@@ -35,6 +35,14 @@ export default {
   methods: {}
 };
 </script>
-<style lang='scss' scoped>
-
+<style lang='scss'>
+.search-analysis {
+  .sub-pannel{
+    margin-top:40px;
+  }
+  .sub-title {
+    font-size: 16px;
+    margin-bottom: 0.3em;
+  }
+}
 </style>

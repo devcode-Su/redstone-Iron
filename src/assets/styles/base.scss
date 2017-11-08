@@ -262,3 +262,13 @@
 .md-tabs-wrapper {
   height: 100%;
 }
+
+
+// vis point
+.vis-item.vis-dot{
+  @include border-radius(50%);
+  &.s5{
+    width:16px;
+    height:16px;
+  }
+}

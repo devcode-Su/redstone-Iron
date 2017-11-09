@@ -1,8 +1,8 @@
 <template>
   <article class="security-account">
-    <h1>
-      사용자계정
-    </h1>
+    <!-- <h1>
+                            사용자계정
+                          </h1> -->
     <div class="dashboard-set-area">
       <h1 class="title">
         대시보드 설정
@@ -13,32 +13,40 @@
             <md-icon class="dot not">fiber_manual_record</md-icon>
             표시 가능한 정보
           </h2>
-          <draggable class="list-group-wrap" v-model="dashboard" :options="defaultOtions" :move="onMove" @start="isDragging=true" @end="isDragging=false">
-            <transition-group type="transition" tag="ul" class="list-group" :name="'flip-list'">
-              <li class="list-group-item" v-for="element in dashboard" :key="element.title">
-                {{element.title}}
-                <md-button @click="moveList(dashboard, dashboardCustom, element)">
-                  <md-icon>add</md-icon>
-                </md-button>
-              </li>
-            </transition-group>
-          </draggable>
+          <!-- <draggable class="list-group-wrap" v-model="dashboard" :options="defaultOtions" :move="onMove" @start="isDragging=true" @end="isDragging=false">
+                                        <transition-group type="transition" tag="ul" class="list-group" :name="'flip-list'">
+                                          <li class="list-group-item" v-for="element in dashboard" :key="element.title">
+                                            {{element.title}}
+                                            <md-button @click="moveList(dashboard, dashboardCustom, element)">
+                                              <md-icon>add</md-icon>
+                                            </md-button>
+                                          </li>
+                                        </transition-group>
+                                      </draggable> -->
+          <div class="drag-area">
+            <template-draglist :propsModel="dashboard" :moveTo="dashboardCustom" :icon="'add'" :option="false" @moveitem="moveItem"></template-draglist>
+          </div>
+
         </div>
         <div class="components-list now">
           <h2>
             <md-icon class="dot now">fiber_manual_record</md-icon>
             현재 표시된 정보
           </h2>
-          <draggable class="list-group-wrap" v-model="dashboardCustom" :options="customOptions" :move="onMove">
-            <transition-group type="transition" tag="ul" class="list-group" :name="'flip-list'">
-              <li class="list-group-item" v-for="element in dashboardCustom" :key="element.title">
-                {{element.title}}
-                <md-button @click="moveList(dashboardCustom, dashboard, element)">
-                  <md-icon>remove</md-icon>
-                </md-button>
-              </li>
-            </transition-group>
-          </draggable>
+          <div class="drag-area">
+            <template-draglist :propsModel="updateCustom" :moveTo="updateDefault" :icon="'remove'" :option="true" @moveitem="moveItem"></template-draglist>
+          </div>
+          <!-- <draggable class="list-group-wrap" v-model="dashboardCustom" :options="customOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false">
+                              <transition-group type="transition" tag="ul" class="list-group" :name="'flip-list'">
+                              <li class="list-group-item" v-for="element in dashboardCustom" :key="element.title">
+                              {{element.title}}
+                              <md-button @click="moveList(dashboardCustom, dashboard, element)">
+                              <md-icon>remove</md-icon>
+                              </md-button>
+                              </li>
+                              </transition-group>
+                              </draggable> -->
+
         </div>
       </div>
 
@@ -51,26 +59,18 @@
         </md-button>
       </div>
       <!-- <div class="list-group col-md-3">
-        <pre>{{listString}}</pre>
-      </div>
-      <div class="list-group col-md-3">
-        <pre>{{list2String}}</pre>
-      </div> -->
+                                <pre>{{list2String}}</pre>
+                                <div class="list-group col-md-3">
+                                  <pre>{{listString}}</pre>
+                                </div>
+                              </div> -->
     </div>
   </article>
 </template>
 <script>
+import TemplateDraglist from "../template/Template.draglist";
 import draggable from "vuedraggable";
-// const message = [
-//   "vue.draggable",
-//   "draggable",
-//   "component",
-//   "for",
-//   "vue.js 2.0",
-//   "based",
-//   "on",
-//   "Sortablejs"
-// ];
+import dragMoveItem from "../mixins/drag.moveItem";
 const DASHBOARD_DEFAULT = "dashboard-default";
 const DASHBOARD_CUSTOM = "dashboard-custom";
 const apiUrl = "/static/data/userset.json";
@@ -81,14 +81,7 @@ export default {
   data() {
     return {
       selectNum: "",
-      // list: message.map((name, index) => {
-      //   return {
-      //     name,
-      //     order: index + 1,
-      //     fixed: false
-      //   };
-      // }),
-      //list2: [],
+      listOn: false,
       editable: true,
       isDragging: false,
       delayedDragging: false,
@@ -98,7 +91,8 @@ export default {
     };
   },
   components: {
-    draggable
+    draggable,
+    TemplateDraglist
   },
   created() {
     this.dashboard = JSON.parse(
@@ -120,7 +114,11 @@ export default {
       });
       Promise.all(promise).then(() => {
         this.injectionData = result.data;
-        this.defaultData;
+        // this.defaultData;
+        localStorage.setItem(
+          DASHBOARD_CUSTOM,
+          JSON.stringify(this.injectionData)
+        );
       });
     });
   },
@@ -144,12 +142,18 @@ export default {
       return JSON.stringify(this.injectionData, null, 2);
     },
     list2String() {
-      return JSON.stringify(this.dashboardCustom, null, 2);
+      return JSON.stringify(this.dashboard, null, 2);
     },
     defaultData() {
-      return this.dashboard.length === 0
-        ? (this.dashboard = this.injectionData)
-        : (this.dashboard = this.dashboard);
+      return this.dashboardCustom.length === 0
+        ? (this.dashboardCustom = this.injectionData)
+        : (this.dashboardCustom = this.dashboardCustom);
+    },
+    updateCustom() {
+      return (this.dashboardCustom = this.dashboardCustom);
+    },
+    updateDefault() {
+      return (this.dashboard = this.dashboard);
     }
   },
   watch: {
@@ -169,11 +173,10 @@ export default {
         return one.order - two.order;
       });
     },
-    moveList(from, to, element) {
-      //console.log(from);
-      to.push(element);
-      from.splice(from.indexOf(element), 1);
-    },
+    // moveItem(setItem) {
+    //   setItem.to.push(setItem.element);
+    //   setItem.from.splice(setItem.from.indexOf(setItem.element), 1);
+    // },
     saveStorage() {
       localStorage.setItem(DASHBOARD_DEFAULT, JSON.stringify(this.dashboard));
       localStorage.setItem(
@@ -182,16 +185,18 @@ export default {
       );
     },
     resetStorage() {
-      this.dashboard = this.injectionData;
-      this.dashboardCustom = [];
+      console.log("RE");
+      //console.log(this.dashboard);
+      this.dashboard = [];
+      console.log(this.dashboard);
+      this.dashboardCustom = this.injectionData;
+      // console.log(this.injectionData);
+      console.log(this.dashboardCustom);
       localStorage.setItem(DASHBOARD_DEFAULT, "[]");
-      localStorage.setItem(DASHBOARD_CUSTOM, "[]");
-    },
-    onMove({ relatedContext, draggedContext }) {
-      const relatedElement = relatedContext.element;
-      const draggedElement = draggedContext.element;
-      return (
-        (!relatedElement || !relatedElement.fixed) && !draggedElement.fixed
+      //localStorage.setItem(DASHBOARD_CUSTOM, "[]");
+      localStorage.setItem(
+        DASHBOARD_CUSTOM,
+        JSON.stringify(this.injectionData)
       );
     }
     // add: function() {
@@ -207,19 +212,17 @@ export default {
     //   ];
     // }
   },
-  mounted() {}
+  mounted() {
+    //console.log(typeof this.customOptions);
+    //console.log(this.dashboard)
+    //console.log(this.dashboardCustom)
+  },
+  updated() {},
+  mixins: [dragMoveItem]
 };
 </script>
 <style lang='scss' scoped>
 @import "../../assets/styles/variables.scss";
-.flip-list-move {
-  transition: transform 0.5s;
-}
-
-.ghost {
-  opacity: 0.3;
-  background: #c8ebfb;
-}
 
 .dashboard-set-area {
   > div {
@@ -231,6 +234,9 @@ export default {
   .md-button {
     min-width: auto;
     min-height: auto;
+  }
+  .drag-area {
+    height: 496px;
   }
   .btn-area {
     display: flex;
@@ -267,49 +273,6 @@ export default {
         }
       }
       .components-list.now {
-        .list-group-wrap {
-          background-color: color(white);
-        }
-      }
-      .list-group-wrap {
-        width: 300px;
-        height: 496px;
-        border: 1px solid color(border);
-        @include border-radius(5px);
-        overflow: hidden;
-      }
-      .list-group {
-        height: 100%;
-        overflow-y: auto;
-      }
-      .list-group-item {
-        display: flex;
-        justify-content: space-between;
-        padding: 0.75rem 1.25rem;
-        position: relative;
-        border-bottom: 1px solid color(border);
-        cursor: move;
-        &:hover {
-          background-color: rgba(190, 190, 190, 0.2);
-        }
-        &:before {
-          content: "";
-          position: absolute;
-          top: 0;
-          right: 0;
-          left: 0;
-          bottom: 0;
-          z-index: -1;
-          border: 1px solid color(border);
-        }
-        .md-button {
-          width: 20px;
-          height: 20px;
-          @include border-radius(50%);
-        }
-        .md-icon {
-          @include iconsize(16px);
-        }
       }
     }
   }

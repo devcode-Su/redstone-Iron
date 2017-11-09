@@ -1,8 +1,5 @@
 <template>
   <div id="group-management" class="group-management">
-    <!-- <ul>
-      <li v-for="(team, i) in 5" :key="team.i" @click="testClick('u'+i)" :ref="'u'+i">{{i}}</li>
-    </ul> -->
     <md-list>
       <md-list-item class="item-root">
         <md-icon>business</md-icon>

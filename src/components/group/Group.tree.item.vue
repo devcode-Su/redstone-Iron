@@ -84,9 +84,6 @@ export default {
       this.$emit("changeOb", this.model);
       //this.newAdd = ''
     },
-    testCC() {
-      this.$refs.remove.$el.remove();
-    },
     editTodo: function(model) {
       //this.beforeEditCache = model.part;
       this.rename = false;

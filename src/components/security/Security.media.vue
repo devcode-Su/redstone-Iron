@@ -8,12 +8,6 @@
         <h2>
           그룹관리
         </h2>
-        <!-- <div class="input-group">
-          <ul id="demo">
-            <template-tree-item class="item" :model="treeData">
-            </template-tree-item>
-          </ul>
-        </div> -->
         <md-list>
           <group-tree-item :model="companyData" @changeOb="cccc"></group-tree-item>
         </md-list>

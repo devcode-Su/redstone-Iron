@@ -1,8 +1,8 @@
 <template>
   <main class="main-view">
-    <p>
+    <!-- <p>
       보안정보
-    </p>
+    </p> -->
     <router-view></router-view>
   </main>
 </template>

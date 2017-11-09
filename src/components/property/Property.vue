@@ -4,25 +4,20 @@
       자산정보
     </p>
     <router-view></router-view>
+
   </main>
 </template>
 <script>
 export default {
-  name: 'Property',
+  name: "Property",
   extends: {},
   props: {},
   data() {
-    return {
-
-    }
+    return {};
   },
-  component: {
-
-  },
-  methods: {
-
-  },
-}
+  component: {},
+  methods: {}
+};
 </script>
 <style lang='scss' scoped>
 

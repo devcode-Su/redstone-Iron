@@ -40,7 +40,10 @@
           </transition-group>
         </draggable>
       </section>
-      <dashboard-set :target="dialog"></dashboard-set>
+      <template-dialog :target="dialog" class="dashboard-set">
+        <dashboard-set></dashboard-set>
+      </template-dialog>
+      <!-- <dashboard-set :target="dialog"></dashboard-set> -->
     </section>
   </article>
 </template>
@@ -48,6 +51,7 @@
 import draggable from "vuedraggable";
 import modalMixin from "../mixins/modalMixin";
 import DashboardChart from "./Dashboard.chart";
+import TemplateDialog from "../template/Template.dialog";
 import DashboardDialogTabel from "./Dashboard.dialog.table";
 import ThumbHorizonBar from "../template/Thumb.horizon.bar";
 import ThumbTable from "../template/Thumb.table";
@@ -69,16 +73,24 @@ export default {
         name: "dialog"
       },
       userSets: [],
+      defaultView: [],
       test: ""
     };
   },
   computed: {
-    listString() {
-      return JSON.stringify(this.userSets, null, 2);
+    defaultViews() {
+      return this.defaultView.length === 0
+        ? (this.defaultView = JSON.parse(
+            localStorage.getItem("dashboard-data")
+          ))
+        : (this.defaultView = JSON.parse(
+            localStorage.getItem("dashboard-view")
+          ));
     }
   }, // 컴포넌트가 다른 컴포넌트를 사용할 경우
   components: {
     draggable,
+    TemplateDialog,
     "dashboard-chart": DashboardChart,
     "thumb-horizon-bar": ThumbHorizonBar,
     "thumb-table": ThumbTable,
@@ -104,6 +116,8 @@ export default {
   created() {
     const apiUrl = "/static/data/userset.json";
     let promise = [];
+    localStorage.setItem("dashboard-none", "[]");
+    localStorage.setItem("dashboard-view", "[]");
     this.$http.get(apiUrl).then(result => {
       result.data.forEach(item => {
         if (item.hasOwnProperty("url")) {
@@ -114,24 +128,18 @@ export default {
           );
         }
       });
-      Promise.all(promise).then(() => {
-        this.userSets = result.data;
-      });
+      Promise.all(promise)
+        .then(() => {
+          this.userSets = result.data;
+          localStorage.setItem("dashboard-data", JSON.stringify(result.data));
+        })
+        .then(() => {
+          this.defaultViews;
+          console.log(this.defaultView);
+        });
     });
   },
-  mounted() {
-    //this.$nextTick(() => {
-    // console.log("next")
-    // if (self.name !== 'reload') {
-    //   self.name = 'reload';
-    //   this.$router.go(this.$router.currentRoute);
-    //   window.location.reload()
-    // }
-    // else self.name = '';
-    //this.$forceUpdate()
-    //console.log(componentHandler.upgradeDom(this.$el))
-    //})
-  },
+  mounted() {},
   mixins: [modalMixin]
 };
 </script>

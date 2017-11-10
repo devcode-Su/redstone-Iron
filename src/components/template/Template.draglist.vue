@@ -1,9 +1,9 @@
 <template>
-  <draggable class="drag-wrap" :class="{ 'on' : option }" v-model="dragList" :options="propOption" @start="isDragging=true" @end="isDragging=false">
+  <draggable class="drag-wrap" :class="{ 'on' : option }" v-model="modelData" :options="propOption" @start="isDragging=true" @end="isDragging=false">
     <transition-group type="transition" tag="ul" class="drag-group" :name="'flip-list'">
-      <li class="drag-item" v-for="element in dragList" :key="element.title">
+      <li class="drag-item" v-for="element in modelData" :key="element.title">
         {{element.title}}
-        <md-button @click="moveItem(dragList, moveTo, element)">
+        <md-button @click="moveItem(modelData, moveTo, element)">
           <md-icon>{{icon}}</md-icon>
         </md-button>
       </li>
@@ -16,8 +16,8 @@ export default {
   name: "TemplateDraglist",
   extends: {},
   props: {
-    propsModel: {
-      type: Array
+    value: {
+      type: Array | Object
     },
     moveTo: {
       type: Array | Object
@@ -33,20 +33,16 @@ export default {
     return {
       editable: true,
       isDragging: false,
-      delayedDragging: false,
-      dragList: []
+      delayedDragging: false
     };
   },
   computed: {
-    // modeldata(){
-    //   return this.propsModel = this.propsModel
-    // },
-    modeldata: {
+    modelData: {
       get() {
-        return this.propsModel;
+        return this.value;
       },
-      set() {
-        return (this.data = this.propsModel);
+      set(value) {
+        this.$emit("input", value);
       }
     },
     propOption() {
@@ -83,13 +79,13 @@ export default {
     }
   },
   methods: {
-    // onMove({ relatedContext, draggedContext }) {
-    //   const relatedElement = relatedContext.element;
-    //   const draggedElement = draggedContext.element;
-    //   return (
-    //     (!relatedElement || !relatedElement.fixed) && !draggedElement.fixed
-    //   );
-    // },
+    onMove({ relatedContext, draggedContext }) {
+      const relatedElement = relatedContext.element;
+      const draggedElement = draggedContext.element;
+      return (
+        (!relatedElement || !relatedElement.fixed) && !draggedElement.fixed
+      );
+    },
     moveItem(from, to, element) {
       this.$emit("moveitem", {
         from: from,
@@ -99,13 +95,9 @@ export default {
     }
   },
   beforeCreate() {},
-  created() {
-    this.dragList = this.propsModel;
-  },
+  created() {},
   beforeMounted() {},
-  mounted() {
-    //console.log(this.model);
-  },
+  mounted() {},
   beforeUpdate() {},
   updated() {},
   actvated() {},

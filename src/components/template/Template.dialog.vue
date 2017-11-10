@@ -4,7 +4,10 @@
       <slot></slot>
     </md-dialog-content>
     <md-dialog-actions>
-      <md-button @click="closeDialog('dialog')">Close</md-button>
+      <md-button @click="closeDialog('dialog')">
+        <md-icon>close</md-icon>
+      </md-button>
+      </md-button>
     </md-dialog-actions>
   </md-dialog>
 </template>
@@ -44,5 +47,8 @@ export default {
   position: absolute;
   top: -35px;
   right: 0;
+  button {
+    color: color(white);
+  }
 }
 </style>

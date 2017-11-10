@@ -131,9 +131,11 @@ export default {
       });
     },
     moveList(from, to, element) {
-      //console.log(from);
+      console.log(from);
       to.push(element);
       from.splice(from.indexOf(element), 1);
+      console.log(this.injectionData);
+      console.log(this.dashboardCustom);
     },
     saveStorage() {
       localStorage.setItem(DASHBOARD_DEFAULT, JSON.stringify(this.dashboard));
@@ -171,8 +173,6 @@ export default {
       localStorage.getItem(DASHBOARD_CUSTOM) || "[]"
     );
     // this.dashboard = JSON.parse(value || "[]");
-  },
-  mounted() {
     let promise = [];
     this.$http.get(apiUrl).then(result => {
       result.data.forEach(item => {
@@ -186,10 +186,11 @@ export default {
       });
       Promise.all(promise).then(() => {
         this.injectionData = result.data;
-        this.defaultData;
+        // this.defaultData;
       });
     });
-  }
+  },
+  mounted() {}
 };
 </script>
 <style lang='scss' scoped>

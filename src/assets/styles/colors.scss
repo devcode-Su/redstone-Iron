@@ -1,36 +1,9 @@
-$colors: (
-  alpha:#BEF781,
-  border:#ccc,
-  border-dark:#aaa,
-  border-inner:#E0E0E0,
-  bravo:#F3F781,
-  button:#3265A4,
-  charile:#F7BE81,
-  delta:#FA5858,
-  default:#212E3E,
-  default2:#a3a3a3,
-  font:#333,
-  group:#EFF3F6,
-  highlight:rgb(204, 55, 65),
-  highlight-active:rgba(255, 59, 65, 0.5),
-  main:#F2F2F2,
-
-  ghost-white: #FAFBFE,
-  fjord: #4F5566,
-  robin-egg-blue: #00C4C9,
-  solitude: #E8E9ED,
-  white:#fff,
-  background-primary: color(ghost-white),
-  background-secondary: color(fjord),
-  text-color: color(fjord),
-  highlight-color: color(robin-egg-blue),
-  dark-gray: color(solitude)
-);
-
+$colors: ( alpha:#BEF781, border:#ccc, border-dark:#aaa, border-inner:#E0E0E0, bravo:#F3F781, button:#3265A4, charile:#F7BE81, delta:#FA5858, default:#212E3E, default2:#a3a3a3, font:#333, group:#EFF3F6, highlight:rgb(204, 55, 65), highlight-active:rgba(255, 59, 65, 0.5), main:#F2F2F2, ghost-white: #FAFBFE, fjord: #4F5566, robin-egg-blue: #00C4C9, solitude: #E8E9ED, white:#fff, background-primary: color(ghost-white), background-secondary: color(fjord), text-color: color(fjord), highlight-color: color(robin-egg-blue), dark-gray: color(solitude));
 @function color($name) {
   @if map-has-key(getColors(), $name) {
     @return map-get(getColors(), $name);
-  } @else {
+  }
+  @else {
     @warn "Color not found: #{$name}";
     @return #000;
   }
